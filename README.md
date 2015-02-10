@@ -1,5 +1,5 @@
 # fluid-email
-Resolutions for mobile-first email design with scss.
+Mobile-first email resolutions with scss.
 
 # Process
 1. Write you css/sass   
