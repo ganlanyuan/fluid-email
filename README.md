@@ -18,7 +18,7 @@ $ git clone https://github.com/ganlanyuan/fluid-email.git
 
 ## Usage
 Basic structure
-```` html
+```` css
 <table class="body">
   <tr>
     <td>
