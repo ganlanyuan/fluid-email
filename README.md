@@ -1,4 +1,4 @@
-# fluid-email
+# Fluid-email
 Mobile-first email resolutions with scss.
 
 ## Process
