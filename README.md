@@ -17,7 +17,7 @@ $ git clone https://github.com/ganlanyuan/fluid-email.git
 ````
 
 ## Usage
-+ Basic structure: 
+**Basic structure: **   
 We have a `container`to constrain the main content on bigger screen, but since Lotus Notes 8 & Outlook don't support `max-width`, we need add a conditional wherever we have a `container`.
 ```` html
 <table class="body">
