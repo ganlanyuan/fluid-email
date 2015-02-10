@@ -1,0 +1,23 @@
+@import 'setting';
+@import 'function';
+@import 'email-base';
+@import 'breakpoint';
+@import 'grid';
+@import 'gallery';
+@import 'button';
+
+.column {
+  &-left { 
+    @include col(8);
+  }
+  &-right { 
+    @include col(4, null, null, true); 
+  }
+}
+.sub-column-4 { @include sub-col(4,12); padding-right: 5%;}
+.sub-column-8 { @include sub-col(8,12); }
+.block-4 { @include gallery(4); }
+.button { 
+  @include button(13, 10px 15px, 10px 0 0, #25d6ec, null, 3px); 
+  a { color: #fff; }
+}

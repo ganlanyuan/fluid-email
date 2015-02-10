@@ -1,0 +1,80 @@
+//*** reset ***//
+
+#outlook a { padding:0; }
+body{
+  width:100%;
+  // min-width: 100%;
+  height: auto;
+  -webkit-text-size-adjust:100%;
+  -ms-text-size-adjust:100%;
+  margin:0;
+  padding:0;
+}
+div, p, a, li, td { -webkit-text-size-adjust: none; } // Override the minimum font size on the iPhone and iPad
+table, tr, td {
+  padding: 0;
+  vertical-align: top;
+}
+table.body {
+  height: 100%;
+  width: 100%;
+}
+table.container {
+  width: 100%;
+  max-width: $container;
+  margin: 0 auto;
+  // text-align: inherit;
+}
+img {
+  outline:none;
+  border: none;
+  -ms-interpolation-mode: bicubic;
+  max-width: 100%;
+  &.fluid { width: 100%; }
+}
+center {
+  width: 100%;
+  min-width: 580px;
+}
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+}
+td {
+  word-break: break-word;
+  -webkit-hyphens: auto;
+  -moz-hyphens: auto;
+  hyphens: auto;
+  border-collapse: collapse !important;
+}
+hr {
+  color: $line-color;
+  background-color: $line-color;
+  height: 1px;
+  border: none;
+}
+
+/* Typography */
+body, table.body, td {
+  padding:0;
+  margin: 0;
+}
+body, table.body {
+  color: #222222;
+  font-family: Helvetica, Arial, sans-serif;
+}
+small {
+  font-size: 10px;
+}
+a {
+  color: $link-color;
+  text-decoration: none;
+}
+
+/* Outlook First */
+body.outlook p { display: inline !important; }
+
+// for Apple Mail (it doesn't support max-width)
+@media only screen and (min-device-width: $container) { 
+  table.container { width: $container !important;  }  
+}

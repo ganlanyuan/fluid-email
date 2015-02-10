@@ -1,0 +1,19 @@
+//*** gallery ***//
+
+@mixin gallery(
+  $cols,
+  $gt: $gallery-gutter
+) {
+  width: 100%;
+  tr { letter-spacing: -.34em; }
+  td {
+    letter-spacing: 0;
+    display: inline-block;
+    $gt-percentage: percentage($gt/$container);
+    padding: ($gt-percentage/2);
+    width: percentage(1/2) - $gt-percentage;
+    
+    @include bp-mi(480) { width: percentage(1/3) - $gt-percentage !important; }
+    @include bp-mi(600) { width: percentage(1/$cols) - $gt-percentage !important; }
+  }
+}
