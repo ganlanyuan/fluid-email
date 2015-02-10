@@ -1,3 +1,4 @@
+// *** function *** //
 @function opposite($direction){
   @if $direction == left { @return right; }
   @else if $direction == right { @return left; }
