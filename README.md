@@ -36,15 +36,39 @@ We have a `container`to constrain the main content on bigger screen, but since L
   </tr>
 </table>
 ````
-**Settings**
+**Settings**   
 Before start using the grid, you need set up some basic setting in setting.scss.
 ```` sass
-// layout
 $container: 650px;
 $columns: 12;
 $gutter: 20px;
 $gallery-gutter: 20px;
 $breakpoint: 600; // 600px: grids start work
+````
+**Grid**  
+```` sass
+@include col($col, $cols: $columns, $gt: $gutter, $last: false, $bp: $breakpoint);
+$col: num // column
+$cols (optional): num // columns
+$gt (optional): px // $gutter
+$last (optional): false | true // last column
+$bp (optional): num // breakpoint for grid works
+````
+
+**Sub-grid**  
+```` sass
+````
+
+**Gallery**  
+```` sass
+````
+
+**Button**  
+```` sass
+````
+
+**Breakpoint**  
+```` sass
 ````
 
 ## Thanks and reference
