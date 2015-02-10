@@ -17,8 +17,8 @@ $ git clone https://github.com/ganlanyuan/fluid-email.git
 ````
 
 ## Usage
-**Basic structure:**   
-We have a `container`to constrain the main content on bigger screen, but since Lotus Notes 8 & Outlook don't support `max-width`, we need add a conditional wherever we have a `container`. You can change the `container` in setting.scss. 
+**Basic structure**   
+We have a `container`to constrain the main content on bigger screen, but since Lotus Notes 8 & Outlook don't support `max-width`, we need add a conditional wherever we have a `container`. You can change the `container` width in setting.scss. 
 ```` html
 <table class="body">
   <tr>
@@ -35,6 +35,16 @@ We have a `container`to constrain the main content on bigger screen, but since L
     </td>
   </tr>
 </table>
+````
+**Settings**
+Before start using the grid, you need set up some basic setting in setting.scss.
+```` sass
+// layout
+$container: 650px;
+$columns: 12;
+$gutter: 20px;
+$gallery-gutter: 20px;
+$breakpoint: 600; // 600px: grids start work
 ````
 
 ## Thanks and reference
