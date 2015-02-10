@@ -16,6 +16,26 @@ Or install with [git](http://www.git-scm.com/):
 $ git clone https://github.com/ganlanyuan/fluid-email.git
 ````
 
+## Usage
+Basic structure
+````
+<table class="body">
+  <tr>
+    <td>
+      <!--[if (gte mso 9)|(IE)]> <table width="650" align="center" cellpadding="0" cellspacing="0" border="0"> <tr> <td> <![endif]-->
+      <table class="container">
+        <tr>
+          <td>
+            <!-- Your content goes here -->
+          </td>
+        </tr>
+      </table>
+      <!--[if (gte mso 9)|(IE)]> </td> </tr> </table> <![endif]-->
+    </td>
+  </tr>
+</table>
+````
+
 ## Thanks and reference
 <http://jackosborne.com/articles/responsive-email-design/>   
 <http://blog.fogcreek.com/responsive-html-emails-a-different-strategy/>   
