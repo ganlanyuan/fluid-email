@@ -6,7 +6,7 @@
   $cols: $columns,
   $gt: $gutter,
   $last: false,
-  $bp: $breakpoint
+  $bp: $grid-breakpoint
 ){
   width: 100%;
   display: block;
