@@ -43,20 +43,32 @@ $container: 650px;
 $columns: 12;
 $gutter: 20px;
 $gallery-gutter: 20px;
-$breakpoint: 600; // 600px: grids start work
+$grid-breakpoint: 600; // 600px: grids start work
 ````
 **Grid**  
+1. Grid will works only on screen bigger than 600px.
+2. It's better to use `attribute selectors` in your media queries to avoid a glitch which appears in Yahoo! Mail. Please refer to [this article](https://www.campaignmonitor.com/blog/post/3457/media-query-issues-in-yahoo-mail-mobile-email/).   
+Since we use media queries inside our `grid` @mixin and `gallery` @mixin, it's also recommend to use `attribute selectors` when you use `grid` or `galllery`.
 ```` sass
-@include col($col, $cols: $columns, $gt: $gutter, $last: false, $bp: $breakpoint);
+@include col($col, $cols: $columns, $gt: $gutter, $last: false, $bp: $grid-breakpoint);
 $col: num // column
 $cols (optional): num // columns
 $gt (optional): px // $gutter
 $last (optional): false | true // last column
 $bp (optional): num // breakpoint for grid works
+// e.g.
+[class="column-8"] { @include col(8); }
+[class="column-4"] { @include col(4, null, null, true, 480); }
 ````
 
 **Sub-grid**  
 ```` sass
+@include sub-col($col,$cols: $columns);
+$col: num // column
+$cols (optional): num // columns
+// e.g.
+.sub-column-4 { @include sub-col(4,12); padding-right: 5%;}
+.sub-column-8 { @include sub-col(8,12); }
 ````
 
 **Gallery**  
