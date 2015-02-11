@@ -1,5 +1,5 @@
 {
   "name": "Fluid-email",
-  "description": "Mobile-first email design with scss.",
+  "description": "Mobile-first email framework.",
   "tags": ["email", "newsletter", "responsive", "css", "scss", "sass", "mixins", "grid", "gallery"]
 }
