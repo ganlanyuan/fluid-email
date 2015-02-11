@@ -1,0 +1,44 @@
+{
+  "name": "fluid-email",
+  "version": "0.0.1",
+  "main": [
+    "src/scss/fluid-email.scss",
+    "src/index.html"
+  ],
+  "keywords": [
+    "responsive",
+    "fluid",
+    "email",
+    "newsletter",
+    "css",
+    "mixins",
+    "scss",
+    "sass",
+    "grid",
+    "gallery",
+    "breakpoint"
+  ],
+  "authors": [
+    "William Lin <ganlanyuan@gmail.com>"
+  ],
+  "description": "Mobile-first email framework build with scss.",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    ".gitignore",
+    ".sublime-project",
+    ".codekit",
+    "sftp-config.json",
+    "bower.json",
+    "README.md",
+    "changelog.md",
+    "node_modules",
+    "bower_components",
+    "LICENSE"
+  ],
+  "homepage": "https://github.com/ganlanyuan/fluid-email",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ganlanyuan/fluid-email.git"
+  }
+}

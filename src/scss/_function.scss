@@ -11,6 +11,17 @@
   @return ($val / ($val * 0 + 1));
 }
 
+// em
+@function em($pxval, $base: $em-base) {
+  @if not unitless($pxval) {
+      $pxval: strip-units($pxval);
+  }
+  @if not unitless($base) {
+      $base: strip-units($base);
+  }
+  @return ($pxval / $base) * 1em;
+}
+
 // toem
 $em-base: 16px !default;
 @function toem($pxval, $base: $em-base) {

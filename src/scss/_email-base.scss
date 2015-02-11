@@ -15,30 +15,10 @@ table, tr, td {
   padding: 0;
   vertical-align: top;
 }
-table.body {
-  height: 100%;
-  width: 100%;
-}
-table.container {
-  width: 100%;
-  max-width: $container;
-  margin: 0 auto;
-  // text-align: inherit;
-}
-img {
-  outline:none;
-  border: none;
-  -ms-interpolation-mode: bicubic;
-  max-width: 100%;
-  &.fluid { width: 100%; }
-}
-center {
-  width: 100%;
-  min-width: 580px;
-}
 table {
   border-spacing: 0;
   border-collapse: collapse;
+  width: 100%;
 }
 td {
   word-break: break-word;
@@ -47,12 +27,30 @@ td {
   hyphens: auto;
   border-collapse: collapse !important;
 }
+img {
+  outline:none;
+  border: none;
+  -ms-interpolation-mode: bicubic;
+  max-width: 100%;
+  &.fluid { width: 100%; }
+}
 hr {
   color: $line-color;
   background-color: $line-color;
   height: 1px;
   border: none;
 }
+table.body {
+  height: 100%;
+  width: 100%;
+}
+table.container {
+  width: 94%;
+  max-width: $container;
+  margin: 0 auto;
+  // text-align: inherit;
+}
+.center { text-align: center; }
 
 /* Typography */
 body, table.body, td {
@@ -75,6 +73,6 @@ a {
 body.outlook p { display: inline !important; }
 
 // for Apple Mail (it doesn't support max-width)
-@media only screen and (min-device-width: $container) { 
+@media only screen and (min-width: ($container + 20px)) { 
   table.container { width: $container !important;  }  
 }

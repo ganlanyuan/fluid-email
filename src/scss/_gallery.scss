@@ -13,7 +13,11 @@
     padding: ($gt-percentage/2);
     width: percentage(1/2) - $gt-percentage;
     
-    @include bp-mi(480) { width: percentage(1/3) - $gt-percentage !important; }
-    @include bp-mi(600) { width: percentage(1/$cols) - $gt-percentage !important; }
+    @if $cols >= 3 {
+      @include bp-mi(480) { width: percentage(1/3) - $gt-percentage !important; }
+    }
+    @if $cols > 3 {
+      @include bp-mi(600) { width: percentage(1/$cols) - $gt-percentage !important; }
+    }
   }
 }

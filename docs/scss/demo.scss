@@ -1,0 +1,66 @@
+// *** demo *** //
+@import '../../src/scss/fluid-email';
+
+
+h4 {
+  margin: 0;
+  font-size: 23px;
+  line-height: 1.2;
+  font-family: Georgia, serif;
+}
+h5 {
+  margin-top: 0; 
+  margin-bottom: 10px;
+  font-size: 13px;
+  line-height: 1.3;
+  font-family: Georgia, serif;
+}
+p {
+  font-size: 13px;
+  font-family: Georgia, serif;
+}
+[class="logo"] {
+  @include col(4);
+  font-size: 46px;
+  font-family: Georgia, serif;
+  font-style: italic;
+  vertical-align: baseline;
+  a { color: #7f007f; }
+}
+[class="date"] {
+  @include col(8, $last:true);
+  @include visible(null, 600);
+  font-size: 12px;
+  color: #777;
+  text-align: right;
+  vertical-align: baseline;
+}
+[class="topnews-img"] { @include col(5);}
+[class="topnews-text"] { @include col(7, $last:true);}
+
+[class="column-left"] {
+  @include col(6);
+}
+[class="column-right"] {
+  @include col(6, null, null, true);
+}
+.sub-cols-5 { 
+  @include sub-col(5);
+  padding-right: 10px; 
+  padding-bottom: 10px;
+}
+.sub-cols-7 { @include sub-col(7); }
+[class="gallery"] {
+  @include gallery(4);
+  p { 
+    font-size: 12px; 
+    margin-top: 5px;
+    margin-bottom: 0;
+    font-family: Arial, sans-serif;
+  }
+}
+.copyright {
+  font-size: 12px;
+  color: #999;
+  padding-bottom: 30px;
+}

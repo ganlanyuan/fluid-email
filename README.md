@@ -1,5 +1,6 @@
 # Fluid-email
-Mobile-first email resolutions with scss.
+Mobile-first email framework build with scss.   
+[demo](http://designdev.christianpost.com/develop/fluid-email/docs/demo.html)  
 
 ## Process
 1. Write you css/sass   
