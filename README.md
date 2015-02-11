@@ -49,6 +49,14 @@ $grid-breakpoint: 600; // 600px: grids start work
 1. Grid will works only on screen bigger than 600px.   
 2. It's better to use `attribute selectors` in your media queries to avoid a glitch which appears in Yahoo! Mail. Please refer to [this article](https://www.campaignmonitor.com/blog/post/3457/media-query-issues-in-yahoo-mail-mobile-email/).   
 Since we use media queries inside our `grid` @mixin and `gallery` @mixin, it's also recommend to use `attribute selectors` when you use `grid` or `galllery`.
+```` html
+<table class="container">
+  <tr>
+    <td class="column-left">column left</td>
+    <td class="column-right">column right</td>
+  </tr>
+</table>
+````
 ```` sass
 @include col($col, $cols: $columns, $gt: $gutter, $last: false, $bp: $grid-breakpoint);
 $col: num // column
@@ -58,12 +66,20 @@ $last (optional): false | true // last column
 $bp (optional): num // breakpoint for grid works
 
 // e.g.
-[class="column-8"] { @include col(8); }
-[class="column-4"] { @include col(4, null, null, true, 480); }
+[class="column-left"] { @include col(8); }
+[class="column-right"] { @include col(4, null, null, true, 480); }
 ````
 
 **Sub-grid**  
 Sub grid will works on all screen.
+```` html
+<table>
+  <tr>
+    <td class="sub-column-4"><a href=""><img src="http://placehold.it/300x250" alt="" class="fluid" /></a>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sint perferendis nostrum ipsam fugiat? Expedita vel impedit culpa accusantium <a href="">sit fugit commodi est a eaque nihil, quae recusandae voluptate</a> exercitationem.</td>
+    <td class="sub-column-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sint perferendis nostrum ipsam fugiat? Expedita vel impedit culpa accusantium sit fugit commodi est a eaque nihil, quae recusandae voluptate exercitationem.</td>
+  </tr>
+</table>
+````
 ```` sass
 @include sub-col($col,$cols: $columns);
 $col: num // column
@@ -76,6 +92,20 @@ $cols (optional): num // columns
 
 **Gallery**  
 Gallery will shows only 2 columns under 480px, and only show 3 columns under 600px.
+```` html
+<table class="block-4">
+  <tr>
+    <td>item 01</td>
+    <td>item 02</td>
+    <td>item 03</td>
+    <td>item 04</td>
+    <td>item 05</td>
+    <td>item 06</td>
+    <td>item 07</td>
+    <td>item 08</td>
+  </tr>
+</table>
+````
 ```` sass
 @include gallery($cols, $gt: $gallery-gutter);
 $cols: num // columns
@@ -86,14 +116,34 @@ $gt (optional): // gallery-gutter
 ````
 
 **Button**  
+```` html
+<div class="button"><a href="">button</a></div>
+````
 ```` sass
+@include button($font-size, $padding, $margin, $background-color, $border, $border-radius);
+$font-size (optional): null | px | em | rem
+$padding (optional): null | px | em | rem
+$margin (optional): null | px | em | rem
+$background-color (optional): null | Hex | rgb | ...
+$border (optional): null | ...
+$border-radius (optional): null | px | em | % ...
+
+// e.g.
+.button { 
+  @include button(13, 10px 15px, 10px 0 0, #25d6ec, null, 3px); 
+}
 ````
 
 **Breakpoint**  
 ```` sass
+@include bp-mi(480) {...}  // output: @media (min-width: 30em) {...}
+@include bp-ma(480, screen) {...}  // output: @media screen and (max-width: 30em) {...}
+@include bp-mm(480, 640) {...}  // output: @media (min-width: 30em) and (max-width: 40em) {...}
+.header { @include bp-mi(480) {...} }  // output: @media (min-width: 30em) { .header {...}; }
 ````
 
 ## Thanks and reference
 <http://jackosborne.com/articles/responsive-email-design/>   
 <http://blog.fogcreek.com/responsive-html-emails-a-different-strategy/>   
-<https://www.campaignmonitor.com/guides/mobile/>   
+<https://www.campaignmonitor.com/guides/mobile/>  
+[ink](http://zurb.com/ink/)
