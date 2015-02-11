@@ -142,6 +142,9 @@ $border-radius (optional): null | px | em | % ...
 .header { @include bp-mi(480) {...} }  // output: @media (min-width: 30em) { .header {...}; }
 ````
 
+## Changelog
+See [here](https://github.com/ganlanyuan/fluid-email/blob/master/changelog.md)
+
 ## Thanks and reference
 <http://jackosborne.com/articles/responsive-email-design/>   
 <http://blog.fogcreek.com/responsive-html-emails-a-different-strategy/>   
