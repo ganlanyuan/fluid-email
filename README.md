@@ -4,7 +4,7 @@ Mobile-first email framework build with scss.
 
 ## Process
 1. Write you css/sass   
-2. Bring your css inline (recommend [inliner.cm](http://inliner.cm/))   
+2. Bring your css inline (recommend [mailermailer inliner tool](http://www.mailermailer.com/labs/tools/magic-css-inliner-tool.rwp))   
 3. Test your email at [Litmus](https://litmus.com/) or [campaignmonitor.com](https://www.campaignmonitor.com/)   
 
 ## Install
@@ -44,12 +44,9 @@ $container: 650px;
 $columns: 12;
 $gutter: 20px;
 $gallery-gutter: 20px;
-$grid-breakpoint: 600; // 600px: grids start work
 ````
 **Grid**  
-1. Grid will works only on screen bigger than 600px.   
-2. It's better to use `attribute selectors` in your media queries to avoid a glitch which appears in Yahoo! Mail. Please refer to [this article](https://www.campaignmonitor.com/blog/post/3457/media-query-issues-in-yahoo-mail-mobile-email/).   
-Since we use media queries inside our `grid` @mixin and `gallery` @mixin, it's also recommend to use `attribute selectors` when you use `grid` or `galllery`.
+You should use `attribute selectors` in your media queries to avoid a glitch which appears in Yahoo! Mail. Please refer to [this article](https://www.campaignmonitor.com/blog/post/3457/media-query-issues-in-yahoo-mail-mobile-email/).   
 ```` html
 <table class="container">
   <tr>
@@ -67,8 +64,10 @@ $last (optional): false | true // last column
 $bp (optional): num // breakpoint for grid works
 
 // e.g.
-[class="column-left"] { @include col(8); }
-[class="column-right"] { @include col(4, null, null, true, 480); }
+@include bp-mi(600px) {
+  [class="column-left"] { @include col(8); }
+  [class="column-right"] { @include col(4, null, null, true, 480); }
+}
 ````
 
 **Sub-grid**  
@@ -92,7 +91,6 @@ $cols (optional): num // columns
 ````
 
 **Gallery**  
-Gallery will shows only 2 columns under 480px, and only show 3 columns under 600px.
 ```` html
 <table class="block-4">
   <tr>
@@ -113,7 +111,12 @@ $cols: num // columns
 $gt (optional): // gallery-gutter
 
 // e.g.
-[class="block-4"] { @include gallery(4); }
+@include bp-mi(480px) {
+ [class="block-4"] { @include gallery(3); }
+}
+@include bp-mi(480px) {
+ [class="block-4"] { @include gallery(4); }
+}
 ````
 
 **Button**  
