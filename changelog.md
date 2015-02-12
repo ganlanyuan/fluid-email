@@ -1,16 +1,12 @@
-<h1>Changlog</h1>
+# Changlog
 
-<h3>v0.0.2</h3>
-<ol>
-  <li>Redefined functions `em`, `toem` and `torem`.</li>
-  <li>Remove @mediaquery from `grid` and `gallery`.</li>
-  <li>Add ad style.</li>
-</ol>
+### v0.0.2
+1. Redefined functions `em`, `toem` and `torem`.
+2. Remove @mediaquery from `grid` and `gallery`.
+3. Add ad style.
 
-<h3>v0.0.1</h3>
-<ol>
-  <li>Feature: responsive grid and sub grid</li>
-  <li>Feature: gallery</li>
-  <li>Feature: button</li>
-  <li>Feature: breakpoint</li>
-</ol>
+### v0.0.1
+1. Feature: responsive grid and sub grid
+2. Feature: gallery
+3. Feature: button
+4. Feature: breakpoint
