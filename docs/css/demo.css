@@ -66,6 +66,32 @@ table.container {
   text-align: center;
 }
 
+.ad {
+  margin-left: auto;
+  margin-right: auto;
+}
+.ad-120 {
+  width: 120px;
+}
+.ad-160 {
+  width: 160px;
+}
+.ad-240 {
+  width: 240px;
+}
+.ad-250 {
+  width: 250px;
+}
+.ad-300 {
+  width: 300px;
+}
+.ad-320 {
+  width: 320px;
+}
+.ad-468 {
+  width: 468px;
+}
+
 /* Typography */
 body, table.body, td {
   padding: 0;
@@ -91,7 +117,7 @@ body.outlook p {
   display: inline !important;
 }
 
-@media only screen and (min-width: 670px) {
+@media (min-width: 41.875em) {
   table.container {
     width: 650px !important;
   }
@@ -117,87 +143,24 @@ p {
 }
 
 [class="logo"] {
-  width: 100%;
-  display: block;
   font-size: 46px;
   font-family: Georgia, serif;
   font-style: italic;
   vertical-align: baseline;
-}
-@media (min-width: 37.5em) {
-  [class="logo"] {
-    padding-right: 3.0769230769% !important;
-    width: 31.2820512821% !important;
-    display: table-cell !important;
-  }
 }
 [class="logo"] a {
   color: #7f007f;
 }
 
 [class="date"] {
-  width: 100%;
-  display: block;
   font-size: 12px;
   color: #777;
   text-align: right;
   vertical-align: baseline;
 }
-@media (min-width: 37.5em) {
-  [class="date"] {
-    width: 65.641025641% !important;
-    display: table-cell !important;
-  }
-}
 @media (max-width: 37.4375em) {
   [class="date"] {
     display: none !important;
-  }
-}
-
-[class="topnews-img"] {
-  width: 100%;
-  display: block;
-}
-@media (min-width: 37.5em) {
-  [class="topnews-img"] {
-    padding-right: 3.0769230769% !important;
-    width: 39.8717948718% !important;
-    display: table-cell !important;
-  }
-}
-
-[class="topnews-text"] {
-  width: 100%;
-  display: block;
-}
-@media (min-width: 37.5em) {
-  [class="topnews-text"] {
-    width: 57.0512820513% !important;
-    display: table-cell !important;
-  }
-}
-
-[class="column-left"] {
-  width: 100%;
-  display: block;
-}
-@media (min-width: 37.5em) {
-  [class="column-left"] {
-    padding-right: 3.0769230769% !important;
-    width: 48.4615384615% !important;
-    display: table-cell !important;
-  }
-}
-
-[class="column-right"] {
-  width: 100%;
-  display: block;
-}
-@media (min-width: 37.5em) {
-  [class="column-right"] {
-    width: 48.4615384615% !important;
-    display: table-cell !important;
   }
 }
 
@@ -209,6 +172,19 @@ p {
 
 .sub-cols-7 {
   width: 58.3333333333%;
+}
+
+.gallery p {
+  font-size: 12px;
+  margin-top: 5px;
+  margin-bottom: 0;
+  font-family: Arial, sans-serif;
+}
+
+.copyright {
+  font-size: 12px;
+  color: #999;
+  padding-bottom: 30px;
 }
 
 [class="gallery"] {
@@ -229,21 +205,90 @@ p {
   }
 }
 @media (min-width: 37.5em) {
+  [class="topnews-img"] {
+    padding-right: 3.0769230769% !important;
+    width: 39.8717948718% !important;
+    display: table-cell !important;
+  }
+}
+[class="topnews-img"] {
+  width: 100%;
+  display: block;
+}
+
+@media (min-width: 37.5em) {
+  [class="topnews-text"] {
+    width: 57.0512820513% !important;
+    display: table-cell !important;
+  }
+}
+[class="topnews-text"] {
+  width: 100%;
+  display: block;
+}
+
+@media (min-width: 37.5em) {
+  [class="column-left"] {
+    padding-right: 3.0769230769% !important;
+    width: 48.4615384615% !important;
+    display: table-cell !important;
+  }
+}
+[class="column-left"] {
+  width: 100%;
+  display: block;
+}
+
+@media (min-width: 37.5em) {
+  [class="column-right"] {
+    width: 48.4615384615% !important;
+    display: table-cell !important;
+  }
+}
+[class="column-right"] {
+  width: 100%;
+  display: block;
+}
+
+@media (min-width: 37.5em) {
+  [class="logo"] {
+    padding-right: 3.0769230769% !important;
+    width: 31.2820512821% !important;
+    display: table-cell !important;
+  }
+}
+[class="logo"] {
+  width: 100%;
+  display: block;
+}
+
+@media (min-width: 37.5em) {
+  [class="date"] {
+    width: 65.641025641% !important;
+    display: table-cell !important;
+  }
+}
+[class="date"] {
+  width: 100%;
+  display: block;
+}
+
+[class="gallery"] {
+  width: 100%;
+}
+[class="gallery"] tr {
+  letter-spacing: -.34em;
+}
+[class="gallery"] td {
+  letter-spacing: 0;
+  display: inline-block;
+  padding: 1.5384615385%;
+  width: 46.9230769231%;
+}
+@media (min-width: 37.5em) {
   [class="gallery"] td {
     width: 21.9230769231% !important;
   }
-}
-[class="gallery"] p {
-  font-size: 12px;
-  margin-top: 5px;
-  margin-bottom: 0;
-  font-family: Arial, sans-serif;
-}
-
-.copyright {
-  font-size: 12px;
-  color: #999;
-  padding-bottom: 30px;
 }
 
 /*# sourceMappingURL=demo.css.map */

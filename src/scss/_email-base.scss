@@ -51,6 +51,14 @@ table.container {
   // text-align: inherit;
 }
 .center { text-align: center; }
+$ad: (120, 160, 240, 250, 300, 320, 468);
+.ad {
+  margin-left: auto;
+  margin-right: auto;
+  @each $width in $ad {
+    &-#{$width} { width: $width + px; }
+  }
+}
 
 /* Typography */
 body, table.body, td {
@@ -73,6 +81,6 @@ a {
 body.outlook p { display: inline !important; }
 
 // for Apple Mail (it doesn't support max-width)
-@media only screen and (min-width: ($container + 20px)) { 
+@include bp-mi($container + 20px) { 
   table.container { width: $container !important;  }  
 }

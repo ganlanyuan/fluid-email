@@ -20,7 +20,6 @@ p {
   font-family: Georgia, serif;
 }
 [class="logo"] {
-  @include col(4);
   font-size: 46px;
   font-family: Georgia, serif;
   font-style: italic;
@@ -28,30 +27,20 @@ p {
   a { color: #7f007f; }
 }
 [class="date"] {
-  @include col(8, $last:true);
-  @include visible(null, 600);
+  @include visible(null, 600px);
   font-size: 12px;
   color: #777;
   text-align: right;
   vertical-align: baseline;
 }
-[class="topnews-img"] { @include col(5);}
-[class="topnews-text"] { @include col(7, $last:true);}
 
-[class="column-left"] {
-  @include col(6);
-}
-[class="column-right"] {
-  @include col(6, null, null, true);
-}
 .sub-cols-5 { 
   @include sub-col(5);
   padding-right: 10px; 
   padding-bottom: 10px;
 }
 .sub-cols-7 { @include sub-col(7); }
-[class="gallery"] {
-  @include gallery(4);
+.gallery {
   p { 
     font-size: 12px; 
     margin-top: 5px;
@@ -63,4 +52,17 @@ p {
   font-size: 12px;
   color: #999;
   padding-bottom: 30px;
+}
+
+@include bp-mi(480px) {
+  [class="gallery"] { @include gallery(3); }
+}
+@include bp-mi(600px) {
+  [class="topnews-img"] { @include col(5);}
+  [class="topnews-text"] { @include col(7, $last:true);}
+  [class="column-left"] { @include col(6); }
+  [class="column-right"] { @include col(6, null, null, true); }
+  [class="logo"] { @include col(4); }
+  [class="date"] { @include col(8, $last:true); }
+  [class="gallery"] { @include gallery(4); }
 }

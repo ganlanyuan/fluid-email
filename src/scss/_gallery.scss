@@ -4,20 +4,18 @@
   $cols,
   $gt: $gallery-gutter
 ) {
-  width: 100%;
-  tr { letter-spacing: -.34em; }
-  td {
-    letter-spacing: 0;
-    display: inline-block;
-    $gt-percentage: percentage($gt/$container);
-    padding: ($gt-percentage/2);
-    width: percentage(1/2) - $gt-percentage;
-    
-    @if $cols >= 3 {
-      @include bp-mi(480) { width: percentage(1/3) - $gt-percentage !important; }
+  $gt-percentage: percentage($gt/$container);
+  @at-root (without:media) {
+    width: 100%;
+    tr { letter-spacing: -.34em; }
+    td {
+      letter-spacing: 0;
+      display: inline-block;
+      padding: ($gt-percentage/2);
+      width: percentage(1/2) - $gt-percentage; 
     }
-    @if $cols > 3 {
-      @include bp-mi(600) { width: percentage(1/$cols) - $gt-percentage !important; }
-    }
+  }
+  @if $cols >= 3 {
+    td { width: percentage(1/$cols) - $gt-percentage !important; }
   }
 }

@@ -8,18 +8,18 @@
   $last: false,
   $bp: $grid-breakpoint
 ){
-  width: 100%;
-  display: block;
+  @at-root (without: media) {
+    width: 100%;
+    display: block;
+  }
   @if not $cols or $cols == null { $cols: $columns; }
   @if not $gt or $gt == null { $gt: $gutter; }
   $gt-percentage: percentage($gt/$container);
   $col-percentage: percentage(($container - $gt * ($cols - 1)) / ($container * $cols));
 
-  @include bp-mi($bp){
-    @if not $last or $last == null { padding-right: $gt-percentage !important; }
-    width: $col-percentage * $col + $gt-percentage * ($col - 1) !important;
-    display: table-cell !important;
-  }
+  @if not $last or $last == null { padding-right: $gt-percentage !important; }
+  width: $col-percentage * $col + $gt-percentage * ($col - 1) !important;
+  display: table-cell !important;
 }
 
 // sub columns
