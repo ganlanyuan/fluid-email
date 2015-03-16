@@ -47,6 +47,9 @@ p {
     margin-bottom: 0;
     font-family: Arial, sans-serif;
   }
+  td {
+    width: 140px;
+  }
 }
 .copyright {
   font-size: 12px;
@@ -54,6 +57,9 @@ p {
   padding-bottom: 30px;
 }
 
+@include bp-mi(300px) {
+  [class="gallery"] { @include gallery(2); }
+}
 @include bp-mi(480px) {
   [class="gallery"] { @include gallery(3); }
 }

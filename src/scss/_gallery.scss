@@ -12,10 +12,7 @@
       letter-spacing: 0;
       display: inline-block;
       padding: ($gt-percentage/2);
-      width: percentage(1/2) - $gt-percentage; 
     }
   }
-  @if $cols >= 3 {
-    td { width: percentage(1/$cols) - $gt-percentage !important; }
-  }
+  td { width: percentage(1/$cols) - $gt-percentage !important; }
 }

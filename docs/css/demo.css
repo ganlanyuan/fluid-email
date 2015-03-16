@@ -180,6 +180,9 @@ p {
   margin-bottom: 0;
   font-family: Arial, sans-serif;
 }
+.gallery td {
+  width: 140px;
+}
 
 .copyright {
   font-size: 12px;
@@ -197,7 +200,22 @@ p {
   letter-spacing: 0;
   display: inline-block;
   padding: 1.5384615385%;
-  width: 46.9230769231%;
+}
+@media (min-width: 18.75em) {
+  [class="gallery"] td {
+    width: 46.9230769231% !important;
+  }
+}
+[class="gallery"] {
+  width: 100%;
+}
+[class="gallery"] tr {
+  letter-spacing: -.34em;
+}
+[class="gallery"] td {
+  letter-spacing: 0;
+  display: inline-block;
+  padding: 1.5384615385%;
 }
 @media (min-width: 30em) {
   [class="gallery"] td {
@@ -283,7 +301,6 @@ p {
   letter-spacing: 0;
   display: inline-block;
   padding: 1.5384615385%;
-  width: 46.9230769231%;
 }
 @media (min-width: 37.5em) {
   [class="gallery"] td {
