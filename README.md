@@ -10,7 +10,7 @@ Mobile-first email framework build with scss.
 ## Install
 Download [Fluid-email](https://github.com/ganlanyuan/fluid-email/archive/master.zip) or install with [Bower](http://bower.io/): 
 ````
-$ bower install rocket
+$ bower install fluid-email
 ````
 Or install with [git](http://www.git-scm.com/):
 ````
