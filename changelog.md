@@ -1,5 +1,9 @@
 # Changlog
 
+### v0.0.4
+1. Fix `gallery`, `grid`.
+2. Simplify `button`.
+
 ### v0.0.3
 1. Update `gallery`.
 
