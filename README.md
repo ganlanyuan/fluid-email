@@ -1,5 +1,5 @@
 # Fluid-email
-Mobile-first email framework build with scss.   
+Mobile-first email framework build with scss. 
 [demo](http://designdev.christianpost.com/develop/fluid-email/docs/demo.html)  
 
 ## Process
@@ -24,7 +24,7 @@ We use `container`to constrain the main content on bigger screen, but since Lotu
 <table class="body">
   <tr>
     <td>
-      <!--[if (gte mso 9)|(IE)]> <table width="650" align="center" cellpadding="0" cellspacing="0" border="0"> <tr> <td> <![endif]-->
+      <!--[if (gte mso 9)|(IE)]><table width="650" align="center" cellpadding="0" cellspacing="0" border="0" style="width: 650px; margin: 0 auto;" ><tr><td><![endif]-->
       <table class="container">
         <tr>
           <td>
@@ -32,7 +32,7 @@ We use `container`to constrain the main content on bigger screen, but since Lotu
           </td>
         </tr>
       </table>
-      <!--[if (gte mso 9)|(IE)]> </td> </tr> </table> <![endif]-->
+      <!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
     </td>
   </tr>
 </table>
@@ -50,33 +50,42 @@ You should use `attribute selectors` in your media queries to avoid a glitch whi
 ```` html
 <table class="container">
   <tr>
-    <td class="column-left">column left</td>
-    <td class="column-right">column right</td>
+    <td class="column-left">
+      column left
+    </td><td class="column-right"> <!-- Make sure the tags are directly next to each other -->
+      column right
+    </td>
   </tr>
 </table>
 ````
 ```` sass
-@include col($col, $cols: $columns, $gt: $gutter, $last: false, $bp: $grid-breakpoint);
+@include col($col, $cols: $columns, $gt: $gutter, $last: false);
 $col: num // column
 $cols (optional): num // columns
 $gt (optional): px // $gutter
 $last (optional): false | true // last column
-$bp (optional): num // breakpoint for grid works
 
 // e.g.
 @include bp-mi(600px) {
-  [class="column-left"] { @include col(8); }
-  [class="column-right"] { @include col(4, null, null, true, 480); }
+  [class~="column-left"] { @include col(8); }
+  [class~="column-right"] { @include col(4, null, null, true, 480); }
+}
+@include bp-ma(599px) {
+  [class~="column-left"],
+  [class~="column-right"] { @include col(12, $last: true); }
 }
 ````
 
 **Sub-grid**  
-Sub grid will works on all screen.
+Sub grid will works on all screen sizes.
 ```` html
 <table>
   <tr>
-    <td class="sub-column-4"><a href=""><img src="http://placehold.it/300x250" alt="" class="fluid" /></a>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sint perferendis nostrum ipsam fugiat? Expedita vel impedit culpa accusantium <a href="">sit fugit commodi est a eaque nihil, quae recusandae voluptate</a> exercitationem.</td>
-    <td class="sub-column-8">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sint perferendis nostrum ipsam fugiat? Expedita vel impedit culpa accusantium sit fugit commodi est a eaque nihil, quae recusandae voluptate exercitationem.</td>
+    <td class="sub-column-4">
+      <a href=""><img src="http://placehold.it/300x250" alt="" class="fluid" /></a>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sint perferendis nostrum ipsam fugiat? Expedita vel impedit culpa accusantium <a href="">sit fugit commodi est a eaque nihil, quae recusandae voluptate</a> exercitationem.
+    </td><td class="sub-column-8"> <!-- Make sure the tags are directly next to each other -->
+      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sint perferendis nostrum ipsam fugiat? Expedita vel impedit culpa accusantium sit fugit commodi est a eaque nihil, quae recusandae voluptate exercitationem.
+    </td>
   </tr>
 </table>
 ````
@@ -94,21 +103,31 @@ $cols (optional): num // columns
 ```` html
 <table class="block-4">
   <tr>
-    <td>item 01</td>
-    <td>item 02</td>
-    <td>item 03</td>
-    <td>item 04</td>
-    <td>item 05</td>
-    <td>item 06</td>
-    <td>item 07</td>
-    <td>item 08</td>
+    <td>
+      item 01
+    </td><td> <!-- Make sure the tags are directly next to each other -->
+      item 02
+    </td><td>
+      item 03
+    </td><td>
+      item 04
+    </td><!--[if (gte mso 9)|(IE)]><tr></tr><![endif]--><td>
+      item 05
+    </td><td>
+      item 06
+    </td><td>
+      item 07
+    </td><td>
+      item 08
+    </td>
   </tr>
 </table>
 ````
 ```` sass
-@include gallery($cols, $gt: $gallery-gutter);
+@include gallery($cols, $gt: $gallery-gutter, $gallery-container: $container);
 $cols: num // columns
-$gt (optional): // gallery-gutter
+$gt (optional): px // gallery-gutter
+$gallery-container (optional): px // gallery-container
 
 // e.g.
 @include bp-mi(480px) {
@@ -121,20 +140,19 @@ $gt (optional): // gallery-gutter
 
 **Button**  
 ```` html
-<div class="button"><a href="">button</a></div>
+<td class="center">
+  <a href=""><span class="button">button</span></a>
+</td>
 ````
 ```` sass
-@include button($font-size, $padding, $margin, $background-color, $border, $border-radius);
-$font-size (optional): null | px | em | rem
-$padding (optional): null | px | em | rem
-$margin (optional): null | px | em | rem
+@include button($background-color: #3ab7e4, $padding: 15px 20px, $border-radius: 3px);
 $background-color (optional): null | Hex | rgb | ...
-$border (optional): null | ...
+$padding (optional): null | px | em | rem
 $border-radius (optional): null | px | em | % ...
 
 // e.g.
 .button { 
-  @include button(13, 10px 15px, 10px 0 0, #25d6ec, null, 3px); 
+  @include button(#25d6ec, 10px 15px, 3px); 
 }
 ````
 
