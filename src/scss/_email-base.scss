@@ -3,7 +3,7 @@
 #outlook a { padding:0; }
 body{
   width:100%;
-  // min-width: 100%;
+  min-width: 100%;
   height: auto;
   -webkit-text-size-adjust:100%;
   -ms-text-size-adjust:100%;
@@ -32,8 +32,12 @@ img {
   border: none;
   -ms-interpolation-mode: bicubic;
   max-width: 100%;
-  &.fluid { width: 100%; }
+  &.fluid { 
+    width: 100% !important; 
+    height: auto !important;
+  }
 }
+center { width: 100%; }
 hr {
   color: $line-color;
   background-color: $line-color;
@@ -55,6 +59,7 @@ $ad: (120, 160, 240, 250, 300, 320, 468);
 .ad {
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
   @each $width in $ad {
     &-#{$width} { width: $width + px; }
   }
@@ -75,6 +80,28 @@ small {
 a {
   color: $link-color;
   text-decoration: none;
+}
+
+/* Alignment and Visibility Classes */
+table, 
+td, 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+span {
+  &.center { text-align: center; }
+}
+span.center {
+  display: block;
+  width: 100%;
+}
+img.center {
+  margin: 0 auto;
+  float: none;
 }
 
 /* Outlook First */

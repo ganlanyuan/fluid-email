@@ -1,38 +1,40 @@
 // *** buttons *** //
 
 // font-size
+// background-color
 // padding
 // margin
-// background-color
-// border
-// border-radius
 
 %button-style {
+  display: inline-block;
+  border-style: solid;
   text-align: center;
   box-sizing: border-box;
-  &:hover { text-decoration: none; }
-  a { display: block; }
 }
-@mixin button ($button...){
+@mixin button (
+  $background-color: #3ab7e4,
+  $padding: 15px 20px,
+  $border-radius: 3px
+){
   @extend %button-style;
-  @if length($button) >= 1 and nth($button, 1) != null {
-    font-size: nth($button, 1);
+
+  // background-color
+  @if $background-color == 'default' {
+    background-color: #3ab7e4;
+    border-color: #3ab7e4;
+    color: contrast(#3ab7e4);
   }
-  @if length($button) >= 2 and nth($button, 2) != null {
-    padding: nth($button, 2);
+  @else if $background-color != null {
+    background-color: $background-color;
+    border-color: $background-color;
+    color: contrast($background-color);
   }
-  @if length($button) >= 3 and nth($button, 3) != null {
-    margin: nth($button, 3);
-  }
-  @if length($button) >= 4 and nth($button, 4) != null {
-    background-color: nth($button, 4);
-    color: contrast(nth($button, 4));
-    &:hover { background-color: analogous(nth($button, 4), 10%); }
-  }
-  @if length($button) >= 5 and nth($button, 5) != null {
-    border: nth($button, 5);
-  }
-  @if length($button) >= 6 and nth($button, 6) != null {
-    border-radius: nth($button, 6);
-  }
+
+  // padding
+  @if $padding == 'default' { border-width: 15px 20px; }
+  @else if $padding != null { border-width: $padding; }
+
+  // border-radius
+  @if $border-radius == 'default'{ border-radius: 3px; }
+  @else if $border-radius != null { border-radius: $border-radius; }
 }

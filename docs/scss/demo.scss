@@ -2,38 +2,42 @@
 @import '../../src/scss/fluid-email';
 
 
-h4 {
+.h4 {
   margin: 0;
   font-size: 23px;
   line-height: 1.2;
+  font-weight: bold;
   font-family: Georgia, serif;
 }
-h5 {
-  margin-top: 0; 
-  margin-bottom: 10px;
+.h5 {
+  padding-bottom: 10px;
   font-size: 13px;
   line-height: 1.3;
+  font-weight: bold;
   font-family: Georgia, serif;
 }
-p {
+.p {
   font-size: 13px;
   font-family: Georgia, serif;
+  padding: 13px 0;
 }
-[class="logo"] {
+[class~="logo"] {
   font-size: 46px;
   font-family: Georgia, serif;
   font-style: italic;
   vertical-align: baseline;
   a { color: #7f007f; }
 }
-[class="date"] {
+[class~="date"] {
   @include visible(null, 600px);
   font-size: 12px;
   color: #777;
   text-align: right;
   vertical-align: baseline;
 }
-
+.topnews-img {
+  a { display: block;}
+}
 .sub-cols-5 { 
   @include sub-col(5);
   padding-right: 10px; 
@@ -41,13 +45,13 @@ p {
 }
 .sub-cols-7 { @include sub-col(7); }
 .gallery {
-  p { 
+  .p { 
     font-size: 12px; 
-    margin-top: 5px;
-    margin-bottom: 0;
+    padding-top: 5px;
+    padding-bottom: 0;
     font-family: Arial, sans-serif;
   }
-  td {
+  .cell {
     width: 140px;
   }
 }
@@ -58,17 +62,23 @@ p {
 }
 
 @include bp-mi(300px) {
-  [class="gallery"] { @include gallery(2); }
+  [class~="gallery"] { @include gallery(2); }
 }
 @include bp-mi(480px) {
-  [class="gallery"] { @include gallery(3); }
+  [class~="gallery"] { @include gallery(3); }
 }
 @include bp-mi(600px) {
-  [class="topnews-img"] { @include col(5);}
-  [class="topnews-text"] { @include col(7, $last:true);}
-  [class="column-left"] { @include col(6); }
-  [class="column-right"] { @include col(6, null, null, true); }
-  [class="logo"] { @include col(4); }
-  [class="date"] { @include col(8, $last:true); }
-  [class="gallery"] { @include gallery(4); }
+  [class~="topnews-img"] { @include col(5);}
+  [class~="topnews-text"] { @include col(7, $last:true);}
+  [class~="column-left"] { @include col(6); }
+  [class~="column-right"] { @include col(6, null, null, true); }
+  [class~="logo"] { @include col(4); }
+  [class~="date"] { @include col(8, $last:true); }
+  [class~="gallery"] { @include gallery(4); }
+}
+@include bp-ma(599px) {
+  [class~="topnews-img"],
+  [class~="topnews-text"],
+  [class~="column-left"],
+  [class~="column-right"] { @include col(12, $last:true);}
 }

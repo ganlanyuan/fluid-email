@@ -5,21 +5,30 @@
   $col,
   $cols: $columns,
   $gt: $gutter,
-  $last: false,
-  $bp: $grid-breakpoint
+  $last: false
 ){
-  @at-root (without: media) {
-    width: 100%;
-    display: block;
-  }
   @if not $cols or $cols == null { $cols: $columns; }
   @if not $gt or $gt == null { $gt: $gutter; }
   $gt-percentage: percentage($gt/$container);
   $col-percentage: percentage(($container - $gt * ($cols - 1)) / ($container * $cols));
 
+  // desktop, non-mediaquery
+  @at-root (without: media) {
+    @if $col < $cols {
+      padding-bottom: $gutter;
+      display: inline-block;
+      @if not $last or $last == null {
+        padding-right: $gutter;
+        width: ($col * $container / $cols) - $gutter;
+      }
+      @else { width: ($col * $container / $cols); }
+    }
+  }
+
+  // mediaquery
   @if not $last or $last == null { padding-right: $gt-percentage !important; }
+  @if $col < $cols { display: table-cell !important; }
   width: $col-percentage * $col + $gt-percentage * ($col - 1) !important;
-  display: table-cell !important;
 }
 
 // sub columns

@@ -1,0 +1,10 @@
+// *** triad *** //
+
+@function complementary(
+  $color,
+  $saturation: null,
+  $lightness: null
+){
+  @return color(complementary, $color, $order: null, $saturation: $saturation, $lightness: $lightness);
+}
+

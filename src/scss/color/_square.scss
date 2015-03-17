@@ -1,0 +1,12 @@
+// *** square *** //
+
+@function square(
+  $color,
+  $order,
+  $saturation: null,
+  $lightness: null,
+  $dist: 30
+){
+  @return color(square, $color, $order: $order, $saturation: $saturation, $lightness: $lightness, $dist: $dist);
+}
+

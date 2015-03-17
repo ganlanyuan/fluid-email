@@ -1,18 +1,27 @@
 // *** gallery *** //
 
+%gallery-base {
+  width: 100%;
+  letter-spacing: -0.34em; 
+  &,
+  & > tbody,
+  & > tbody > tr { display: block; }
+  .cell {
+    letter-spacing: 0;
+    display: inline-block;
+    padding: ($gallery-gutter/2);
+  }
+}
 @mixin gallery(
   $cols,
-  $gt: $gallery-gutter
+  $gt: $gallery-gutter,
+  $gallery-container: $container
 ) {
-  $gt-percentage: percentage($gt/$container);
-  @at-root (without:media) {
-    width: 100%;
-    tr { letter-spacing: -.34em; }
-    td {
-      letter-spacing: 0;
-      display: inline-block;
-      padding: ($gt-percentage/2);
-    }
+  $gt-percentage: percentage($gt/$gallery-container);
+  @at-root (without: media) { @extend %gallery-base; }
+
+  .cell { 
+    padding: ($gt-percentage/2) !important;
+    width: percentage(1/$cols) - $gt-percentage !important;
   }
-  td { width: percentage(1/$cols) - $gt-percentage !important; }
 }
