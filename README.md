@@ -2,6 +2,12 @@
 Mobile-first email framework build with scss.
 [demo](http://designdev.christianpost.com/develop/fluid-email/docs/demo.html)  
 
+**Tips**    
++ Don't use standard tags like `h1`, `h2`,...,`p`.
++ Every element only can have a maximum of one class. But if you will bring css inline later, ignore this rule.
++ Don't use css shorthand like: font: 10px/18px Arial, sans-serif.
++ Give your images a short and simple name: like logo.png, not logo_email_2011_08.png.
+
 ## Process
 1. Write you css/sass   
 2. Bring your css inline (recommend [mailermailer inliner tool](http://www.mailermailer.com/labs/tools/magic-css-inliner-tool.rwp))   
@@ -228,4 +234,5 @@ See [here](https://github.com/ganlanyuan/fluid-email/blob/master/changelog.md)
 <http://jackosborne.com/articles/responsive-email-design/>   
 <http://blog.fogcreek.com/responsive-html-emails-a-different-strategy/>   
 <https://www.campaignmonitor.com/guides/mobile/>  
+<http://webdesign.tutsplus.com/tutorials/what-you-should-know-about-html-email--webdesign-12908>   
 [ink](http://zurb.com/ink/)
