@@ -166,7 +166,7 @@ $border-radius (optional): null | px | em | % ...
 // e.g.
 .show-on-mobile { @include visible(screen, 800px);
 .show-on-desktop { @include hidden(null, 400px 800px);
-// only works on the platform that support CSS3 mediaquery
+// only works on the platforms that support CSS3 mediaquery
 ````
 
 ## Compatibility
