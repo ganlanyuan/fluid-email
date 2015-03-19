@@ -1,5 +1,9 @@
 # Changlog
 
+### v0.0.5
+1. Update `grid`, now you don't need to put tags directly next to each other in html.
+2. Update `gallery`: automaticly set width for each gallery cell on the platfroms that don't support CSS3 mediaquery.
+
 ### v0.0.4
 1. Fix `gallery`, `grid`.
 2. Simplify `button`.
