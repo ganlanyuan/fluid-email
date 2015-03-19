@@ -164,6 +164,7 @@ $border-radius (optional): null | px | em | % ...
 .header { @include bp-mi(480) {...} }  // output: @media (min-width: 30em) { .header {...}; }
 ````
 ## Compatibility
+*-fully supported--*
 **Desktop Clients**  
 Apple Mail 7 ✓   
 Apple Mail 8 ✓   
@@ -202,6 +203,7 @@ Yahoo! Mail (Chrome) ✓
 **other**
 Color Blindness ✓ 
 
+*--not fully supported--*
 Lotus Notes 6.5 ✗  
 Lotus Notes 7 ✗  
 Outlook 2007 ✗  
