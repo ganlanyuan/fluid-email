@@ -164,7 +164,7 @@ $border-radius (optional): null | px | em | % ...
 .header { @include bp-mi(480) {...} }  // output: @media (min-width: 30em) { .header {...}; }
 ````
 ## Compatibility
-_Desktop Clients_  
+**Desktop Clients**  
 Apple Mail 7 ✓   
 Apple Mail 8 ✓   
 Lotus Notes 8 ✓   
@@ -176,7 +176,7 @@ Outlook 2011 ✓
 Outlook 2016 ✓   
 Thunderbird 31 ✓   
 
-_Mobile Clients_  
+**Mobile Clients**  
 Android 2.3 ✓   
 Android 4.2 ✓   
 iPad (Retina) ✓   
@@ -187,7 +187,7 @@ iPhone 6 ✓
 iPhone 6 Plus ✓  
 Windows Phone 8 ✓  
 
-_Web-based Clients_  
+**Web-based Clients**  
 AOL Mail (Firefox) ✓  
 Gmail (Explorer) ✓  
 Gmail (Firefox) ✓  
@@ -199,7 +199,7 @@ Yahoo! Mail (Explorer) ✓
 Yahoo! Mail (Firefox) ✓  
 Yahoo! Mail (Chrome) ✓  
 
-_other_
+**other**
 Color Blindness ✓ 
 
 Lotus Notes 6.5 ✗  
