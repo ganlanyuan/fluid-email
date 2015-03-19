@@ -206,7 +206,7 @@ Yahoo! Mail (Explorer) ✓
 Yahoo! Mail (Firefox) ✓  
 Yahoo! Mail (Chrome) ✓  
 
-**other**
+**other**  
 Color Blindness ✓ 
 
 *--partly supported or non-support--*  
