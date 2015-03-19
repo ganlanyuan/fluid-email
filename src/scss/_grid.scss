@@ -1,6 +1,8 @@
 // *** Grid *** //
 
 // columns
+.row { letter-spacing: -0.34em; }
+
 @mixin col(
   $col,
   $cols: $columns,
@@ -15,13 +17,14 @@
   // desktop, non-mediaquery
   @at-root (without: media) {
     @if $col < $cols {
-      padding-bottom: $gutter;
       display: inline-block;
+      letter-spacing: 0;
+      padding-bottom: $gutter;
+      width: ($col * $container / $cols) - ($gutter / 2);
+      max-width: 100%;
       @if not $last or $last == null {
         padding-right: $gutter;
-        width: ($col * $container / $cols) - $gutter;
       }
-      @else { width: ($col * $container / $cols); }
     }
   }
 
@@ -36,5 +39,6 @@
   $col,
   $cols: $columns
 ){
+  letter-spacing: 0;
   width: percentage($col/$cols);
 }

@@ -3,9 +3,6 @@
 %gallery-base {
   width: 100%;
   letter-spacing: -0.34em; 
-  &,
-  & > tbody,
-  & > tbody > tr { display: block; }
   .cell {
     letter-spacing: 0;
     display: inline-block;
@@ -18,8 +15,16 @@
   $gallery-container: $container
 ) {
   $gt-percentage: percentage($gt/$gallery-container);
-  @at-root (without: media) { @extend %gallery-base; }
+  @at-root (without: media) { 
+    @extend %gallery-base; 
+    // non-mediaquery
+    .cell {
+      padding: ($gt / 2);
+      width: (($gallery-container / $cols) - $gt);
+    }
+  }
 
+  // mediaquery
   .cell { 
     padding: ($gt-percentage/2) !important;
     width: percentage(1/$cols) - $gt-percentage !important;
