@@ -2,56 +2,6 @@
 Mobile-first email framework build with scss.
 [demo](http://designdev.christianpost.com/develop/fluid-email/docs/demo.html)  
 
-## Compatibility
-*Desktop Clients*  
-Apple Mail 7 ✓   
-Apple Mail 8 ✓   
-Lotus Notes 8 ✓   
-Lotus Notes 8.5 ✓   
-Outlook 2000 ✓   
-Outlook 2002 ✓   
-Outlook 2003 ✓   
-Outlook 2011 ✓   
-Outlook 2016 ✓   
-Thunderbird 31 ✓   
-
-*Mobile Clients*  
-Android 2.3 ✓   
-Android 4.2 ✓   
-iPad (Retina) ✓   
-iPad Mini ✓   
-iPhone 5s (iOS 7) ✓  
-iPhone 5s (iOS 8) ✓  
-iPhone 6 ✓  
-iPhone 6 Plus ✓  
-Windows Phone 8 ✓  
-
-*Web-based Clients*  
-AOL Mail (Firefox) ✓  
-Gmail (Explorer) ✓  
-Gmail (Firefox) ✓  
-Gmail (Chrome) ✓  
-Outlook.com (Explorer) ✓  
-Outlook.com (Firefox) ✓  
-Outlook.com (Chrome) ✓  
-Yahoo! Mail (Explorer) ✓  
-Yahoo! Mail (Firefox) ✓  
-Yahoo! Mail (Chrome) ✓  
-
-*other*
-Color Blindness ✓ 
-
-Lotus Notes 6.5 ✗  
-Lotus Notes 7 ✗  
-Outlook 2007 ✗  
-Outlook 2010 ✗  
-Outlook 2013 ✗  
-Gmail App (Android) ✗  
-BlackBerry 4 OS ✗  
-BlackBerry 5 OS ✗  
-AOL Mail (Explorer) ✗  
-AOL Mail (Chrome) ✗
-
 ## Process
 1. Write you css/sass   
 2. Bring your css inline (recommend [mailermailer inliner tool](http://www.mailermailer.com/labs/tools/magic-css-inliner-tool.rwp))   
@@ -213,6 +163,55 @@ $border-radius (optional): null | px | em | % ...
 @include bp-mm(480, 640) {...}  // output: @media (min-width: 30em) and (max-width: 40em) {...}
 .header { @include bp-mi(480) {...} }  // output: @media (min-width: 30em) { .header {...}; }
 ````
+## Compatibility
+_Desktop Clients_  
+Apple Mail 7 ✓   
+Apple Mail 8 ✓   
+Lotus Notes 8 ✓   
+Lotus Notes 8.5 ✓   
+Outlook 2000 ✓   
+Outlook 2002 ✓   
+Outlook 2003 ✓   
+Outlook 2011 ✓   
+Outlook 2016 ✓   
+Thunderbird 31 ✓   
+
+_Mobile Clients_  
+Android 2.3 ✓   
+Android 4.2 ✓   
+iPad (Retina) ✓   
+iPad Mini ✓   
+iPhone 5s (iOS 7) ✓  
+iPhone 5s (iOS 8) ✓  
+iPhone 6 ✓  
+iPhone 6 Plus ✓  
+Windows Phone 8 ✓  
+
+_Web-based Clients_  
+AOL Mail (Firefox) ✓  
+Gmail (Explorer) ✓  
+Gmail (Firefox) ✓  
+Gmail (Chrome) ✓  
+Outlook.com (Explorer) ✓  
+Outlook.com (Firefox) ✓  
+Outlook.com (Chrome) ✓  
+Yahoo! Mail (Explorer) ✓  
+Yahoo! Mail (Firefox) ✓  
+Yahoo! Mail (Chrome) ✓  
+
+_other_
+Color Blindness ✓ 
+
+Lotus Notes 6.5 ✗  
+Lotus Notes 7 ✗  
+Outlook 2007 ✗  
+Outlook 2010 ✗  
+Outlook 2013 ✗  
+Gmail App (Android) ✗  
+BlackBerry 4 OS ✗  
+BlackBerry 5 OS ✗  
+AOL Mail (Explorer) ✗  
+AOL Mail (Chrome) ✗
 
 ## Changelog
 See [here](https://github.com/ganlanyuan/fluid-email/blob/master/changelog.md)
