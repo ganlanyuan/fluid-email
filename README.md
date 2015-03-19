@@ -48,18 +48,19 @@ $gallery-gutter: 20px;
 **Grid**  
 You should use `attribute selectors` in your media queries to avoid a glitch which appears in Yahoo! Mail. Please refer to [this article](https://www.campaignmonitor.com/blog/post/3457/media-query-issues-in-yahoo-mail-mobile-email/).   
 ```` html
-<table class="container">
+<table class="row">
   <tr>
     <td class="column-left">
       column left
-    </td><td class="column-right"> <!-- Make sure the tags are directly next to each other -->
+    </td>
+    <td class="column-right">
       column right
     </td>
   </tr>
 </table>
 ````
 ```` sass
-@include col($col, $cols: $columns, $gt: $gutter, $last: false);
+@include col($col, $cols, $gt, $last);
 $col: num // column
 $cols (optional): num // columns
 $gt (optional): px // $gutter
@@ -79,11 +80,12 @@ $last (optional): false | true // last column
 **Sub-grid**  
 Sub grid will works on all screen sizes.
 ```` html
-<table>
+<table class="row">
   <tr>
     <td class="sub-column-4">
       <a href=""><img src="http://placehold.it/300x250" alt="" class="fluid" /></a>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sint perferendis nostrum ipsam fugiat? Expedita vel impedit culpa accusantium <a href="">sit fugit commodi est a eaque nihil, quae recusandae voluptate</a> exercitationem.
-    </td><td class="sub-column-8"> <!-- Make sure the tags are directly next to each other -->
+    </td>
+    <td class="sub-column-8">
       Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sint perferendis nostrum ipsam fugiat? Expedita vel impedit culpa accusantium sit fugit commodi est a eaque nihil, quae recusandae voluptate exercitationem.
     </td>
   </tr>
@@ -103,38 +105,30 @@ $cols (optional): num // columns
 ```` html
 <table class="block-4">
   <tr>
-    <td>
-      item 01
-    </td><td> <!-- Make sure the tags are directly next to each other -->
-      item 02
-    </td><td>
-      item 03
-    </td><td>
-      item 04
-    </td><!--[if (gte mso 9)|(IE)]><tr></tr><![endif]--><td>
-      item 05
-    </td><td>
-      item 06
-    </td><td>
-      item 07
-    </td><td>
-      item 08
-    </td>
+    <td> item 01 </td>
+    <td> item 02 </td>
+    <td> item 03 </td>
+    <td> item 04 </td>
+    <!--[if (gte mso 9)|(IE)]><tr></tr><![endif]-->
+    <td> item 05 </td>
+    <td> item 06 </td>
+    <td> item 07 </td>
+    <td> item 08 </td>
   </tr>
 </table>
 ````
 ```` sass
-@include gallery($cols, $gt: $gallery-gutter, $gallery-container: $container);
+@include gallery($cols, $gt, $gallery-container);
 $cols: num // columns
 $gt (optional): px // gallery-gutter
 $gallery-container (optional): px // gallery-container
 
 // e.g.
 @include bp-mi(480px) {
- [class="block-4"] { @include gallery(3); }
+ [class~="block-4"] { @include gallery(3); }
 }
 @include bp-mi(480px) {
- [class="block-4"] { @include gallery(4); }
+ [class=~"block-4"] { @include gallery(4); }
 }
 ````
 
@@ -145,7 +139,7 @@ $gallery-container (optional): px // gallery-container
 </td>
 ````
 ```` sass
-@include button($background-color: #3ab7e4, $padding: 15px 20px, $border-radius: 3px);
+@include button($background-color, $padding, $border-radius);
 $background-color (optional): null | Hex | rgb | ...
 $padding (optional): null | px | em | rem
 $border-radius (optional): null | px | em | % ...
@@ -163,6 +157,18 @@ $border-radius (optional): null | px | em | % ...
 @include bp-mm(480, 640) {...}  // output: @media (min-width: 30em) and (max-width: 40em) {...}
 .header { @include bp-mi(480) {...} }  // output: @media (min-width: 30em) { .header {...}; }
 ````
+
+**Visibility**  
+````
+@include visible($media, $bp...);
+@include hidden($media, $bp...);
+
+// e.g.
+.show-on-mobile { @include visible(screen, 800px);
+.show-on-desktop { @include hidden(null, 400px 800px);
+// only works on the platform that support CSS3 mediaquery
+````
+
 ## Compatibility
 *--fully supported--*  
 **Desktop Clients**  
@@ -203,7 +209,7 @@ Yahoo! Mail (Chrome) ✓
 **other**
 Color Blindness ✓ 
 
-*--not fully supported--*  
+*--partly supported or non-support--*  
 Lotus Notes 6.5 ✗  
 Lotus Notes 7 ✗  
 Outlook 2007 ✗  
