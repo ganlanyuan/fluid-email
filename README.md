@@ -105,15 +105,15 @@ $cols (optional): num // columns
 ```` html
 <table class="block-4">
   <tr>
-    <td> item 01 </td>
-    <td> item 02 </td>
-    <td> item 03 </td>
-    <td> item 04 </td>
+    <td class="cell"> item 01 </td>
+    <td class="cell"> item 02 </td>
+    <td class="cell"> item 03 </td>
+    <td class="cell"> item 04 </td>
     <!--[if (gte mso 9)|(IE)]><tr></tr><![endif]-->
-    <td> item 05 </td>
-    <td> item 06 </td>
-    <td> item 07 </td>
-    <td> item 08 </td>
+    <td class="cell"> item 05 </td>
+    <td class="cell"> item 06 </td>
+    <td class="cell"> item 07 </td>
+    <td class="cell"> item 08 </td>
   </tr>
 </table>
 ````
