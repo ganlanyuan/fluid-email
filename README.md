@@ -159,7 +159,7 @@ $border-radius (optional): null | px | em | % ...
 ````
 
 **Visibility**  
-````
+```` sass
 @include visible($media, $bp...);
 @include hidden($media, $bp...);
 
