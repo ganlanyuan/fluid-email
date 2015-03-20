@@ -1,6 +1,6 @@
 # Fluid-email
 Mobile-first email framework build with scss.
-[demo](http://designdev.christianpost.com/develop/fluid-email/docs/demo.html)  
+[demo](http://designdev.christianpost.com/develop/fluid-email/docs/demo.html) [tests](https://litmus.com/pub/b160eab/screenshots)  
 
 **Tips**    
 + Don't use standard tags like `h1`, `h2`,...,`p`.
@@ -176,32 +176,40 @@ $border-radius (optional): null | px | em | % ...
 ````
 
 ## Compatibility
-*--fully supported--*  
-**Desktop Clients**  
-Apple Mail 7 ✓   
-Apple Mail 8 ✓   
-Lotus Notes 8 ✓   
-Lotus Notes 8.5 ✓   
-Outlook 2000 ✓   
-Outlook 2002 ✓   
-Outlook 2003 ✓   
-Outlook 2011 ✓   
-Outlook 2016 ✓   
-Thunderbird 31 ✓   
+**Desktop Clients**
+Apple Mail 7 ✓  
+Apple Mail 8 ✓  
+Lotus Notes 6.5 ✗  
+Lotus Notes 7 ✗  
+Lotus Notes 8 ✓  
+Lotus Notes 8.5 ✓  
+Outlook 2000 ✓  
+Outlook 2002 ✓  
+Outlook 2003 ✓  
+Outlook 2007 ✓  
+Outlook 2010 ✓  
+Outlook 2011 ✓  
+Outlook 2013 ✓  
+Outlook 2016 ✓  
+Thunderbird 31 ✓  
 
-**Mobile Clients**  
-Android 2.3 ✓   
-Android 4.2 ✓   
-iPad (Retina) ✓   
-iPad Mini ✓   
+**Mobile Clients**
+Android 2.3 ✓  
+Android 4.2 ✓  
+Gmail App (Android) ✓  
+BlackBerry 5 OS ✗  
+iPad (Retina) ✓  
+iPad Mini ✓  
 iPhone 5s (iOS 7) ✓  
 iPhone 5s (iOS 8) ✓  
 iPhone 6 ✓  
 iPhone 6 Plus ✓  
 Windows Phone 8 ✓  
 
-**Web-based Clients**  
+**Web-based Clients**
+AOL Mail (Explorer) ✗  
 AOL Mail (Firefox) ✓  
+AOL Mail (Chrome) ✗  
 Gmail (Explorer) ✓  
 Gmail (Firefox) ✓  
 Gmail (Chrome) ✓  
@@ -210,22 +218,7 @@ Outlook.com (Firefox) ✓
 Outlook.com (Chrome) ✓  
 Yahoo! Mail (Explorer) ✓  
 Yahoo! Mail (Firefox) ✓  
-Yahoo! Mail (Chrome) ✓  
-
-**other**  
-Color Blindness ✓ 
-
-*--partly supported or non-support--*  
-Lotus Notes 6.5 ✗  
-Lotus Notes 7 ✗  
-Outlook 2007 ✗  
-Outlook 2010 ✗  
-Outlook 2013 ✗  
-Gmail App (Android) ✗  
-BlackBerry 4 OS ✗  
-BlackBerry 5 OS ✗  
-AOL Mail (Explorer) ✗  
-AOL Mail (Chrome) ✗
+Yahoo! Mail (Chrome) ✓   
 
 ## Changelog
 See [here](https://github.com/ganlanyuan/fluid-email/blob/master/changelog.md)
