@@ -15,16 +15,14 @@
 }
 @mixin gallery(
   $cols,
-  $gt: $gallery-gutter,
   $gallery-container: $container
 ) {
-  $gt-percentage: percentage($gt/$gallery-container);
+  $gt-percentage: percentage($gallery-gutter/$gallery-container);
   @at-root (without: media) { 
     @extend %gallery-base; 
     // non-mediaquery
     .cell {
-      @if $gt != $gallery-gutter { padding: ($gt / 2); }
-      width: (($gallery-container / $cols) - $gt);
+      width: (($gallery-container / $cols) - $gallery-gutter);
       > table { width: 100%; }
     }
   }

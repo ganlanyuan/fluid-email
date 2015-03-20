@@ -1,7 +1,8 @@
 # Changlog
 
-### v0.0.6
+### v0.1.0
 1. Fix a layout issue on `Outlook 2007/2010/2013` and `Gmail App (Android)`.
+2. Simplify `grid` and `gallery`.
 
 ### v0.0.5
 1. Update `grid`, now you don't need to put tags directly next to each other in html.
