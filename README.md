@@ -26,12 +26,14 @@ $ git clone https://github.com/ganlanyuan/fluid-email.git
 
 ## Usage
 **Basic structure**   
-We use `container`to constrain the main content on bigger screen, but since Lotus Notes 8 & Outlook don't support `max-width`, we need add a conditional wherever we use `container`. You can change the `container` width in setting.scss. 
+We use `container`to constrain the main content on bigger screen, but since Lotus Notes 8 & Outlook don't support `max-width`, we need add a conditional wherever we use `container`. You can change the `container` width in setting.scss.   
+`center` element is required to fix an layout issue on Gmail App (Android).
 ```` html
 <table class="body">
   <tr>
     <td>
-      <!--[if (gte mso 9)|(IE)]><table width="650" align="center" cellpadding="0" cellspacing="0" border="0" style="width: 650px; margin: 0 auto;" ><tr><td><![endif]-->
+      <center>
+      
       <table class="container">
         <tr>
           <td>
@@ -39,7 +41,8 @@ We use `container`to constrain the main content on bigger screen, but since Lotu
           </td>
         </tr>
       </table>
-      <!--[if (gte mso 9)|(IE)]></td></tr></table><![endif]-->
+      
+      </center>
     </td>
   </tr>
 </table>
@@ -55,7 +58,7 @@ $gallery-gutter: 20px;
 **Grid**  
 You should use `attribute selectors` in your media queries to avoid a glitch which appears in Yahoo! Mail. Please refer to [this article](https://www.campaignmonitor.com/blog/post/3457/media-query-issues-in-yahoo-mail-mobile-email/).   
 ```` html
-<table class="row">
+<table class="wrapper">
   <tr>
     <td class="column-left">
       column left
@@ -67,16 +70,15 @@ You should use `attribute selectors` in your media queries to avoid a glitch whi
 </table>
 ````
 ```` sass
-@include col($col, $cols, $gt, $last);
+@include col($col, $cols, $last);
 $col: num // column
 $cols (optional): num // columns
-$gt (optional): px // $gutter
 $last (optional): false | true // last column
 
 // e.g.
 @include bp-mi(600px) {
   [class~="column-left"] { @include col(8); }
-  [class~="column-right"] { @include col(4, null, null, true, 480); }
+  [class~="column-right"] { @include col(4, null, true); }
 }
 @include bp-ma(599px) {
   [class~="column-left"],
@@ -87,7 +89,7 @@ $last (optional): false | true // last column
 **Sub-grid**  
 Sub grid will works on all screen sizes.
 ```` html
-<table class="row">
+<table class="wrapper">
   <tr>
     <td class="sub-column-4">
       <a href=""><img src="http://placehold.it/300x250" alt="" class="fluid" /></a>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sint perferendis nostrum ipsam fugiat? Expedita vel impedit culpa accusantium <a href="">sit fugit commodi est a eaque nihil, quae recusandae voluptate</a> exercitationem.
@@ -125,9 +127,8 @@ $cols (optional): num // columns
 </table>
 ````
 ```` sass
-@include gallery($cols, $gt, $gallery-container);
+@include gallery($cols, $gallery-container);
 $cols: num // columns
-$gt (optional): px // gallery-gutter
 $gallery-container (optional): px // gallery-container
 
 // e.g.
