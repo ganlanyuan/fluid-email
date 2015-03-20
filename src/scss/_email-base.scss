@@ -11,14 +11,14 @@ body{
   padding:0;
 }
 div, p, a, li, td { -webkit-text-size-adjust: none; } // Override the minimum font size on the iPhone and iPad
-table, tr, td {
+table, tr, td { text-align: left; }
+table, td {
   padding: 0;
   vertical-align: top;
 }
 table {
   border-spacing: 0;
   border-collapse: collapse;
-  width: 100%;
 }
 td {
   word-break: break-word;
@@ -37,7 +37,6 @@ img {
     height: auto !important;
   }
 }
-center { width: 100%; }
 hr {
   color: $line-color;
   background-color: $line-color;
@@ -48,11 +47,14 @@ table.body {
   height: 100%;
   width: 100%;
 }
+table.body center { 
+  width: 100%;
+  min-width: $container; 
+}
 table.container {
-  width: 94%;
-  max-width: $container;
+  width: $container;
   margin: 0 auto;
-  // text-align: inherit;
+  text-align: inherit;
 }
 .center { text-align: center; }
 $ad: (120, 160, 240, 250, 300, 320, 468);
@@ -66,8 +68,7 @@ $ad: (120, 160, 240, 250, 300, 320, 468);
 }
 
 /* Typography */
-body, table.body, td {
-  padding:0;
+table.body, td {
   margin: 0;
 }
 body, table.body {
@@ -108,6 +109,7 @@ img.center {
 body.outlook p { display: inline !important; }
 
 // for Apple Mail (it doesn't support max-width)
-@include bp-mi($container + 20px) { 
-  table.container { width: $container !important;  }  
+@include bp-ma($container + 20px) { 
+  table[class="container"] { width: 92% !important;  }  
+  table[class="body"] center { min-width: 0 !important; }
 }

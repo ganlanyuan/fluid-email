@@ -1,5 +1,8 @@
 # Changlog
 
+### v0.0.6
+1. Fix a layout issue on `Outlook 2007/2010/2013` and `Gmail App (Android)`.
+
 ### v0.0.5
 1. Update `grid`, now you don't need to put tags directly next to each other in html.
 2. Update `gallery`: automaticly set width for each gallery cell on the platfroms that don't support CSS3 mediaquery.

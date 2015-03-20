@@ -1,37 +1,36 @@
 // *** Grid *** //
 
 // columns
-.row { letter-spacing: -0.34em; }
+.wrapper { 
+  letter-spacing: -0.34em; 
+  &,
+  & > tbody,
+  & > tbody > tr { display: block; }
+}
 
 @mixin col(
   $col,
   $cols: $columns,
-  $gt: $gutter,
   $last: false
 ){
   @if not $cols or $cols == null { $cols: $columns; }
-  @if not $gt or $gt == null { $gt: $gutter; }
-  $gt-percentage: percentage($gt/$container);
-  $col-percentage: percentage(($container - $gt * ($cols - 1)) / ($container * $cols));
+  $one-column: ((($container + $gutter) / $cols) - $gutter);
 
   // desktop, non-mediaquery
-  @at-root (without: media) {
-    @if $col < $cols {
-      display: inline-block;
-      letter-spacing: 0;
-      padding-bottom: $gutter;
-      width: ($col * $container / $cols) - ($gutter / 2);
-      max-width: 100%;
-      @if not $last or $last == null {
-        padding-right: $gutter;
-      }
-    }
+  @if $col < $cols {
+    display: inline-block;
+    letter-spacing: 0;
+    padding-bottom: $gutter;
+    width: ($one-column * $col + $gutter * ($col - 1));
+    max-width: 100%;
+    @if not $last or $last == null { padding-right: $gutter; }
   }
 
   // mediaquery
-  @if not $last or $last == null { padding-right: $gt-percentage !important; }
-  @if $col < $cols { display: table-cell !important; }
-  width: $col-percentage * $col + $gt-percentage * ($col - 1) !important;
+  @media screen and (max-width: $container) {
+    padding-right: 0 !important; 
+    width: 100% !important;
+  }
 }
 
 // sub columns
