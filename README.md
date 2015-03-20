@@ -222,9 +222,9 @@ Yahoo! Mail (Firefox) ✓
 Yahoo! Mail (Chrome) ✓   
 
 ## Things need to be fixed
-**max-width**  
+**Max-width**  
 lotus 6.5/7  
-**gallery shows in one line**  
+**Gallery shows in one line**  
 lotus 6.5/7  
 AOL Mail (IE and chrome)  
 
