@@ -1,6 +1,7 @@
 # Fluid-email
 Mobile-first email framework build with scss.  
-[[demo]](http://designdev.christianpost.com/develop/fluid-email/docs/demo.html)     [[view tests]](https://litmus.com/pub/b160eab/screenshots)  
+[[demo]](http://designdev.christianpost.com/develop/fluid-email/docs/demo.html)     
+[[view tests]](https://litmus.com/pub/b160eab/screenshots)  
 
 **Tips**    
 + Don't use standard tags like `h1`, `h2`,...,`p`.
