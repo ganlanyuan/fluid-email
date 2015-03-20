@@ -221,6 +221,13 @@ Yahoo! Mail (Explorer) ✓
 Yahoo! Mail (Firefox) ✓  
 Yahoo! Mail (Chrome) ✓   
 
+## Things need to be fixed
+**max-width**  
+lotus 6.5/7  
+**gallery shows in one line**  
+lotus 6.5/7  
+AOL Mail (IE and chrome)  
+
 ## Changelog
 See [here](https://github.com/ganlanyuan/fluid-email/blob/master/changelog.md)
 
