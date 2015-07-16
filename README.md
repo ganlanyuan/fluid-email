@@ -70,19 +70,18 @@ You should use `attribute selectors` in your media queries to avoid a glitch whi
 </table>
 ````
 ```` sass
-@include col($col, $cols, $last);
-$col: num // column
-$cols (optional): num // columns
-$last (optional): false | true // last column
+@mixin span($key);
+// pattern
+$key: ($column of $columns) last
 
-// e.g.
-@include bp-mi(600px) {
+// Usage
+@include bp(min 600) {
   [class~="column-left"] { @include col(8); }
-  [class~="column-right"] { @include col(4, null, true); }
+  [class~="column-right"] { @include col(4 last); }
 }
-@include bp-ma(599px) {
+@include bp(max 599) {
   [class~="column-left"],
-  [class~="column-right"] { @include col(12, $last: true); }
+  [class~="column-right"] { @include col(12 last); }
 }
 ````
 
@@ -101,43 +100,13 @@ Sub grid will works on all screen sizes.
 </table>
 ````
 ```` sass
-@include sub-col($col,$cols: $columns);
-$col: num // column
-$cols (optional): num // columns
+@mixin sub-span($key)
+// pattern
+$key: $column of $columns
 
-// e.g.
-.sub-column-4 { @include sub-col(4,12); padding-right: 5%;}
-.sub-column-8 { @include sub-col(8,12); }
-````
-
-**Gallery**  
-```` html
-<table class="block-4">
-  <tr>
-    <td class="cell"> item 01 </td>
-    <td class="cell"> item 02 </td>
-    <td class="cell"> item 03 </td>
-    <td class="cell"> item 04 </td>
-    <!--[if (gte mso 9)|(IE)]><tr></tr><![endif]-->
-    <td class="cell"> item 05 </td>
-    <td class="cell"> item 06 </td>
-    <td class="cell"> item 07 </td>
-    <td class="cell"> item 08 </td>
-  </tr>
-</table>
-````
-```` sass
-@include gallery($cols, $gallery-container);
-$cols: num // columns
-$gallery-container (optional): px // gallery-container
-
-// e.g.
-@include bp-mi(480px) {
- [class~="block-4"] { @include gallery(3); }
-}
-@include bp-mi(480px) {
- [class=~"block-4"] { @include gallery(4); }
-}
+// Usage
+.sub-column-4 { @include sub-span(4 of 12); padding-right: 5%;}
+.sub-column-8 { @include sub-span(8 of 12); }
 ````
 
 **Button**  
@@ -147,33 +116,34 @@ $gallery-container (optional): px // gallery-container
 </td>
 ````
 ```` sass
-@include button($background-color, $padding, $border-radius);
-$background-color (optional): null | Hex | rgb | ...
-$padding (optional): null | px | em | rem
-$border-radius (optional): null | px | em | % ...
+@mixin button($key)
+// pattern
+$key: $background-color $padding $border-radius
 
-// e.g.
+// Usage
 .button { 
-  @include button(#25d6ec, 10px 15px, 3px); 
+  @include button(#25d6ec '10px 15px' 3px); 
 }
 ````
 
 **Breakpoint**  
 ```` sass
-@include bp-mi(480) {...}  // output: @media (min-width: 30em) {...}
-@include bp-ma(480, screen) {...}  // output: @media screen and (max-width: 30em) {...}
-@include bp-mm(480, 640) {...}  // output: @media (min-width: 30em) and (max-width: 40em) {...}
-.header { @include bp-mi(480) {...} }  // output: @media (min-width: 30em) { .header {...}; }
+@include bp(min 480) {...}  // output: @media (min-width: 30em) {...}
+@include bp(max 480 screen) {...}  // output: @media screen and (max-width: 30em) {...}
+@include bp(480 640) {...}  // output: @media (min-width: 30em) and (max-width: 40em) {...}
+.header { @include bp(min 480) {...} }  // output: @media (min-width: 30em) { .header {...}; }
 ````
 
 **Visibility**  
 ```` sass
-@include visible($media, $bp...);
-@include hidden($media, $bp...);
+@include visible($key);
+@include hidden($key);
+// pattern
+$key: $media $breakpoints
 
-// e.g.
-.show-on-mobile { @include visible(screen, 800px);
-.show-on-desktop { @include hidden(null, 400px 800px);
+// Usage
+.show-on-mobile { @include visible(screen 800);
+.show-on-desktop { @include hidden(null 400 800);
 // only works on the platforms that support CSS3 mediaquery
 ````
 
@@ -225,9 +195,6 @@ Yahoo! Mail (Chrome) ✓
 ## Things need to be fixed
 **Max-width**  
 lotus 6.5/7  
-**Gallery shows in one line**  
-lotus 6.5/7  
-AOL Mail (IE and chrome)  
 
 ## Changelog
 See [here](https://github.com/ganlanyuan/fluid-email/blob/master/changelog.md)

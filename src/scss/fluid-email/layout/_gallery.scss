@@ -1,0 +1,49 @@
+// *** gallery *** //
+
+@mixin gallery($key) {
+  $per-row: 1;
+  $gallery-container: $container;
+
+  // set up per-row, gallery-container
+  @if type-of($key) == 'number' {
+    $per-row: $key;
+  } @else if type-of($key) == 'list' {
+    @each $item in $key {
+      @if type-of($item) == 'number' {
+        @if unitless($item) {
+          $per-row: $item;
+        } @else {
+          $gallery-container: $item;
+        }
+      }
+    }
+  }
+
+  $gt-percentage: percentage($gallery-gutter/$gallery-container);
+  
+  @at-root (without: media) {
+    width: 100%;
+    letter-spacing: -0.34em; 
+    text-align: center;
+    .cell {
+      letter-spacing: 0;
+      display: inline-block;
+      padding: ($gallery-gutter/2);
+    }
+    &,
+    & > tbody,
+    & > tbody > tr { display: block; }
+
+    // non-mediaquery
+    .cell {
+      width: (($gallery-container / $per-row) - $gallery-gutter);
+      > table { width: 100%; }
+    }
+  }
+
+  // mediaquery
+  .cell { 
+    padding: ($gt-percentage/2) !important;
+    width: percentage(1/$per-row) - $gt-percentage !important;
+  }
+}

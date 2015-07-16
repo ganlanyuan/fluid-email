@@ -1,5 +1,5 @@
 // *** demo *** //
-@import '../../src/scss/fluid-email';
+@import '../../src/scss/fluid-email/fluid-email';
 
 
 .h4 {
@@ -11,7 +11,7 @@
 }
 .h5 {
   padding-bottom: 10px;
-  font-size: 13px;
+  font-size: 13px !important;
   line-height: 1.3;
   font-weight: bold;
   font-family: Georgia, serif;
@@ -26,29 +26,29 @@
   padding-bottom: 20px;
 }
 [class~="logo"] {
-  font-size: 36px;
+  font-size: 36px !important;
   vertical-align: baseline;
 }
 [class~="date"] {
-  @include visible(null, 600px);
+  @include visible(650);
   font-size: 12px;
   color: #777;
   text-align: right;
   vertical-align: baseline;
 }
 .button { 
-  @include button(); 
-  color: #ffffff !important;
+  @include button(#3ab7e4); 
+  color: #fff !important;
 }
 .topnews-img {
   a { display: block;}
 }
 .sub-cols-5 { 
-  @include sub-col(5);
+  @include sub-span(5);
   padding-right: 10px; 
   padding-bottom: 10px;
 }
-.sub-cols-7 { @include sub-col(7); }
+.sub-cols-7 { @include sub-span(7); }
 .gallery {
   .p { 
     font-size: 12px; 
@@ -63,19 +63,9 @@
   padding-bottom: 30px;
 }
 
-[class~="topnews-img"] { @include col(5);}
-[class~="topnews-text"] { @include col(7, $last:true);}
-[class~="column-left"] { @include col(6); }
-[class~="column-right"] { @include col(6, 12, true); }
-[class~="logo"] { @include col(4); }
-[class~="date"] { @include col(8, $last:true); }
-
-@include bp-mi(300px) {
-  [class~="gallery"] { @include gallery(2); }
-}
-@include bp-mi(480px) {
-  [class~="gallery"] { @include gallery(3); }
-}
-@include bp-mi(600px) {
-  [class~="gallery"] { @include gallery(4); }
-}
+[class~="topnews-img"] { @include span(5);}
+[class~="topnews-text"] { @include span(7 last);}
+[class~="column-left"] { @include span(6); }
+[class~="column-right"] { @include span(6 of 12 last); }
+[class~="logo"] { @include span(4); }
+[class~="date"] { @include span(8 last); }

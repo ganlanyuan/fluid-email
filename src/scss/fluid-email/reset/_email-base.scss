@@ -49,10 +49,10 @@ table.body {
 }
 table.body center { 
   width: 100%;
-  min-width: $container; 
+  // min-width: $container; 
 }
 table.container {
-  width: $container;
+  max-width: $container;
   margin: 0 auto;
   text-align: inherit;
 }
@@ -109,7 +109,10 @@ img.center {
 body.outlook p { display: inline !important; }
 
 // for Apple Mail (it doesn't support max-width)
-@include bp-ma($container + 20px) { 
+@include bp(max ($container + 20px)) { 
   table[class="container"] { width: 92% !important;  }  
   table[class="body"] center { min-width: 0 !important; }
+}
+@include bp(min ($container + 21px)) { 
+  table[class="container"] { width: $container !important;  }  
 }
