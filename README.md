@@ -2,6 +2,7 @@
 Mobile-first email framework build with scss.  
 [[demo]](http://designdev.christianpost.com/develop/fluid-email/docs/demo.html)     
 [[view tests]](https://litmus.com/pub/b160eab/screenshots)  
+[[changelog]](https://github.com/ganlanyuan/fluid-email/blob/master/changelog.md)
 
 **Tips**    
 + Don't use standard tags like `h1`, `h2`,...,`p`.
@@ -195,9 +196,6 @@ Yahoo! Mail (Chrome) ✓
 ## Things need to be fixed
 **Max-width**  
 lotus 6.5/7  
-
-## Changelog
-See [here](https://github.com/ganlanyuan/fluid-email/blob/master/changelog.md)
 
 ## Thanks and reference
 <http://jackosborne.com/articles/responsive-email-design/>   
