@@ -127,6 +127,31 @@ $key: $background-color $padding $border-radius
 }
 ````
 
+** type **
+`type` is a shorthand mixin for type.     
+```` scss
+@mixin type($key);
+// pattern
+$key: $font-size $font-weight $font-style $line-height $font-family $text-align $text-transform 
+
+h1 { @include type(20px 'Georgia, Helvetica, sans-serif' center 1.4 bold italic) }
+// font-size: 20px;
+// font-weight: bold; 
+// font-style: italic; 
+// font-family: 'Georgia, Helvetica, sans-serif';
+// text-align: center;
+// line-height: 1.4;
+
+// Tips: to set 'font-weight', 'font-style', 'text-align' or 'text-transform' value 
+// to 'inherit' or 'normal', 
+// you need add prefix 'weight-', 'style-' or 'transform-'.
+
+// $ro-font-weights: thin, hairline, 'extra light', 'ultra light', lighter, light, normal, medium, 'semi bold', 'demi bold', bold, bolder, 'extra bold', black, heavy, 100, 200, 300, 400, 500, 600, 700, 800, 900, weight-normal, weight-inherit !default;
+// $ro-font-styles: italic, oblique, style-normal, style-inherit !default;
+// $ro-text-aligns: left, right, center, justify, align-inherit !default;
+// $ro-text-transforms: capitalize, uppercase, lowercase, none, full-width, transform-inherit !default;
+````
+
 **Breakpoint**  
 ```` sass
 @include bp(min 480) {...}  // output: @media (min-width: 30em) {...}
