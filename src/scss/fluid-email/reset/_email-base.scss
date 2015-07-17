@@ -1,6 +1,5 @@
 // *** reset *** //
 
-#outlook a { padding:0; }
 body{
   width:100%;
   min-width: 100%;
@@ -19,8 +18,23 @@ table, td {
 table {
   border-spacing: 0;
   border-collapse: collapse;
+  &.body {
+    height: 100%;
+    width: 100%;
+    margin: 0;
+  }
+  &.body center { 
+    width: 100%;
+    // min-width: $container; 
+  }
+  &.container {
+    max-width: $outer-container;
+    margin: 0 auto;
+    text-align: inherit;
+  }
 }
 td {
+  margin: 0;
   word-break: break-word;
   -webkit-hyphens: auto;
   -moz-hyphens: auto;
@@ -38,25 +52,14 @@ img {
   }
 }
 hr {
-  color: $line-color;
-  background-color: $line-color;
+  color: map-get($color, border);
+  background-color: map-get($color, border);
   height: 1px;
   border: none;
 }
-table.body {
-  height: 100%;
-  width: 100%;
-}
-table.body center { 
-  width: 100%;
-  // min-width: $container; 
-}
-table.container {
-  max-width: $container;
-  margin: 0 auto;
-  text-align: inherit;
-}
-.center { text-align: center; }
+.full { width: 100%; }
+
+// ad
 $ad: (120, 160, 240, 250, 300, 320, 468);
 .ad {
   margin-left: auto;
@@ -68,9 +71,7 @@ $ad: (120, 160, 240, 250, 300, 320, 468);
 }
 
 /* Typography */
-table.body, td {
-  margin: 0;
-}
+#outlook a { padding:0; }
 body, table.body {
   color: #222222;
   font-family: Helvetica, Arial, sans-serif;
@@ -79,7 +80,7 @@ small {
   font-size: 10px;
 }
 a {
-  color: $link-color;
+  color: map-get($color, link);
   text-decoration: none;
 }
 
@@ -96,6 +97,7 @@ p,
 span {
   &.center { text-align: center; }
 }
+.center { text-align: center; }
 span.center {
   display: block;
   width: 100%;
@@ -109,10 +111,10 @@ img.center {
 body.outlook p { display: inline !important; }
 
 // for Apple Mail (it doesn't support max-width)
-@include bp(max ($container + 20px)) { 
+@include bp(max ($outer-container + 20px)) { 
   table[class="container"] { width: 92% !important;  }  
   table[class="body"] center { min-width: 0 !important; }
 }
-@include bp(min ($container + 21px)) { 
-  table[class="container"] { width: $container !important;  }  
+@include bp(min ($outer-container + 21px)) { 
+  table[class="container"] { width: $outer-container !important;  }  
 }

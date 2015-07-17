@@ -1,14 +1,26 @@
 // variables
 //-----------------------------
 // layout
-$container: 650px;
+$outer-container: 630px;
+$container: 600px;
 $columns: 12;
 $gutter: 20px;
-$gallery-gutter: 20px;
+
+// font
+$helvetica: "'Helvetica Neue', Helvetica, Arial, sans-serif";
+$arial: "Arial, Helvetica, sans-serif";
+$opensans: "'Open Sans', Arial, sans-serif";
+$lato: "'Lato', Arial, sans-serif";
+$oswald: "'Oswald', Arial, sans-serif";
+$georgia: "Georgia, 'Times New Roman', Times, Baskerville, serif";
 
 // color
-$link-color: #174c8a;
-$line-color: #e6e6e6;
+$color: (
+  'border': #e6e6e6,
+  'brand': #41bae9,
+  'bg': #f1f1f1,
+  'link': #333,
+);
 
 // base
 $ro-em-base: 16px !default;
