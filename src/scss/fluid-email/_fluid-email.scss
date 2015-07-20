@@ -24,13 +24,16 @@
 @import "addons/type";
 
 // layout
-@import "layout/grid";
+@import "layout/wrapper";
+@import "layout/span";
+@import "layout/sub-span";
+@import "layout/block";
 
 // components
 @import "components/button";
 
 // reset
-@import "reset/email-base";
+@import "reset/reset";
 
 
 // *** main *** //

@@ -1,7 +1,7 @@
 // variables
 //-----------------------------
 // layout
-$outer-container: 630px;
+$outer-container: 600px;
 $container: 600px;
 $columns: 12;
 $gutter: 20px;
@@ -21,6 +21,9 @@ $color: (
   'bg': #f1f1f1,
   'link': #333,
 );
+
+// block
+$block-align: left, center, right !default;
 
 // base
 $ro-em-base: 16px !default;

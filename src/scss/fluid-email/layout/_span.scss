@@ -1,0 +1,57 @@
+// *** span *** //
+
+@mixin span($key){
+  // merge list items
+  @each $item in $key {
+    @if type-of($item) == 'list' {
+      $key: join($item, reject($key, $item), 'space');
+    }
+  }
+  
+  $columns: ro-get-next($key, 'of', $columns);
+  $gutter: $gutter;
+
+  // set up column
+  $column: 0;
+  @if type-of($key) == 'number' {
+    $column: $key;
+  } @else if type-of($key) == 'list' {
+    @if index($key, 'of') {
+      $column: ro-get-prev($key, 'of');
+    } @else {
+      @each $item in $key {
+        @if type-of($item) == 'number' and
+            unitless($item) {
+          $column: $item;
+        }
+      }
+    }
+  }
+
+  // set up gutter
+  @each $item in $key {
+    @if type-of($item) == 'number' and 
+        not unitless($item) {
+      $gutter: $item;
+    }
+  }
+  // strip unit when gutter == 0
+  @if strip-unit($gutter) == 0 {
+    $gutter: 0;
+  }
+  
+  // desktop, non-mediaquery
+  @if $column < $columns {
+    display: inline-block;
+    font-size: 13px; // reset font-size
+    padding: ($gutter / 2);
+    width: (($column * $container / $columns) - $gutter);
+    max-width: 100%;
+  }
+
+  // mediaquery
+  @include bp(max $outer-container) {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+}

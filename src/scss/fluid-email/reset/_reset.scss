@@ -10,7 +10,7 @@ body{
   padding:0;
 }
 div, p, a, li, td { -webkit-text-size-adjust: none; } // Override the minimum font size on the iPhone and iPad
-table, tr, td { text-align: left; }
+table, td { text-align: left; }
 table, td {
   padding: 0;
   vertical-align: top;
@@ -25,7 +25,6 @@ table {
   }
   &.body center { 
     width: 100%;
-    // min-width: $container; 
   }
   &.container {
     max-width: $outer-container;
@@ -46,28 +45,19 @@ img {
   border: none;
   -ms-interpolation-mode: bicubic;
   max-width: 100%;
-  &.fluid { 
-    width: 100% !important; 
-    height: auto !important;
-  }
+  height: auto;
 }
 hr {
+  height: 1px;
+  margin-left: ($gutter / 2);
+  margin-right: ($gutter / 2);
   color: map-get($color, border);
   background-color: map-get($color, border);
-  height: 1px;
   border: none;
 }
 .full { width: 100%; }
-
-// ad
-$ad: (120, 160, 240, 250, 300, 320, 468);
-.ad {
-  margin-left: auto;
-  margin-right: auto;
-  text-align: center;
-  @each $width in $ad {
-    &-#{$width} { width: $width + px; }
-  }
+.col {
+  padding: ($gutter / 2);
 }
 
 /* Typography */
@@ -111,10 +101,10 @@ img.center {
 body.outlook p { display: inline !important; }
 
 // for Apple Mail (it doesn't support max-width)
-@include bp(max ($outer-container + 20px)) { 
-  table[class="container"] { width: 92% !important;  }  
-  table[class="body"] center { min-width: 0 !important; }
+@include bp(max $outer-container) { 
+  // table[class="container"] { width: 92% !important;  }  
+  // table[class="body"] center { min-width: 0 !important; }
 }
-@include bp(min ($outer-container + 21px)) { 
+@include bp(min ($outer-container + 1px)) { 
   table[class="container"] { width: $outer-container !important;  }  
 }

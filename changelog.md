@@ -1,5 +1,10 @@
 # Changlog
 
+### v1.1.0
++ Update `span`, `sub-span`.
++ Add `block`.
++ Fix some issues, and now it works on most email clients.
+
 ### v1.0.0
 + Update all mixins.
 + Change '.container' to make Gmail(mobile) responsive.

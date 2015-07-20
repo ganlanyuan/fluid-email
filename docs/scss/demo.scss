@@ -3,22 +3,18 @@
 
 
 .h4 {
-  margin: 0;
-  font-size: 23px;
-  line-height: 1.2;
-  font-weight: bold;
-  font-family: Georgia, serif;
+  @include type(23px 1.2 bold $georgia);
 }
 .h5 {
+  @include type(13px 1.3 bold $georgia);
   padding-bottom: 10px;
-  font-size: 13px !important;
-  line-height: 1.3;
-  font-weight: bold;
-  font-family: Georgia, serif;
+}
+.h6 {
+  @include type(13px 1.3);
+  padding-top: 6px;
 }
 .p {
-  font-size: 13px;
-  font-family: Georgia, serif;
+  @include type(13px $georgia);
   padding: 13px 0;
 }
 .gap {
@@ -47,15 +43,14 @@
   @include sub-span(5);
   padding-right: 10px; 
   padding-bottom: 10px;
+  img { width: 100%; }
 }
 .sub-cols-7 { @include sub-span(7); }
-.gallery {
-  .p { 
-    font-size: 12px; 
-    padding-top: 5px;
-    padding-bottom: 0;
-    font-family: Arial, sans-serif;
-  }
+.block-2 {
+  @include block(2);
+}
+.block-3 {
+  @include block(3);
 }
 .copyright {
   font-size: 12px;
@@ -64,8 +59,8 @@
 }
 
 [class~="topnews-img"] { @include span(5);}
-[class~="topnews-text"] { @include span(7 last);}
+[class~="topnews-text"] { @include span(7);}
 [class~="column-left"] { @include span(6); }
-[class~="column-right"] { @include span(6 of 12 last); }
+[class~="column-right"] { @include span(6 of 12); }
 [class~="logo"] { @include span(4); }
-[class~="date"] { @include span(8 last); }
+[class~="date"] { @include span(8); }

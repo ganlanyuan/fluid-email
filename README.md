@@ -1,7 +1,7 @@
 # Fluid-email
 Mobile-first email framework build with scss.  
-[[demo]](http://designdev.christianpost.com/develop/fluid-email/docs/demo.html)     
-[[view tests]](https://litmus.com/pub/b160eab/screenshots)  
+[[demo]](http://creatiointl.org/gallery/william/fluid-email/demo.html)     
+[[view tests]](https://litmus.com/pub/a4a4ad4/screenshots)  
 [[changelog]](https://github.com/ganlanyuan/fluid-email/blob/master/changelog.md)
 
 **Tips**    
@@ -73,21 +73,21 @@ You should use `attribute selectors` in your media queries to avoid a glitch whi
 ```` sass
 @mixin span($key);
 // pattern
-$key: ($column of $columns) last
+$key: ($column of $columns)
 
 // Usage
 @include bp(min 600) {
   [class~="column-left"] { @include col(8); }
-  [class~="column-right"] { @include col(4 last); }
+  [class~="column-right"] { @include col(4); }
 }
 @include bp(max 599) {
   [class~="column-left"],
-  [class~="column-right"] { @include col(12 last); }
+  [class~="column-right"] { @include col(12); }
 }
 ````
 
-**Sub-grid**  
-Sub grid will works on all screen sizes.
+**Sub-span**  
+Sub span will works on all screen sizes.
 ```` html
 <table class="wrapper">
   <tr>
@@ -106,8 +106,33 @@ Sub grid will works on all screen sizes.
 $key: $column of $columns
 
 // Usage
-.sub-column-4 { @include sub-span(4 of 12); padding-right: 5%;}
+.sub-column-4 { @include sub-span(4 of 12); }
 .sub-column-8 { @include sub-span(8 of 12); }
+````
+
+**Block**   
+```` html
+<table class="block-2">
+  <tr>
+    <td class="cell">
+      Your content goes here...
+    </td>
+    <td class="cell">
+      Your content goes here...
+    </td>
+  </tr>
+</table>
+````
+```` sass
+@mixin block($key)
+// pattern
+$key: $per-row $block-container $align
+
+// Usage
+.block-2 { @include block(2 center); }
+// $per-row: 2;
+// $block-container: $container; (default)
+// $align: center; (default: left)
 ````
 
 **Button**  
@@ -127,7 +152,7 @@ $key: $background-color $padding $border-radius
 }
 ````
 
-** type **
+**type**    
 `type` is a shorthand mixin for type.     
 ```` scss
 @mixin type($key);
@@ -177,8 +202,6 @@ $key: $media $breakpoints
 **Desktop Clients**
 Apple Mail 7 ✓  
 Apple Mail 8 ✓  
-Lotus Notes 6.5 ✗  
-Lotus Notes 7 ✗  
 Lotus Notes 8 ✓  
 Lotus Notes 8.5 ✓  
 Outlook 2000 ✓  
@@ -194,7 +217,7 @@ Thunderbird 31 ✓
 **Mobile Clients**
 Android 2.3 ✓  
 Android 4.2 ✓  
-Gmail App (Android) ✓  
+Gmail App (Android) ✓ (has some small issues)  
 BlackBerry 5 OS ✗  
 iPad (Retina) ✓  
 iPad Mini ✓  
@@ -205,9 +228,9 @@ iPhone 6 Plus ✓
 Windows Phone 8 ✓  
 
 **Web-based Clients**
-AOL Mail (Explorer) ✗  
+AOL Mail (Explorer) ✓  
 AOL Mail (Firefox) ✓  
-AOL Mail (Chrome) ✗  
+AOL Mail (Chrome) ✓  
 Gmail (Explorer) ✓  
 Gmail (Firefox) ✓  
 Gmail (Chrome) ✓  
@@ -218,13 +241,10 @@ Yahoo! Mail (Explorer) ✓
 Yahoo! Mail (Firefox) ✓  
 Yahoo! Mail (Chrome) ✓   
 
-## Things need to be fixed
-**Max-width**  
-lotus 6.5/7  
-
 ## Thanks and reference
 <http://jackosborne.com/articles/responsive-email-design/>   
 <http://blog.fogcreek.com/responsive-html-emails-a-different-strategy/>   
 <https://www.campaignmonitor.com/guides/mobile/>  
 <http://webdesign.tutsplus.com/tutorials/what-you-should-know-about-html-email--webdesign-12908>   
+<https://www.campaignmonitor.com/blog/post/4240/creating-a-centred-responsive-design-without-media-queries>    
 [ink](http://zurb.com/ink/)

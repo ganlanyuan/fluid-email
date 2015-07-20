@@ -1,0 +1,26 @@
+// *** sub-span *** //
+
+// sub span
+@mixin sub-span($key){
+  $columns: ro-get-next($key, 'of', $columns);
+
+  // set up column
+  $column: 0;
+  @if type-of($key) == 'number' {
+    $column: $key;
+  } @else if type-of($key) == 'list' {
+    @if index($key, 'of') {
+      $column: ro-get-prev($key, 'of');
+    } @else {
+      @each $item in $key {
+        @if type-of($item) == 'number' and
+            unitless($item) {
+          $column: $item;
+        }
+      }
+    }
+  }
+  
+  font-size: 13px; // reset font-size
+  width: percentage($column / $columns);
+}
