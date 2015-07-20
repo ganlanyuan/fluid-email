@@ -56,7 +56,7 @@ $columns: 12;
 $gutter: 20px;
 $gallery-gutter: 20px;
 ````
-**Grid**  
+**Span**  
 You should use `attribute selectors` in your media queries to avoid a glitch which appears in Yahoo! Mail. Please refer to [this article](https://www.campaignmonitor.com/blog/post/3457/media-query-issues-in-yahoo-mail-mobile-email/).   
 ```` html
 <table class="wrapper">
