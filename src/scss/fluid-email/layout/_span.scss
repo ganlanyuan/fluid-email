@@ -43,6 +43,7 @@
   // desktop, non-mediaquery
   @if $column < $columns {
     display: inline-block;
+    
     font-size: 13px; // reset font-size
     padding: ($gutter / 2);
     width: (($column * $container / $columns) - $gutter);
