@@ -34,4 +34,13 @@
 
   // constrict the images to container width
   img { max-width: $width; }
+
+  // mediaquery
+  @include bp(max $outer-container) {
+    .cell {
+      width: 100% !important;
+      box-sizing: border-box;
+    }
+    img { max-width: none; }
+  }
 }

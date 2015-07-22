@@ -1,5 +1,9 @@
 # Changlog
 
+### v1.1.1
++ Simplify mixins.
++ Add media query on `block`.
+
 ### v1.1.0
 + Update `span`, `sub-span`.
 + Add `block`.
