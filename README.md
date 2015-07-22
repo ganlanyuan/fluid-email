@@ -1,7 +1,7 @@
 # Fluid-email
 Mobile-first email framework build with scss.  
 [[demo]](http://creatiointl.org/gallery/william/fluid-email/demo.html)     
-[[view tests]](https://litmus.com/pub/a4a4ad4/screenshots)  
+[[view tests]](https://litmus.com/pub/86bb1de/screenshots)  
 [[changelog]](https://github.com/ganlanyuan/fluid-email/blob/master/changelog.md)
 
 **Tips**    
