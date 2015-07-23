@@ -51,10 +51,10 @@ We use `container`to constrain the main content on bigger screen, but since Lotu
 **Settings**   
 Before start using the grid, you need set up some basic setting in setting.scss.
 ```` sass
-$container: 650px;
+$outer-container: 600px;
+$container: 600px;
 $columns: 12;
 $gutter: 20px;
-$gallery-gutter: 20px;
 ````
 **Span**  
 You should use `attribute selectors` in your media queries to avoid a glitch which appears in Yahoo! Mail. Please refer to [this article](https://www.campaignmonitor.com/blog/post/3457/media-query-issues-in-yahoo-mail-mobile-email/).   
