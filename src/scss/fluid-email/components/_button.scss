@@ -2,8 +2,8 @@
 
 @mixin button ($key){
   $background-color: ro-get-type($key, 'color', false, '#3ab7e4');
-  $padding: ro-get-type($key, 'string', false, '15px 20px');
-  $border-radius: ro-get-type($key, 'number', false, 3px);
+  $padding: ro-get-type($key, 'string', $fe-button-radius, '15px 20px');
+  $radius: ro-get($key, $fe-button-radius, false);
 
   display: inline-block;
   border-style: solid;
@@ -22,6 +22,10 @@
   @if $padding { border-width: unquote($padding); }
 
   // border-radius
-  @if $border-radius { border-radius: $border-radius; }
+  @if $radius == 'radius' { 
+    border-radius: $ro-button-radius; 
+  } @else if $radius == 'round' {
+    border-radius: $ro-button-round;
+  }
 
 }

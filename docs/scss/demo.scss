@@ -21,20 +21,24 @@
   padding-top: 20px;
   padding-bottom: 20px;
 }
-[class~="logo"] {
+.logo {
   font-size: 36px !important;
   vertical-align: baseline;
 }
-[class~="date"] {
-  @include visible(650);
+.date {
+  padding-top: 17px;
   font-size: 12px;
   color: #777;
-  text-align: right;
   vertical-align: baseline;
 }
 .button { 
-  @include button(#3ab7e4); 
+  @include button(#3ab7e4 radius); 
+  margin-top: 10px;
   color: #fff !important;
+  &-2 {
+    @include button(#D80017 round);
+    margin-top: 10px;
+  }
 }
 .topnews-img {
   a { display: block;}
@@ -43,7 +47,6 @@
   @include sub-span(5);
   padding-right: 10px; 
   padding-bottom: 10px;
-  img { width: 100%; }
 }
 .sub-cols-7 { @include sub-span(7); }
 .block-2 {
@@ -62,5 +65,3 @@
 [class~="topnews-text"] { @include span(7);}
 [class~="column-left"] { @include span(6); }
 [class~="column-right"] { @include span(6 of 12); }
-[class~="logo"] { @include span(4); }
-[class~="date"] { @include span(8); }

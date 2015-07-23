@@ -23,7 +23,9 @@ $color: (
 );
 
 // block
-$block-align: left, center, right !default;
+$fe-block-align: left, center, right !default;
+// 
+$fe-button-radius: 'radius', 'round' !default;
 
 // base
 $ro-em-base: 16px !default;
@@ -54,7 +56,7 @@ $ro-offcanvas-direction: left, right !default;
 $ro-offcanvas-length: 12;
 
 // button
-$ro-button-radius: 0.22em !default;
+$ro-button-radius: 0.45em !default;
 $ro-button-round: 1000px !default;
 $ro-button-hover-lightness: 10% !default;
 

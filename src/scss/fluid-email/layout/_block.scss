@@ -3,7 +3,7 @@
 @mixin block($key) {
   $per-row: 1;
   $block-container: $container;
-  $align: ro-get($key, $block-align, left);
+  $align: ro-get($key, $fe-block-align, left);
 
   // set up per-row, block-container
   @if type-of($key) == 'number' {
