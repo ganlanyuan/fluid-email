@@ -15,16 +15,16 @@
 /// // to 'inherit' or 'normal', 
 /// // you need add prefix 'weight-', 'style-' or 'transform-'.
 /// 
-/// // $ro-font-weights: thin, hairline, 'extra light', 'ultra light', lighter, light, normal, medium, 'semi bold', 'demi bold', bold, bolder, 'extra bold', black, heavy, 100, 200, 300, 400, 500, 600, 700, 800, 900, weight-normal, weight-inherit !default;
-/// // $ro-font-styles: italic, oblique, style-normal, style-inherit !default;
-/// // $ro-text-aligns: left, right, center, justify, align-inherit !default;
-/// // $ro-text-transforms: capitalize, uppercase, lowercase, none, full-width, transform-inherit !default;
+/// // $fe-font-weights: thin, hairline, 'extra light', 'ultra light', lighter, light, normal, medium, 'semi bold', 'demi bold', bold, bolder, 'extra bold', black, heavy, 100, 200, 300, 400, 500, 600, 700, 800, 900, weight-normal, weight-inherit !default;
+/// // $fe-font-styles: italic, oblique, style-normal, style-inherit !default;
+/// // $fe-text-aligns: left, right, center, justify, align-inherit !default;
+/// // $fe-text-transforms: capitalize, uppercase, lowercase, none, full-width, transform-inherit !default;
 /// 
 /// @link http://creatiointl.org/gallery/william/rocket/addons-type.php demo
 /// @link https://github.com/ganlanyuan/rocket full document
 
 @mixin type($key){
-  $check: join(join(join($ro-font-weights, $ro-font-styles), $ro-text-aligns), $ro-text-transforms);
+  $check: join(join(join($fe-font-weights, $fe-font-styles), $fe-text-aligns), $fe-text-transforms);
 
   // set up font-size, font-weight, line-height
   $font-size: null;
@@ -46,10 +46,10 @@
 
   // set up font-family, font-weight, font-style, text-align, text-transform
   $font-family: ro-get-type($key, 'string', $check);
-  $font-weight: ro-get($key, $ro-font-weights); 
-  $font-style: ro-get($key, $ro-font-styles);
-  $text-align: ro-get($key, $ro-text-aligns);
-  $text-transform: ro-get($key, $ro-text-transforms);
+  $font-weight: ro-get($key, $fe-font-weights); 
+  $font-style: ro-get($key, $fe-font-styles);
+  $text-align: ro-get($key, $fe-text-aligns);
+  $text-transform: ro-get($key, $fe-text-transforms);
 
   // remove prefix
   @if type-of($font-weight) == 'string' {

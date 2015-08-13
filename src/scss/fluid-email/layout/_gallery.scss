@@ -1,0 +1,39 @@
+// *** gallery *** //
+
+@mixin gallery($key) {
+  $per-row: 1;
+  $gallery-container: $container;
+  $align: ro-get($key, $fe-gallery-align, left);
+
+  // set up per-row, gallery-container
+  @if type-of($key) == 'number' {
+    $per-row: $key;
+  } @else if type-of($key) == 'list' {
+    @each $item in $key {
+      @if type-of($item) == 'number' {
+        @if unitless($item) {
+          $per-row: $item;
+        } @else {
+          $gallery-container: $item;
+        }
+      }
+    }
+  }
+
+  $width: (($gallery-container / $per-row) - $gutter);
+  text-align: $align;
+  font-size: 0; // remove blank space between inline-block elements
+  letter-spacing: -0.34em; // remove blank space between inline-block elements
+
+  .cell {
+    display: inline-block;
+    padding: ($gutter / 2);
+    font-size: 16px; // restore font-size
+    letter-spacing: 0; // restore letter-spacing
+    width: $width;
+    max-width: 100%;
+  }
+
+  // constrict the images to container width
+  img { max-width: $width; }
+}

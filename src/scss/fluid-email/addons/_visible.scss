@@ -29,9 +29,9 @@
       @for $i from 1 through length($key) {
         $item: nth($key, $i);
 
-        @if index($ro-odd, $i) {
+        @if index($fe-odd, $i) {
           $item: minus-one($item);
-        } @else if index($ro-even, $i) {
+        } @else if index($fe-even, $i) {
           $item: plus-one($item);
         }
 

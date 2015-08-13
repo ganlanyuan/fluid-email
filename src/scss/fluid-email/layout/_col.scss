@@ -1,6 +1,6 @@
-// *** span *** //
+// *** col *** //
 
-@mixin span($key){
+@mixin col($key){
   // merge list items
   @each $item in $key {
     @if type-of($item) == 'list' {
@@ -44,7 +44,8 @@
   @if $column < $columns {
     display: inline-block;
     
-    font-size: 13px; // reset font-size
+    font-size: 16px; // restore font-size
+    letter-spacing: 0; // restore letter-spacing
     padding: ($gutter / 2);
     width: (($column * $container / $columns) - $gutter);
     max-width: 100%;

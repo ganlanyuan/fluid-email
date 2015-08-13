@@ -1,7 +1,7 @@
 // *** function *** //
 
 // em
-@function em($pxval, $base: $ro-em-base) {
+@function em($pxval, $base: $fe-em-base) {
   @if unit($pxval) == 'em' or unit($pxval) == 'rem' { @return $pxval; }
   @else {
     @if unit($pxval) == 'px' or unitless($pxval) { $pxval: strip-unit($pxval); }
@@ -11,7 +11,7 @@
 }
 
 // rem
-@function rem($pxval, $base: $ro-rem-base) {
+@function rem($pxval, $base: $fe-rem-base) {
   @if unit($pxval) == 'rem' or unit($pxval) == 'em' { @return $pxval; }
   @else {
     @if unit($pxval) == 'px' or unitless($pxval) { $pxval: strip-unit($pxval); }

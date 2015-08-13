@@ -1,21 +1,8 @@
 // *** fluid email *** //
 
 // base
-@import "base/mixins";
 @import "base/variables";
 @import "base/functions";
-@import "base/placeholders";
-
-// color
-@import "color/adjacent";
-@import "color/analogous";
-@import "color/complementary";
-@import "color/contrast";
-@import "color/core";
-@import "color/rectangle";
-@import "color/split-complementary";
-@import "color/square";
-@import "color/triad";
 
 // addons
 @import "addons/breakpoint";
@@ -23,17 +10,17 @@
 @import "addons/hidden";
 @import "addons/type";
 
+// reset
+@import "reset/reset";
+
 // layout
-@import "layout/wrapper";
-@import "layout/span";
-@import "layout/sub-span";
-@import "layout/block";
+@import "layout/row";
+@import "layout/col";
+@import "layout/sub-col";
+@import "layout/gallery";
 
 // components
 @import "components/button";
-
-// reset
-@import "reset/reset";
 
 
 // *** main *** //
