@@ -2,10 +2,9 @@
 
 @mixin gallery($key) {
   $per-row: 1;
-  $gallery-container: $container;
-  $align: ro-get($key, $fe-gallery-align, left);
+  $gallery-row: $row;
 
-  // set up per-row, gallery-container
+  // set up per-row, gallery-row
   @if type-of($key) == 'number' {
     $per-row: $key;
   } @else if type-of($key) == 'list' {
@@ -14,26 +13,47 @@
         @if unitless($item) {
           $per-row: $item;
         } @else {
-          $gallery-container: $item;
+          $gallery-row: $item;
         }
       }
     }
   }
 
-  $width: (($gallery-container / $per-row) - $gutter);
-  text-align: $align;
-  font-size: 0; // remove blank space between inline-block elements
-  letter-spacing: -0.34em; // remove blank space between inline-block elements
+  @extend %gallery-base;
+  $width: (($gallery-row / $per-row) - $gutter);
 
   .cell {
-    display: inline-block;
-    padding: ($gutter / 2);
-    font-size: 16px; // restore font-size
-    letter-spacing: 0; // restore letter-spacing
+    @extend %cell;
     width: $width;
-    max-width: 100%;
   }
 
   // constrict the images to container width
   img { max-width: $width; }
+}
+
+%gallery-base {
+  &,
+  > tbody,
+  > tbody > tr {
+    text-align: $gallery-align;
+  }
+  font-size: 0; // remove blank space between inline-block elements
+  letter-spacing: -0.34em; // remove blank space between inline-block elements
+}
+%cell {
+  display: inline-block;
+  padding: ($gutter / 2);
+  font-size: 16px; // restore font-size
+  letter-spacing: 0; // restore letter-spacing
+  max-width: 100%;
+}
+
+@if $generate-css {
+  .gallery {
+    @for $i from 2 through 6 {
+      &-#{$i} {
+        @include gallery($i center);
+      }
+    }
+  }
 }

@@ -37,6 +37,7 @@
   color: #fff !important;
   &-2 {
     @include button(#D80017 round);
+    color: #fff !important;
     margin-top: 10px;
   }
 }
@@ -49,12 +50,6 @@
   padding-bottom: 10px;
 }
 .sub-cols-7 { @include sub-col(7); }
-.block-2 {
-  @include gallery(2);
-}
-.block-3 {
-  @include gallery(3);
-}
 .copyright {
   font-size: 12px;
   color: #999;

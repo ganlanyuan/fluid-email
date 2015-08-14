@@ -15,7 +15,6 @@ table, td { text-align: left; }
 table, tr, td {
   padding: 0;
   vertical-align: top;
-  text-align: left;
 }
 table {
   border-spacing: 0;
@@ -27,12 +26,13 @@ table {
     width: 100%;
     center { 
       width: 100%;
-      // min-width: $outer-container; /* 1 */
+      // min-width: $wrapper; /* 1 */
     }
   }
-  &.container {
-    max-width: $outer-container;
-    // width: $outer-container; /* 1 */
+  &.wrapper {
+    width: 100%;
+    max-width: $wrapper;
+    // width: $wrapper; /* 1 */
     margin: 0 auto;
     text-align: inherit;
   }
@@ -48,15 +48,9 @@ td {
 img {
   outline:none;
   border: none;
-  -ms-interpolation-mode: bicubic;
-  width: auto;
   max-width: 100%;
-  float: left;
-  clear: both;
-  display: block;
-  a & {
-    border: none;
-  }
+  -ms-interpolation-mode: bicubic;
+  a & { border: none; }
 }
 hr {
   margin-left: ($gutter / 2);
@@ -66,10 +60,12 @@ hr {
   background-color: map-get($color, border);
   border: none;
 }
-.full { width: 100%; }
-.col {
-  padding: ($gutter / 2);
+h1,h2,h3,h4,h5,h6{
+  display:block;
+  margin:0;
+  padding:0;
 }
+.full { width: 100%; }
 
 /* Typography */
 #outlook a { padding:0; }
@@ -77,9 +73,7 @@ body, table.body {
   color: #222222;
   font-family: Helvetica, Arial, sans-serif;
 }
-small {
-  font-size: 10px;
-}
+small { font-size: 10px; }
 a {
   color: map-get($color, link);
   text-decoration: none;
@@ -97,19 +91,25 @@ p,a,li,td,body,table,blockquote{
   -webkit-text-size-adjust:100%;
 }
 
-/* Alignment and Visibility Classes */
-h1,h2,h3,h4,h5,h6{
-  display:block;
-  margin:0;
-  padding:0;
+/* Alignment */
+.center { 
+  &,
+  table &, 
+  td &, 
+  h1 &, 
+  h2 &, 
+  h3 &, 
+  h4 &, 
+  h5 &, 
+  h6 &, 
+  p &, 
+  span & {
+    text-align: center;
+  }
 }
-table, td, h1, h2, h3, h4, h5, h6, p, span {
-  &.center { text-align: center; }
-}
-.center { text-align: center; }
 span.center {
   display: block;
-  width: 100%;
+  text-align: center;
 }
 img.center {
   margin: 0 auto;
@@ -120,10 +120,10 @@ img.center {
 body.outlook p { display: inline !important; }
 
 // for Apple Mail (it doesn't support max-width)
-@include bp(max $outer-container) { 
-  // table[class="container"] { width: 92% !important;  }  
+@include bp(min ($wrapper + 1px)) { 
+  table[class="wrapper"] { width: $wrapper !important;  }  
+}
+// @include bp(max $wrapper) { 
+  // table[class="wrapper"] { width: 92% !important;  }  
   // table[class="body"] center { min-width: 0 !important; }
-}
-@include bp(min ($outer-container + 1px)) { 
-  table[class="container"] { width: $outer-container !important;  }  
-}
+// }

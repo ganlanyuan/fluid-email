@@ -21,7 +21,11 @@
     }
   }
   
+  @extend %sub-col;
+  width: percentage($column / $columns);
+}
+
+%sub-col {
   font-size: 16px; // restore font-size
   letter-spacing: 0; // restore letter-spacing
-  width: percentage($column / $columns);
 }

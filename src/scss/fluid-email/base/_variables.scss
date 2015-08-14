@@ -1,12 +1,14 @@
 // variables
 //-----------------------------
 // layout
-$outer-container: 600px;
-$container: 600px;
-$columns: 12;
-$gutter: 20px;
+$wrapper: 600px !default;
+$row: 600px !default;
+$columns: 12 !default;
+$gutter: 20px !default;
+$gallery-align: center !default;
 
-$generate-css: true;
+// generate css
+$generate-css: true !default;
 
 // font
 $helvetica: "'Helvetica Neue', Helvetica, Arial, sans-serif";
@@ -23,10 +25,6 @@ $color: (
   'bg': #f1f1f1,
   'link': #333,
 );
-
-// gallery
-$fe-gallery-align: left, center, right !default;
-// 
 
 // base
 $fe-em-base: 16px !default;

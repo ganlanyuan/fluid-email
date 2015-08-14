@@ -41,19 +41,33 @@
   }
   
   // desktop, non-mediaquery
-  @if $column < $columns {
-    display: inline-block;
-    
-    font-size: 16px; // restore font-size
-    letter-spacing: 0; // restore letter-spacing
-    padding: ($gutter / 2);
-    width: (($column * $container / $columns) - $gutter);
-    max-width: 100%;
-  }
+  @extend %col;
+  width: (($column * $row / $columns) - $gutter);
+
+}
+
+%col {
+  display: inline-block;
+  font-size: 16px; // restore font-size
+  letter-spacing: 0; // restore letter-spacing
+  padding: ($gutter / 2);
+  max-width: 100%;
 
   // mediaquery
-  @include bp(max $outer-container) {
+  @include bp(max $wrapper) {
     width: 100% !important;
     box-sizing: border-box;
+  }
+}
+
+// generate css
+@if $generate-css {
+  .col {
+    padding: ($gutter / 2);
+    @for $i from 1 through $columns {
+      &-#{$i} {
+        @include col($i of $columns);
+      }
+    }
   }
 }
