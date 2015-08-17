@@ -8,7 +8,7 @@
     }
   }
   
-  $columns: ro-get-next($key, 'of', $columns);
+  $cols: ro-get-next($key, 'of', $cols);
   $gutter: $gutter;
 
   // set up column
@@ -42,7 +42,7 @@
   
   // desktop, non-mediaquery
   @extend %col;
-  width: (($column * $row / $columns) - $gutter);
+  width: (($column * $row / $cols) - $gutter);
 
 }
 
@@ -64,9 +64,9 @@
 @if $generate-css {
   .col {
     padding: ($gutter / 2);
-    @for $i from 1 through $columns {
+    @for $i from 1 through $cols {
       &-#{$i} {
-        @include col($i of $columns);
+        @include col($i of $cols);
       }
     }
   }

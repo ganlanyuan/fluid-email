@@ -1,14 +1,17 @@
 // variables
 //-----------------------------
-// layout
-$wrapper: 600px !default;
-$row: 600px !default;
-$columns: 12 !default;
-$gutter: 20px !default;
-$gallery-align: center !default;
 
 // generate css
 $generate-css: true !default;
+
+// layout
+$wrapper: 600px !default;
+$row: 600px !default;
+$cols: 12 !default;
+$gutter: 16px !default;
+
+$gallery-cols: 6 !default;
+$gallery-align: left !default;
 
 // font
 $helvetica: "'Helvetica Neue', Helvetica, Arial, sans-serif";

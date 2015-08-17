@@ -22,8 +22,8 @@
   @extend %gallery-base;
   $width: (($gallery-row / $per-row) - $gutter);
 
-  .cell {
-    @extend %cell;
+  td.item {
+    @extend %gallery-item;
     width: $width;
   }
 
@@ -40,7 +40,7 @@
   font-size: 0; // remove blank space between inline-block elements
   letter-spacing: -0.34em; // remove blank space between inline-block elements
 }
-%cell {
+%gallery-item {
   display: inline-block;
   padding: ($gutter / 2);
   font-size: 16px; // restore font-size
@@ -50,7 +50,7 @@
 
 @if $generate-css {
   .gallery {
-    @for $i from 2 through 6 {
+    @for $i from 2 through $gallery-cols {
       &-#{$i} {
         @include gallery($i center);
       }

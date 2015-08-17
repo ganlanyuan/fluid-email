@@ -5,454 +5,548 @@
   <meta content="width=device-width, initial-scale=1.0" name="viewport" />
   <title>fluid-email</title>
   <style type="text/css">
- body {
- width: 100% !important;
- min-width: 100%;
- height: auto;
- -webkit-text-size-adjust: 100%;
- -ms-text-size-adjust: 100%;
- margin: 0;
- padding: 0;
-}
-
-div, p, a, li, td {
- -webkit-text-size-adjust: none;
-}
-
-table, td {
- text-align: left;
-}
-
-table, tr, td {
- padding: 0;
- vertical-align: top;
-}
-
-table {
- border-spacing: 0;
- border-collapse: collapse;
- mso-table-lspace: 0pt;
- mso-table-rspace: 0pt;
-}
-
-table.body {
- height: 100%;
- width: 100%;
-}
-
-table.body center {
- width: 100%;
-}
-
-table.wrapper {
- width: 100%;
- max-width: 600px;
- margin: 0 auto;
- text-align: inherit;
-}
-
-td {
- margin: 0;
- word-break: break-word;
- -webkit-hyphens: auto;
- -moz-hyphens: auto;
- -ms-hyphens: auto;
-     hyphens: auto;
- border-collapse: collapse !important;
-}
-
-img {
- outline: none;
- border: none;
- -ms-interpolation-mode: bicubic;
- max-width: 100%;
-}
-
-a img {
- border: none;
-}
-
-hr {
- margin-left: 10px;
- margin-right: 10px;
- height: 1px;
- color: #e6e6e6;
- background-color: #e6e6e6;
- border: none;
-}
-
-h1, h2, h3, h4, h5, h6 {
- display: block;
- margin: 0;
- padding: 0;
-}
-
-.full {
- width: 100%;
-}
-
-/* Typography */
-#outlook a {
- padding: 0;
-}
-
-body, table.body {
- color: #222222;
- font-family: Helvetica, Arial, sans-serif;
-}
-
-small {
- font-size: 10px;
-}
-
-a {
- color: #333;
- text-decoration: none;
-}
-
-p, a, li, td, blockquote {
- mso-line-height-rule: exactly;
-}
-
-a[href^=tel], a[href^=sms] {
- color: inherit;
- cursor: default;
- text-decoration: none;
-}
-
-p, a, li, td, body, table, blockquote {
- -ms-text-size-adjust: 100%;
- -webkit-text-size-adjust: 100%;
-}
-
-/* Alignment */
-.center,
-table .center,
-td .center,
-h1 .center,
-h2 .center,
-h3 .center,
-h4 .center,
-h5 .center,
-h6 .center,
-p .center,
-span .center {
- text-align: center;
-}
-
-span.center {
- display: block;
- text-align: center;
-}
-
-img.center {
- margin: 0 auto;
- float: none;
-}
-
-/* Outlook First */
-body.outlook p {
- display: inline !important;
-}
-
-@media (min-width: 37.5625em) {
- table[class="wrapper"] {
-   width: 600px !important;
- }
-}
-
-.row {
- width: 100%;
- font-size: 0;
- letter-spacing: -0.34em;
-}
-
-.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, [class~="topnews-img"], [class~="topnews-text"], [class~="column-left"], [class~="column-right"] {
- display: inline-block;
- font-size: 16px;
- letter-spacing: 0;
- padding: 10px;
- max-width: 100%;
-}
-
-@media (max-width: 37.5em) {
- .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, [class~="topnews-img"], [class~="topnews-text"], [class~="column-left"], [class~="column-right"] {
-   width: 100% !important;
-   box-sizing: border-box;
- }
-}
-
-.col {
- padding: 10px;
-}
-
-.col-1 {
- width: 30px;
-}
-
-.col-2 {
- width: 80px;
-}
-
-.col-3 {
- width: 130px;
-}
-
-.col-4 {
- width: 180px;
-}
-
-.col-5 {
- width: 230px;
-}
-
-.col-6 {
- width: 280px;
-}
-
-.col-7 {
- width: 330px;
-}
-
-.col-8 {
- width: 380px;
-}
-
-.col-9 {
- width: 430px;
-}
-
-.col-10 {
- width: 480px;
-}
-
-.col-11 {
- width: 530px;
-}
-
-.col-12 {
- width: 580px;
-}
-
-.gallery-2, .gallery-3, .gallery-4, .gallery-5, .gallery-6 {
- font-size: 0;
- letter-spacing: -0.34em;
-}
-
-.gallery-2,
-.gallery-3,
-.gallery-4,
-.gallery-5,
-.gallery-6,
-.gallery-2 > tbody,
-.gallery-3 > tbody,
-.gallery-4 > tbody,
-.gallery-5 > tbody,
-.gallery-6 > tbody,
-.gallery-2 > tbody > tr, .gallery-3 > tbody > tr, .gallery-4 > tbody > tr, .gallery-5 > tbody > tr, .gallery-6 > tbody > tr {
- text-align: center;
-}
-
-.gallery-2 .cell, .gallery-3 .cell, .gallery-4 .cell, .gallery-5 .cell, .gallery-6 .cell {
- display: inline-block;
- padding: 10px;
- font-size: 16px;
- letter-spacing: 0;
- max-width: 100%;
-}
-
-.gallery-2 .cell {
- width: 280px;
-}
-
-.gallery-2 img {
- max-width: 280px;
-}
-
-.gallery-3 .cell {
- width: 180px;
-}
-
-.gallery-3 img {
- max-width: 180px;
-}
-
-.gallery-4 .cell {
- width: 130px;
-}
-
-.gallery-4 img {
- max-width: 130px;
-}
-
-.gallery-5 .cell {
- width: 100px;
-}
-
-.gallery-5 img {
- max-width: 100px;
-}
-
-.gallery-6 .cell {
- width: 80px;
-}
-
-.gallery-6 img {
- max-width: 80px;
-}
-
-.h4 {
- font-size: 23px;
- font-size: 1.4375rem;
- line-height: 1.2;
- font-weight: bold;
- font-family: Georgia, 'Times New Roman', Times, Baskerville, serif;
-}
-
-.h5 {
- font-size: 13px;
- font-size: 0.8125rem;
- line-height: 1.3;
- font-weight: bold;
- font-family: Georgia, 'Times New Roman', Times, Baskerville, serif;
- padding-bottom: 10px;
-}
-
-.h6 {
- font-size: 13px;
- font-size: 0.8125rem;
- line-height: 1.3;
- padding-top: 6px;
-}
-
-.p {
- font-size: 13px;
- font-size: 0.8125rem;
- font-family: Georgia, 'Times New Roman', Times, Baskerville, serif;
- padding: 13px 0;
-}
-
-.gap {
- padding-top: 20px;
- padding-bottom: 20px;
-}
-
-.logo {
- font-size: 36px !important;
- vertical-align: baseline;
-}
-
-.date {
- padding-top: 17px;
- font-size: 12px;
- color: #777;
- vertical-align: baseline;
-}
-
-.button {
- display: inline-block;
- border-style: solid;
- text-align: center;
- box-sizing: border-box;
- background-color: #3ab7e4;
- border-color: #3ab7e4;
- border-type: solid;
- color: contrast(#3ab7e4);
- border-width: 15px 20px;
- border-radius: 0.45em;
- margin-top: 10px;
- color: #fff !important;
-}
-
-.button-2 {
- display: inline-block;
- border-style: solid;
- text-align: center;
- box-sizing: border-box;
- background-color: #D80017;
- border-color: #D80017;
- border-type: solid;
- color: contrast(#D80017);
- border-width: 15px 20px;
- border-radius: 1000px;
- color: #fff !important;
- margin-top: 10px;
-}
-
-.topnews-img a {
- display: block;
-}
-
-.sub-cols-5 {
- font-size: 16px;
- letter-spacing: 0;
- width: 41.6666666667%;
- padding-right: 10px;
- padding-bottom: 10px;
-}
-
-.sub-cols-7 {
- font-size: 16px;
- letter-spacing: 0;
- width: 58.3333333333%;
-}
-
-.copyright {
- font-size: 12px;
- color: #999;
- padding-bottom: 30px;
-}
-
-[class~="topnews-img"] {
- width: 230px;
-}
-
-[class~="topnews-text"] {
- width: 330px;
-}
-
-[class~="column-left"] {
- width: 280px;
-}
-
-[class~="column-right"] {
- width: 280px;
-}
-/*# sourceMappingURL=demo.css.map */
+   body {
+     width: 100% !important;
+     min-width: 100%;
+     height: auto;
+     -webkit-text-size-adjust: 100%;
+     -ms-text-size-adjust: 100%;
+     margin: 0;
+     padding: 0;
+   }
+
+   .ExternalClass {
+     width: 100%;
+   }
+
+   .ExternalClass,
+   .ExternalClass p,
+   .ExternalClass span,
+   .ExternalClass font,
+   .ExternalClass td,
+   .ExternalClass div {
+     line-height: 100%;
+   }
+
+   #backgroundTable {
+     margin: 0;
+     padding: 0;
+     width: 100% !important;
+     line-height: 100% !important;
+   }
+
+   div, p, a, li, td {
+     -webkit-text-size-adjust: none;
+   }
+
+   p {
+     margin: 1em 0;
+   }
+
+   table, td {
+     text-align: left;
+   }
+
+   table, tr, td {
+     padding: 0;
+     vertical-align: top;
+   }
+
+   table {
+     border-spacing: 0;
+     border-collapse: collapse;
+     mso-table-lspace: 0pt;
+     mso-table-rspace: 0pt;
+   }
+
+   table.body {
+     height: 100%;
+     width: 100%;
+   }
+
+   table.body center {
+     width: 100%;
+   }
+
+   td {
+     margin: 0;
+     word-break: break-word;
+     -webkit-hyphens: auto;
+     -moz-hyphens: auto;
+     -ms-hyphens: auto;
+         hyphens: auto;
+     border-collapse: collapse !important;
+   }
+
+   img {
+     outline: none;
+     text-decoration: none;
+     -ms-interpolation-mode: bicubic;
+     max-width: 100%;
+   }
+
+   a img {
+     border: none;
+   }
+
+   .img-fix {
+     display: block;
+   }
+
+   hr {
+     margin-left: 8px;
+     margin-right: 8px;
+     height: 1px;
+     color: #e6e6e6;
+     background-color: #e6e6e6;
+     border: none;
+   }
+
+   h1, h2, h3, h4, h5, h6 {
+     display: block;
+     margin: 0;
+     padding: 0;
+     color: black !important;
+   }
+
+   h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+     color: blue !important;
+   }
+
+   h1 a:active, h2 a:active, h3 a:active, h4 a:active, h5 a:active, h6 a:active {
+     color: red !important;
+   }
+
+   h1 a:visited, h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
+     color: purple !important;
+   }
+
+   .full {
+     width: 100%;
+   }
+
+   /* Typography */
+   #outlook p {
+     display: inline !important;
+   }
+
+   #outlook a {
+     padding: 0;
+   }
+
+   body, table.body {
+     color: #222222;
+     font-family: Helvetica, Arial, sans-serif;
+   }
+
+   small {
+     font-size: 10px;
+   }
+
+   a {
+     color: #333;
+     text-decoration: none;
+   }
+
+   a[href^=tel],
+   a[href^=sms] {
+     color: inherit;
+     cursor: default;
+     text-decoration: none;
+   }
+
+   p, a, li, td, blockquote {
+     mso-line-height-rule: exactly;
+   }
+
+   p, a, li, td, body, table, blockquote {
+     -ms-text-size-adjust: 100%;
+     -webkit-text-size-adjust: 100%;
+   }
+
+   /* Alignment */
+   .center,
+   table .center,
+   td .center,
+   h1 .center,
+   h2 .center,
+   h3 .center,
+   h4 .center,
+   h5 .center,
+   h6 .center,
+   p .center,
+   span .center {
+     text-align: center;
+   }
+
+   span.center {
+     display: block;
+     text-align: center;
+   }
+
+   img.center {
+     margin: 0 auto;
+     float: none;
+   }
+
+   table.wrapper {
+     max-width: 600px;
+     margin: 0 auto;
+     text-align: inherit;
+   }
+
+   @media (min-width: 37.5625em) {
+     table[class="wrapper"] {
+       width: 600px !important;
+     }
+   }
+
+   .row {
+     width: 100%;
+     font-size: 0;
+     letter-spacing: -0.34em;
+   }
+
+   .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+     display: inline-block;
+     font-size: 16px;
+     letter-spacing: 0;
+     padding: 8px;
+     max-width: 100%;
+   }
+
+   @media (max-width: 37.5em) {
+     .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
+       width: 100% !important;
+       box-sizing: border-box;
+     }
+   }
+
+   .col {
+     padding: 8px;
+   }
+
+   .col-1 {
+     width: 32.6666666667px;
+   }
+
+   .col-2 {
+     width: 81.3333333333px;
+   }
+
+   .col-3 {
+     width: 130px;
+   }
+
+   .col-4 {
+     width: 178.666666667px;
+   }
+
+   .col-5 {
+     width: 227.333333333px;
+   }
+
+   .col-6 {
+     width: 276px;
+   }
+
+   .col-7 {
+     width: 324.666666667px;
+   }
+
+   .col-8 {
+     width: 373.333333333px;
+   }
+
+   .col-9 {
+     width: 422px;
+   }
+
+   .col-10 {
+     width: 470.666666667px;
+   }
+
+   .col-11 {
+     width: 519.333333333px;
+   }
+
+   .col-12 {
+     width: 568px;
+   }
+
+   .sub-col-4, .sub-col-8 {
+     font-size: 16px;
+     letter-spacing: 0;
+   }
+
+   .gallery-2, .gallery-3, .gallery-4, .gallery-5, .gallery-6 {
+     font-size: 0;
+     letter-spacing: -0.34em;
+   }
+
+   .gallery-2,
+   .gallery-3,
+   .gallery-4,
+   .gallery-5,
+   .gallery-6,
+   .gallery-2 > tbody,
+   .gallery-3 > tbody,
+   .gallery-4 > tbody,
+   .gallery-5 > tbody,
+   .gallery-6 > tbody,
+   .gallery-2 > tbody > tr, .gallery-3 > tbody > tr, .gallery-4 > tbody > tr, .gallery-5 > tbody > tr, .gallery-6 > tbody > tr {
+     text-align: left;
+   }
+
+   .gallery-2 td.item, .gallery-3 td.item, .gallery-4 td.item, .gallery-5 td.item, .gallery-6 td.item {
+     display: inline-block;
+     padding: 8px;
+     font-size: 16px;
+     letter-spacing: 0;
+     max-width: 100%;
+   }
+
+   .gallery-2 td.item {
+     width: 276px;
+   }
+
+   .gallery-2 img {
+     max-width: 276px;
+   }
+
+   .gallery-3 td.item {
+     width: 178.666666667px;
+   }
+
+   .gallery-3 img {
+     max-width: 178.666666667px;
+   }
+
+   .gallery-4 td.item {
+     width: 130px;
+   }
+
+   .gallery-4 img {
+     max-width: 130px;
+   }
+
+   .gallery-5 td.item {
+     width: 100.8px;
+   }
+
+   .gallery-5 img {
+     max-width: 100.8px;
+   }
+
+   .gallery-6 td.item {
+     width: 81.3333333333px;
+   }
+
+   .gallery-6 img {
+     max-width: 81.3333333333px;
+   }
+
+   td.adjust {
+     padding: 8px;
+   }
+
+   #backgroundTable {
+     background-color: #eee;
+   }
+
+   .wrapper.main {
+     background-color: #fff;
+   }
+
+   .topbar {
+     padding: 10px;
+     background-color: #444;
+     color: #fff;
+   }
+
+   .topbar a {
+     color: #fff;
+     text-decoration: underline;
+   }
+
+   .view {
+     font-size: 11px;
+     text-align: left;
+   }
+
+   .h4 {
+     font-size: 23px;
+     font-size: 1.4375rem;
+     line-height: 1.2;
+     font-weight: bold;
+     font-family: Georgia, 'Times New Roman', Times, Baskerville, serif;
+   }
+
+   .h5 {
+     font-size: 13px;
+     font-size: 0.8125rem;
+     line-height: 1.3;
+     font-weight: bold;
+     font-family: Georgia, 'Times New Roman', Times, Baskerville, serif;
+     padding-bottom: 10px;
+   }
+
+   .h6 {
+     font-size: 13px;
+     font-size: 0.8125rem;
+     line-height: 1.3;
+     padding-top: 6px;
+   }
+
+   .p {
+     font-size: 13px;
+     font-size: 0.8125rem;
+     font-family: Georgia, 'Times New Roman', Times, Baskerville, serif;
+     padding: 13px 0;
+   }
+
+   .gap {
+     padding-top: 20px;
+   }
+
+   .logo {
+     font-size: 36px !important;
+   }
+
+   .date {
+     padding-top: 30px;
+     text-align: right;
+     font-size: 12px;
+     color: #999;
+   }
+
+   .date a {
+     color: #999;
+     text-decoration: underline;
+   }
+
+   .button {
+     display: inline-block;
+     border-style: solid;
+     text-align: center;
+     box-sizing: border-box;
+     background-color: #3ab7e4;
+     border-color: #3ab7e4;
+     border-type: solid;
+     color: contrast(#3ab7e4);
+     border-width: 15px 20px;
+     border-radius: 0.45em;
+     margin-top: 10px;
+     color: #fff !important;
+   }
+
+   .button-2 {
+     display: inline-block;
+     border-style: solid;
+     text-align: center;
+     box-sizing: border-box;
+     background-color: #D80017;
+     border-color: #D80017;
+     border-type: solid;
+     color: contrast(#D80017);
+     border-width: 15px 20px;
+     border-radius: 1000px;
+     color: #fff !important;
+     margin-top: 10px;
+   }
+
+   .topnews-img a {
+     display: block;
+   }
+
+   .img-box {
+     padding-right: 10px;
+     padding-bottom: 10px;
+   }
+
+   .sub-col-4 {
+     width: 33.3333333333%;
+   }
+
+   .sub-col-8 {
+     width: 66.6666666667%;
+   }
+
+   .icon-social > img {
+     margin: 0 3px;
+   }
+
+   .copyright {
+     padding-bottom: 30px;
+     line-height: 1.6;
+     font-size: 12px;
+     color: #999;
+   }
+
+   .copyright a {
+     color: #999;
+   }
+
+   .copyright .primary {
+     color: #333;
+   }
  </style>
  </head>
- <body class="outlook" id="outlook" style="color: #222222; font-family: Helvetica, Arial, sans-serif; height: auto; margin: 0; min-width: 100%; padding: 0; width: 100% !important;">
-  <table class="body" style="border-collapse: collapse; border-spacing: 0; color: #222222; font-family: Helvetica, Arial, sans-serif; height: 100%; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: left; vertical-align: top; width: 100%;">
+ <body id="outlook" style="color: #222222; font-family: Helvetica, Arial, sans-serif; height: auto; margin: 0; min-width: 100%; padding: 0; width: 100% !important;">
+  <table class="body" id="backgroundTable" style="background-color: #eee; border-collapse: collapse; border-spacing: 0; color: #222222; font-family: Helvetica, Arial, sans-serif; height: 100%; line-height: 100% !important; margin: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: left; vertical-align: top; width: 100% !important;">
+   <tr style="padding: 0; vertical-align: top;">
+    <td class="topbar" style="background-color: #444; border-collapse: collapse !important; color: #fff; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 10px; text-align: left; vertical-align: top; word-break: break-word;">
+     <center style="width: 100%;">
+      <table class="wrapper" style="border-collapse: collapse; border-spacing: 0; margin: 0 auto; max-width: 600px; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: inherit; vertical-align: top;">
+       <tr style="padding: 0; vertical-align: top;">
+        <td class="view" style="border-collapse: collapse !important; font-size: 11px; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-break: break-word;"><a class="underline" href="" style="color: #fff; mso-line-height-rule: exactly; padding: 0; text-decoration: underline;">View this email in your browser</a></td>
+       </tr>
+      </table>
+     </center>
+    </td>
+   </tr>
    <tr style="padding: 0; vertical-align: top;">
     <td style="border-collapse: collapse !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-break: break-word;">
      <center style="width: 100%;">
-      <table class="wrapper" style="border-collapse: collapse; border-spacing: 0; margin: 0 auto; max-width: 600px; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: inherit; vertical-align: top; width: 100%;">
+      <table class="wrapper" style="border-collapse: collapse; border-spacing: 0; margin: 0 auto; max-width: 600px; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: inherit; vertical-align: top;">
        <tr style="padding: 0; vertical-align: top;">
-        <td class="gap" style="border-collapse: collapse !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-bottom: 20px; padding-top: 20px; text-align: left; vertical-align: top; word-break: break-word;">
-         <table class="full" style="border-collapse: collapse; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: left; vertical-align: top; width: 100%;">
+        <td class="adjust" style="border-collapse: collapse !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 8px; text-align: left; vertical-align: top; word-break: break-word;">
+         <table class="row" style="border-collapse: collapse; border-spacing: 0; font-size: 0; letter-spacing: -0.34em; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: left; vertical-align: top; width: 100%;">
           <tbody>
            <tr style="padding: 0; vertical-align: top;">
-            <td class="col" style="border-collapse: collapse !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 10px; text-align: left; vertical-align: top; word-break: break-word;">
-             <table align="left" class="logo-table" style="border-collapse: collapse; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: left; vertical-align: top;">
+            <td style="border-collapse: collapse !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-break: break-word;">
+             <table align="left" style="border-collapse: collapse; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: left; vertical-align: top;">
               <tr style="padding: 0; vertical-align: top;">
-               <td class="logo" style="border-collapse: collapse !important; font-size: 36px !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: baseline; word-break: break-word;"><a href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;">Logo</a></td>
+               <td class="logo" style="border-collapse: collapse !important; font-size: 36px !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-break: break-word;"><a href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://gallery.mailchimp.com/27aac8a65e64c994c4416d6b8/images/logo_gtech_white.png" style="border: none; max-width: 100%; outline: none; text-decoration: none;" width="185" /></a></td>
               </tr>
              </table>
-             <table align="right" class="date-table" style="border-collapse: collapse; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: left; vertical-align: top;">
+             <table align="right" style="border-collapse: collapse; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: left; vertical-align: top;">
               <tr style="padding: 0; vertical-align: top;">
-               <td class="date" style="border-collapse: collapse !important; color: #777; font-size: 12px; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-top: 17px; text-align: left; vertical-align: baseline; word-break: break-word;">Feb 5,2015</td>
+               <td class="date" style="border-collapse: collapse !important; color: #999; font-size: 12px; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-top: 30px; text-align: right; vertical-align: top; word-break: break-word;"> Feb 5,2015 <br />
+               </td>
               </tr>
              </table>
             </td>
            </tr>
           </tbody>
          </table>
-         <hr style="background-color: #e6e6e6; border: none; color: #e6e6e6; height: 1px; margin-left: 10px; margin-right: 10px;" />
+        </td>
+       </tr>
+      </table>
+     </center>
+    </td>
+   </tr>
+   <tr style="padding: 0; vertical-align: top;">
+    <td style="border-collapse: collapse !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-break: break-word;">
+     <center style="width: 100%;">
+      <table class="wrapper main" style="background-color: #fff; border-collapse: collapse; border-spacing: 0; margin: 0 auto; max-width: 600px; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: inherit; vertical-align: top;">
+       <tr style="padding: 0; vertical-align: top;">
+        <td class="adjust" style="border-collapse: collapse !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 8px; text-align: left; vertical-align: top; word-break: break-word;">
          <table class="row" style="border-collapse: collapse; border-spacing: 0; font-size: 0; letter-spacing: -0.34em; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: left; vertical-align: top; width: 100%;">
           <tbody>
            <tr style="padding: 0; vertical-align: top;">
-            <td class="col-6" style="border-collapse: collapse !important; display: inline-block; font-size: 16px; hyphens: auto; letter-spacing: 0; margin: 0; max-width: 100%; mso-line-height-rule: exactly; padding: 10px; text-align: left; vertical-align: top; width: 280px; word-break: break-word;"><a href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://images.christianpost.com/full/85007/iranian-christians.jpg?w=300&amp;h=240&amp;l=50&amp;t=40" style="border: none; max-width: 100%; outline: none;" /></a></td>
-            <td class="col-6" style="border-collapse: collapse !important; display: inline-block; font-size: 16px; hyphens: auto; letter-spacing: 0; margin: 0; max-width: 100%; mso-line-height-rule: exactly; padding: 10px; text-align: left; vertical-align: top; width: 280px; word-break: break-word;">
+            <td class="col-6" style="border-collapse: collapse !important; display: inline-block; font-size: 16px; hyphens: auto; letter-spacing: 0; margin: 0; max-width: 100%; mso-line-height-rule: exactly; padding: 8px; text-align: left; vertical-align: top; width: 276px; word-break: break-word;"><a href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://images.christianpost.com/full/85516/nicole-weider.jpg?w=300&amp;h=240&amp;l=50&amp;t=40" style="border: none; max-width: 100%; outline: none; text-decoration: none;" width="300" /></a></td>
+            <td class="col-6" style="border-collapse: collapse !important; display: inline-block; font-size: 16px; hyphens: auto; letter-spacing: 0; margin: 0; max-width: 100%; mso-line-height-rule: exactly; padding: 8px; text-align: left; vertical-align: top; width: 276px; word-break: break-word;">
              <table style="border-collapse: collapse; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: left; vertical-align: top;">
               <tr style="padding: 0; vertical-align: top;">
                <td class="h4" style="border-collapse: collapse !important; font-family: Georgia, 'Times New Roman', Times, Baskerville, serif; font-size: 1.4375rem; font-weight: bold; hyphens: auto; line-height: 1.2; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-break: break-word;">Greeks take Europe to the brink as showdown looms over bailout</td>
@@ -465,110 +559,157 @@ body.outlook p {
            </tr>
           </tbody>
          </table>
-         <hr style="background-color: #e6e6e6; border: none; color: #e6e6e6; height: 1px; margin-left: 10px; margin-right: 10px;" />
+         <hr style="background-color: #e6e6e6; border: none; color: #e6e6e6; height: 1px; margin-left: 8px; margin-right: 8px;" />
          <table class="row" style="border-collapse: collapse; border-spacing: 0; font-size: 0; letter-spacing: -0.34em; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: left; vertical-align: top; width: 100%;">
           <tbody>
            <tr style="padding: 0; vertical-align: top;">
-            <td class="col-6" style="border-collapse: collapse !important; display: inline-block; font-size: 16px; hyphens: auto; letter-spacing: 0; margin: 0; max-width: 100%; mso-line-height-rule: exactly; padding: 10px; text-align: left; vertical-align: top; width: 280px; word-break: break-word;">
+            <td class="col-6" style="border-collapse: collapse !important; display: inline-block; font-size: 16px; hyphens: auto; letter-spacing: 0; margin: 0; max-width: 100%; mso-line-height-rule: exactly; padding: 8px; text-align: left; vertical-align: top; width: 276px; word-break: break-word;">
              <table class="row" style="border-collapse: collapse; border-spacing: 0; font-size: 0; letter-spacing: -0.34em; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: left; vertical-align: top; width: 100%;">
               <tr style="padding: 0; vertical-align: top;">
-               <td class="sub-cols-5" style="border-collapse: collapse !important; font-size: 16px; hyphens: auto; letter-spacing: 0; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-bottom: 10px; padding-right: 10px; text-align: left; vertical-align: top; width: 41.6666666667%; word-break: break-word;"><a href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://images.christianpost.com/video/full/6637/john-hagee-this-supreme-court-has-made-america-the-new-sodom-and-gomorrah.jpg?w=107&amp;h=63&amp;l=50&amp;t=50" style="border: none; max-width: 100%; outline: none;" width="107" /></a></td>
-               <td class="sub-cols-7 h5" style="border-collapse: collapse !important; font-family: Georgia, 'Times New Roman', Times, Baskerville, serif; font-size: 16px; font-weight: bold; hyphens: auto; letter-spacing: 0; line-height: 1.3; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-bottom: 10px; text-align: left; vertical-align: top; width: 58.3333333333%; word-break: break-word;"> Faith leaders join call for Britain to take in more Syrian refugees </td>
+               <td class="sub-col-4 img-box" style="border-collapse: collapse !important; font-size: 16px; hyphens: auto; letter-spacing: 0; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-bottom: 10px; padding-right: 10px; text-align: left; vertical-align: top; width: 33.3333333333%; word-break: break-word;"><a href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://images.christianpost.com/video/full/6637/john-hagee-this-supreme-court-has-made-america-the-new-sodom-and-gomorrah.jpg?w=107&amp;h=63&amp;l=50&amp;t=50" style="border: none; max-width: 100%; outline: none; text-decoration: none;" width="107" /></a></td>
+               <td class="sub-col-8 h5" style="border-collapse: collapse !important; font-family: Georgia, 'Times New Roman', Times, Baskerville, serif; font-size: 0.8125rem; font-weight: bold; hyphens: auto; letter-spacing: 0; line-height: 1.3; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-bottom: 10px; text-align: left; vertical-align: top; width: 66.6666666667%; word-break: break-word;"> Faith leaders join call for Britain to take in more Syrian refugees </td>
               </tr>
               <tr style="padding: 0; vertical-align: top;">
-               <td class="sub-cols-5" style="border-collapse: collapse !important; font-size: 16px; hyphens: auto; letter-spacing: 0; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-bottom: 10px; padding-right: 10px; text-align: left; vertical-align: top; width: 41.6666666667%; word-break: break-word;"><a href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://images.christianpost.com/video/full/6636/nyc-thousands-joined-evangelist-luis-palau-to-celebrate-ny-city-serve.jpg?w=107&amp;h=63&amp;l=50&amp;t=50" style="border: none; max-width: 100%; outline: none;" width="107" /></a></td>
-               <td class="sub-cols-7 h5" style="border-collapse: collapse !important; font-family: Georgia, 'Times New Roman', Times, Baskerville, serif; font-size: 16px; font-weight: bold; hyphens: auto; letter-spacing: 0; line-height: 1.3; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-bottom: 10px; text-align: left; vertical-align: top; width: 58.3333333333%; word-break: break-word;"> India bishop stresses need for Church to spread religious tolerance </td>
+               <td class="sub-col-4 img-box" style="border-collapse: collapse !important; font-size: 16px; hyphens: auto; letter-spacing: 0; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-bottom: 10px; padding-right: 10px; text-align: left; vertical-align: top; width: 33.3333333333%; word-break: break-word;"><a href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://images.christianpost.com/video/full/6636/nyc-thousands-joined-evangelist-luis-palau-to-celebrate-ny-city-serve.jpg?w=107&amp;h=63&amp;l=50&amp;t=50" style="border: none; max-width: 100%; outline: none; text-decoration: none;" width="107" /></a></td>
+               <td class="sub-col-8 h5" style="border-collapse: collapse !important; font-family: Georgia, 'Times New Roman', Times, Baskerville, serif; font-size: 0.8125rem; font-weight: bold; hyphens: auto; letter-spacing: 0; line-height: 1.3; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-bottom: 10px; text-align: left; vertical-align: top; width: 66.6666666667%; word-break: break-word;"> India bishop stresses need for Church to spread religious tolerance </td>
               </tr>
               <tr style="padding: 0; vertical-align: top;">
-               <td class="sub-cols-5" style="border-collapse: collapse !important; font-size: 16px; hyphens: auto; letter-spacing: 0; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-bottom: 10px; padding-right: 10px; text-align: left; vertical-align: top; width: 41.6666666667%; word-break: break-word;"><a href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://images.christianpost.com/video/full/6638/backpage-com-under-fire-for-child-sex-trafficking.jpg?w=107&amp;h=63&amp;l=50&amp;t=50" style="border: none; max-width: 100%; outline: none;" width="107" /></a></td>
-               <td class="sub-cols-7 h5" style="border-collapse: collapse !important; font-family: Georgia, 'Times New Roman', Times, Baskerville, serif; font-size: 16px; font-weight: bold; hyphens: auto; letter-spacing: 0; line-height: 1.3; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-bottom: 10px; text-align: left; vertical-align: top; width: 58.3333333333%; word-break: break-word;"> Pope Francis sends greetings, apology to Philippine diocese at cutting short visit </td>
-              </tr>
-              <tr style="padding: 0; vertical-align: top;">
-               <td class="sub-cols-5" style="border-collapse: collapse !important; font-size: 16px; hyphens: auto; letter-spacing: 0; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-bottom: 10px; padding-right: 10px; text-align: left; vertical-align: top; width: 41.6666666667%; word-break: break-word;"><a href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://images.christianpost.com/blog/full/30246/ht-ciccolo-napanee-hr-crop-lf-150713-16x9-992.jpg?w=107&amp;h=63&amp;l=50&amp;t=50" style="border: none; max-width: 100%; outline: none;" width="107" /></a></td>
-               <td class="sub-cols-7 h5" style="border-collapse: collapse !important; font-family: Georgia, 'Times New Roman', Times, Baskerville, serif; font-size: 16px; font-weight: bold; hyphens: auto; letter-spacing: 0; line-height: 1.3; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-bottom: 10px; text-align: left; vertical-align: top; width: 58.3333333333%; word-break: break-word;"> John I. William Jr. is first African American to head an ELCA college </td>
+               <td class="sub-col-4 img-box" style="border-collapse: collapse !important; font-size: 16px; hyphens: auto; letter-spacing: 0; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-bottom: 10px; padding-right: 10px; text-align: left; vertical-align: top; width: 33.3333333333%; word-break: break-word;"><a href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://images.christianpost.com/blog/full/30246/ht-ciccolo-napanee-hr-crop-lf-150713-16x9-992.jpg?w=107&amp;h=63&amp;l=50&amp;t=50" style="border: none; max-width: 100%; outline: none; text-decoration: none;" width="107" /></a></td>
+               <td class="sub-col-8 h5" style="border-collapse: collapse !important; font-family: Georgia, 'Times New Roman', Times, Baskerville, serif; font-size: 0.8125rem; font-weight: bold; hyphens: auto; letter-spacing: 0; line-height: 1.3; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-bottom: 10px; text-align: left; vertical-align: top; width: 66.6666666667%; word-break: break-word;"> John I. William Jr. is first African American to head an ELCA college </td>
               </tr>
              </table>
             </td>
-            <td class="col-6" style="border-collapse: collapse !important; display: inline-block; font-size: 16px; hyphens: auto; letter-spacing: 0; margin: 0; max-width: 100%; mso-line-height-rule: exactly; padding: 10px; text-align: left; vertical-align: top; width: 280px; word-break: break-word;">
+            <td class="col-6" style="border-collapse: collapse !important; display: inline-block; font-size: 16px; hyphens: auto; letter-spacing: 0; margin: 0; max-width: 100%; mso-line-height-rule: exactly; padding: 8px; text-align: left; vertical-align: top; width: 276px; word-break: break-word;">
              <table style="border-collapse: collapse; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: left; vertical-align: top;">
               <tr style="padding: 0; vertical-align: top;">
-               <td class="ad ad-300" style="border-collapse: collapse !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-break: break-word;"><a href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://images.christianpost.com/blog/full/30240/images.jpg?w=300&amp;h=250&amp;l=50&amp;t=50" style="border: none; max-width: 100%; outline: none;" /></a></td>
+               <td class="ad ad-300" style="border-collapse: collapse !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-break: break-word;"><a href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://images.christianpost.com/blog/full/30240/images.jpg?w=300&amp;h=250&amp;l=50&amp;t=50" style="border: none; max-width: 100%; outline: none; text-decoration: none;" width="259" /></a></td>
               </tr>
               <tr style="padding: 0; vertical-align: top;">
                <td class="center" style="border-collapse: collapse !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: center; vertical-align: top; word-break: break-word;"><a class="button" href="http://google.com/" style="background-color: #3ab7e4; border-color: #3ab7e4; border-radius: 0.45em; border-style: solid; border-type: solid; border-width: 15px 20px; box-sizing: border-box; color: #fff !important; display: inline-block; margin-top: 10px; mso-line-height-rule: exactly; padding: 0; text-align: center; text-decoration: none;">An example of button</a></td>
-              </tr>
-              <tr style="padding: 0; vertical-align: top;">
-               <td class="center" style="border-collapse: collapse !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: center; vertical-align: top; word-break: break-word;"><a class="button-2" href="http://google.com/" style="background-color: #D80017; border-color: #D80017; border-radius: 1000px; border-style: solid; border-type: solid; border-width: 15px 20px; box-sizing: border-box; color: #fff !important; display: inline-block; margin-top: 10px; mso-line-height-rule: exactly; padding: 0; text-align: center; text-decoration: none;">Another button</a></td>
               </tr>
              </table>
             </td>
            </tr>
           </tbody>
          </table>
-         <hr style="background-color: #e6e6e6; border: none; color: #e6e6e6; height: 1px; margin-left: 10px; margin-right: 10px;" />
-         <table class="gallery-2" style="border-collapse: collapse; border-spacing: 0; font-size: 0; letter-spacing: -0.34em; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: center; vertical-align: top;">
+         <hr style="background-color: #e6e6e6; border: none; color: #e6e6e6; height: 1px; margin-left: 8px; margin-right: 8px;" />
+         <table class="gallery-3" style="border-collapse: collapse; border-spacing: 0; font-size: 0; letter-spacing: -0.34em; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: left; vertical-align: top;">
           <tr style="padding: 0; vertical-align: top;">
-           <td class="cell" style="border-collapse: collapse !important; display: inline-block; font-size: 16px; hyphens: auto; letter-spacing: 0; margin: 0; max-width: 100%; mso-line-height-rule: exactly; padding: 10px; text-align: left; vertical-align: top; width: 280px; word-break: break-word;">
+           <td class="item" style="border-collapse: collapse !important; display: inline-block; font-size: 16px; hyphens: auto; letter-spacing: 0; margin: 0; max-width: 100%; mso-line-height-rule: exactly; padding: 8px; text-align: left; vertical-align: top; width: 178.666666667px; word-break: break-word;">
             <table style="border-collapse: collapse; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: left; vertical-align: top;">
              <tr style="padding: 0; vertical-align: top;">
-              <td style="border-collapse: collapse !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-break: break-word;"><a href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://images.christianpost.com/full/85061/sen-marco-rubio.jpg?w=300&amp;h=200&amp;l=50&amp;t=40" style="border: none; max-width: 280px; outline: none;" /></a></td>
+              <td style="border-collapse: collapse !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-break: break-word;"><a href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://images.christianpost.com/full/85045/evangelist-luis-palau.jpg?w=176&amp;h=125&amp;l=50&amp;t=40" style="border: none; max-width: 178.666666667px; outline: none; text-decoration: none;" width="176" /></a></td>
              </tr>
              <tr style="padding: 0; vertical-align: top;">
-              <td class="h6" style="border-collapse: collapse !important; font-size: 0.8125rem; hyphens: auto; line-height: 1.3; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-top: 6px; text-align: left; vertical-align: top; word-break: break-word;">Faith Takes Centerstage at Family Leadership Summit as Rubio Reads From the Bible</td>
+              <td class="h6" style="border-collapse: collapse !important; font-size: 0.8125rem; hyphens: auto; line-height: 1.3; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-top: 6px; text-align: left; vertical-align: top; word-break: break-word;">Christian Bakery Closed for Refusing Lesbian Wedding Cake Breaks Record</td>
              </tr>
             </table>
            </td>
-           <td class="cell" style="border-collapse: collapse !important; display: inline-block; font-size: 16px; hyphens: auto; letter-spacing: 0; margin: 0; max-width: 100%; mso-line-height-rule: exactly; padding: 10px; text-align: left; vertical-align: top; width: 280px; word-break: break-word;">
+           <td class="item" style="border-collapse: collapse !important; display: inline-block; font-size: 16px; hyphens: auto; letter-spacing: 0; margin: 0; max-width: 100%; mso-line-height-rule: exactly; padding: 8px; text-align: left; vertical-align: top; width: 178.666666667px; word-break: break-word;">
             <table style="border-collapse: collapse; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: left; vertical-align: top;">
              <tr style="padding: 0; vertical-align: top;">
-              <td style="border-collapse: collapse !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-break: break-word;"><a href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://images.christianpost.com/full/84236/asia-bibi.jpg?w=300&amp;h=200&amp;l=50&amp;t=40" style="border: none; max-width: 280px; outline: none;" /></a></td>
+              <td style="border-collapse: collapse !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-break: break-word;"><a href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://images.christianpost.com/full/69556/gagnon.jpg?w=176&amp;h=125&amp;l=50&amp;t=40" style="border: none; max-width: 178.666666667px; outline: none; text-decoration: none;" width="176" /></a></td>
              </tr>
              <tr style="padding: 0; vertical-align: top;">
-              <td class="h6" style="border-collapse: collapse !important; font-size: 0.8125rem; hyphens: auto; line-height: 1.3; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-top: 6px; text-align: left; vertical-align: top; word-break: break-word;">6 Years Later: Christian Mother Asia Bibi on Death Row Finally Gets Appeal Hearing at Pakistan's Supreme Court</td>
+              <td class="h6" style="border-collapse: collapse !important; font-size: 0.8125rem; hyphens: auto; line-height: 1.3; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-top: 6px; text-align: left; vertical-align: top; word-break: break-word;">Luis Palau, Years After China Gaffe, Maintains That Evangelists</td>
+             </tr>
+            </table>
+           </td>
+           <td class="item" style="border-collapse: collapse !important; display: inline-block; font-size: 16px; hyphens: auto; letter-spacing: 0; margin: 0; max-width: 100%; mso-line-height-rule: exactly; padding: 8px; text-align: left; vertical-align: top; width: 178.666666667px; word-break: break-word;">
+            <table style="border-collapse: collapse; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: left; vertical-align: top;">
+             <tr style="padding: 0; vertical-align: top;">
+              <td style="border-collapse: collapse !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-break: break-word;"><a href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://images.christianpost.com/full/65040/abedini-family.jpg?w=176&amp;h=125&amp;l=50&amp;t=40" style="border: none; max-width: 178.666666667px; outline: none; text-decoration: none;" width="176" /></a></td>
+             </tr>
+             <tr style="padding: 0; vertical-align: top;">
+              <td class="h6" style="border-collapse: collapse !important; font-size: 0.8125rem; hyphens: auto; line-height: 1.3; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-top: 6px; text-align: left; vertical-align: top; word-break: break-word;">Imprisoned Pastor Saeed Abedini Has Dream He Will Be Free by Daughter</td>
              </tr>
             </table>
            </td>
           </tr>
          </table>
-         <hr style="background-color: #e6e6e6; border: none; color: #e6e6e6; height: 1px; margin-left: 10px; margin-right: 10px;" />
-         <table class="gallery-3" style="border-collapse: collapse; border-spacing: 0; font-size: 0; letter-spacing: -0.34em; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: center; vertical-align: top;">
+         <hr style="background-color: #e6e6e6; border: none; color: #e6e6e6; height: 1px; margin-left: 8px; margin-right: 8px;" />
+         <table class="gallery-6" style="border-collapse: collapse; border-spacing: 0; font-size: 0; letter-spacing: -0.34em; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: left; vertical-align: top;">
           <tr style="padding: 0; vertical-align: top;">
-           <td class="cell" style="border-collapse: collapse !important; display: inline-block; font-size: 16px; hyphens: auto; letter-spacing: 0; margin: 0; max-width: 100%; mso-line-height-rule: exactly; padding: 10px; text-align: left; vertical-align: top; width: 180px; word-break: break-word;">
+           <td class="item" style="border-collapse: collapse !important; display: inline-block; font-size: 16px; hyphens: auto; letter-spacing: 0; margin: 0; max-width: 100%; mso-line-height-rule: exactly; padding: 8px; text-align: left; vertical-align: top; width: 81.3333333333px; word-break: break-word;">
             <table style="border-collapse: collapse; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: left; vertical-align: top;">
              <tr style="padding: 0; vertical-align: top;">
-              <td style="border-collapse: collapse !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-break: break-word;"><a href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://images.christianpost.com/full/85045/evangelist-luis-palau.jpg?w=200&amp;h=140&amp;l=50&amp;t=40" style="border: none; max-width: 180px; outline: none;" /></a></td>
+              <td style="border-collapse: collapse !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-break: break-word;"><a href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://images.christianpost.com/full/85338/flame.jpg?w=81&amp;h=51&amp;l=50&amp;t=40" style="border: none; max-width: 81.3333333333px; outline: none; text-decoration: none;" width="81" /></a></td>
              </tr>
              <tr style="padding: 0; vertical-align: top;">
-              <td class="h6" style="border-collapse: collapse !important; font-size: 0.8125rem; hyphens: auto; line-height: 1.3; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-top: 6px; text-align: left; vertical-align: top; word-break: break-word;">Christian Bakery Closed for Refusing Lesbian Wedding Cake Breaks Record on Crowdfunding Site With $352,000</td>
+              <td class="h6" style="border-collapse: collapse !important; font-size: 0.8125rem; hyphens: auto; line-height: 1.3; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-top: 6px; text-align: left; vertical-align: top; word-break: break-word;">Christian Bakery </td>
              </tr>
             </table>
            </td>
-           <td class="cell" style="border-collapse: collapse !important; display: inline-block; font-size: 16px; hyphens: auto; letter-spacing: 0; margin: 0; max-width: 100%; mso-line-height-rule: exactly; padding: 10px; text-align: left; vertical-align: top; width: 180px; word-break: break-word;">
+           <td class="item" style="border-collapse: collapse !important; display: inline-block; font-size: 16px; hyphens: auto; letter-spacing: 0; margin: 0; max-width: 100%; mso-line-height-rule: exactly; padding: 8px; text-align: left; vertical-align: top; width: 81.3333333333px; word-break: break-word;">
             <table style="border-collapse: collapse; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: left; vertical-align: top;">
              <tr style="padding: 0; vertical-align: top;">
-              <td style="border-collapse: collapse !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-break: break-word;"><a href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://images.christianpost.com/full/69556/gagnon.jpg?w=200&amp;h=140&amp;l=50&amp;t=40" style="border: none; max-width: 180px; outline: none;" /></a></td>
+              <td style="border-collapse: collapse !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-break: break-word;"><a href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://images.christianpost.com/full/75224/chris-tomlin.jpg?w=81&amp;h=51&amp;l=50&amp;t=40" style="border: none; max-width: 81.3333333333px; outline: none; text-decoration: none;" width="81" /></a></td>
              </tr>
              <tr style="padding: 0; vertical-align: top;">
-              <td class="h6" style="border-collapse: collapse !important; font-size: 0.8125rem; hyphens: auto; line-height: 1.3; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-top: 6px; text-align: left; vertical-align: top; word-break: break-word;">Luis Palau, Years After China Gaffe, Maintains That Evangelists, Pastors 'Shouldn't Meddle' (Interview Part 2)</td>
+              <td class="h6" style="border-collapse: collapse !important; font-size: 0.8125rem; hyphens: auto; line-height: 1.3; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-top: 6px; text-align: left; vertical-align: top; word-break: break-word;">Luis Palau</td>
              </tr>
             </table>
            </td>
-           <td class="cell" style="border-collapse: collapse !important; display: inline-block; font-size: 16px; hyphens: auto; letter-spacing: 0; margin: 0; max-width: 100%; mso-line-height-rule: exactly; padding: 10px; text-align: left; vertical-align: top; width: 180px; word-break: break-word;">
+           <td class="item" style="border-collapse: collapse !important; display: inline-block; font-size: 16px; hyphens: auto; letter-spacing: 0; margin: 0; max-width: 100%; mso-line-height-rule: exactly; padding: 8px; text-align: left; vertical-align: top; width: 81.3333333333px; word-break: break-word;">
             <table style="border-collapse: collapse; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: left; vertical-align: top;">
              <tr style="padding: 0; vertical-align: top;">
-              <td style="border-collapse: collapse !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-break: break-word;"><a href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://images.christianpost.com/full/65040/abedini-family.jpg?w=200&amp;h=140&amp;l=50&amp;t=40" style="border: none; max-width: 180px; outline: none;" /></a></td>
+              <td style="border-collapse: collapse !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-break: break-word;"><a href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://images.christianpost.com/full/81124/tim-tebow.jpg?w=81&amp;h=51&amp;l=50&amp;t=40" style="border: none; max-width: 81.3333333333px; outline: none; text-decoration: none;" width="81" /></a></td>
              </tr>
              <tr style="padding: 0; vertical-align: top;">
-              <td class="h6" style="border-collapse: collapse !important; font-size: 0.8125rem; hyphens: auto; line-height: 1.3; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-top: 6px; text-align: left; vertical-align: top; word-break: break-word;">Imprisoned Pastor Saeed Abedini Has Dream He Will Be Free by Daughter's 9th Birthday This Year; Wife Prays It Will Happen</td>
+              <td class="h6" style="border-collapse: collapse !important; font-size: 0.8125rem; hyphens: auto; line-height: 1.3; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-top: 6px; text-align: left; vertical-align: top; word-break: break-word;">Imprisoned Pastor </td>
+             </tr>
+            </table>
+           </td>
+           <td class="item" style="border-collapse: collapse !important; display: inline-block; font-size: 16px; hyphens: auto; letter-spacing: 0; margin: 0; max-width: 100%; mso-line-height-rule: exactly; padding: 8px; text-align: left; vertical-align: top; width: 81.3333333333px; word-break: break-word;">
+            <table style="border-collapse: collapse; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: left; vertical-align: top;">
+             <tr style="padding: 0; vertical-align: top;">
+              <td style="border-collapse: collapse !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-break: break-word;"><a href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://images.christianpost.com/full/79227/oprah-winfrey.jpg?w=81&amp;h=51&amp;l=50&amp;t=40" style="border: none; max-width: 81.3333333333px; outline: none; text-decoration: none;" width="81" /></a></td>
+             </tr>
+             <tr style="padding: 0; vertical-align: top;">
+              <td class="h6" style="border-collapse: collapse !important; font-size: 0.8125rem; hyphens: auto; line-height: 1.3; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-top: 6px; text-align: left; vertical-align: top; word-break: break-word;">Christian Bakery </td>
+             </tr>
+            </table>
+           </td>
+           <td class="item" style="border-collapse: collapse !important; display: inline-block; font-size: 16px; hyphens: auto; letter-spacing: 0; margin: 0; max-width: 100%; mso-line-height-rule: exactly; padding: 8px; text-align: left; vertical-align: top; width: 81.3333333333px; word-break: break-word;">
+            <table style="border-collapse: collapse; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: left; vertical-align: top;">
+             <tr style="padding: 0; vertical-align: top;">
+              <td style="border-collapse: collapse !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-break: break-word;"><a href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://images.christianpost.com/full/77199/bart-millard-and-lecrae.jpg?w=81&amp;h=51&amp;l=50&amp;t=40" style="border: none; max-width: 81.3333333333px; outline: none; text-decoration: none;" width="81" /></a></td>
+             </tr>
+             <tr style="padding: 0; vertical-align: top;">
+              <td class="h6" style="border-collapse: collapse !important; font-size: 0.8125rem; hyphens: auto; line-height: 1.3; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-top: 6px; text-align: left; vertical-align: top; word-break: break-word;">Luis Palau</td>
+             </tr>
+            </table>
+           </td>
+           <td class="item" style="border-collapse: collapse !important; display: inline-block; font-size: 16px; hyphens: auto; letter-spacing: 0; margin: 0; max-width: 100%; mso-line-height-rule: exactly; padding: 8px; text-align: left; vertical-align: top; width: 81.3333333333px; word-break: break-word;">
+            <table style="border-collapse: collapse; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: left; vertical-align: top;">
+             <tr style="padding: 0; vertical-align: top;">
+              <td style="border-collapse: collapse !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-break: break-word;"><a href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://images.christianpost.com/full/83883/manny-pacquiao.jpg?w=81&amp;h=51&amp;l=50&amp;t=40" style="border: none; max-width: 81.3333333333px; outline: none; text-decoration: none;" width="81" /></a></td>
+             </tr>
+             <tr style="padding: 0; vertical-align: top;">
+              <td class="h6" style="border-collapse: collapse !important; font-size: 0.8125rem; hyphens: auto; line-height: 1.3; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-top: 6px; text-align: left; vertical-align: top; word-break: break-word;">Imprisoned Pastor </td>
              </tr>
             </table>
            </td>
           </tr>
          </table>
-         <hr style="background-color: #e6e6e6; border: none; color: #e6e6e6; height: 1px; margin-left: 10px; margin-right: 10px;" />
-         <table style="border-collapse: collapse; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: left; vertical-align: top;">
+        </td>
+       </tr>
+      </table>
+     </center>
+    </td>
+   </tr>
+   <tr style="padding: 0; vertical-align: top;">
+    <td style="border-collapse: collapse !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: left; vertical-align: top; word-break: break-word;">
+     <center style="width: 100%;">
+      <table class="wrapper" style="border-collapse: collapse; border-spacing: 0; margin: 0 auto; max-width: 600px; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: inherit; vertical-align: top;">
+       <tr style="padding: 0; vertical-align: top;">
+        <td class="gap" style="border-collapse: collapse !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; padding-top: 20px; text-align: left; vertical-align: top; word-break: break-word;">
+         <table class="full" style="border-collapse: collapse; border-spacing: 0; mso-table-lspace: 0pt; mso-table-rspace: 0pt; padding: 0; text-align: left; vertical-align: top; width: 100%;">
           <tr style="padding: 0; vertical-align: top;">
-           <td class="col copyright" style="border-collapse: collapse !important; color: #999; font-size: 12px; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 10px; padding-bottom: 30px; text-align: left; vertical-align: top; word-break: break-word;">Copyright &copy; 2015 XXXX. All Rights Reserved.</td>
+           <td class="center" style="border-collapse: collapse !important; hyphens: auto; margin: 0; mso-line-height-rule: exactly; padding: 0; text-align: center; vertical-align: top; word-break: break-word;"><a class="icon-social" href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://creatiointl.org/gallery/william/fluid-email/img/facebook.png" style="border: none; margin: 0 3px; max-width: 100%; outline: none; text-decoration: none;" width="36" /></a> <a class="icon-social" href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://creatiointl.org/gallery/william/fluid-email/img/twitter.png" style="border: none; margin: 0 3px; max-width: 100%; outline: none; text-decoration: none;" width="36" /></a> <a class="icon-social" href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://creatiointl.org/gallery/william/fluid-email/img/google-plus.png" style="border: none; margin: 0 3px; max-width: 100%; outline: none; text-decoration: none;" width="36" /></a> <a class="icon-social" href="" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;"><img alt="" src="http://creatiointl.org/gallery/william/fluid-email/img/pinterest.png" style="border: none; margin: 0 3px; max-width: 100%; outline: none; text-decoration: none;" width="36" /></a></td>
+          </tr>
+          <tr style="padding: 0; vertical-align: top;">
+           <td class="col copyright center" style="border-collapse: collapse !important; color: #999; font-size: 12px; hyphens: auto; line-height: 1.6; margin: 0; mso-line-height-rule: exactly; padding: 8px; padding-bottom: 30px; text-align: center; vertical-align: top; word-break: break-word;">This email was sent to <a class="primary" href="mailto:test@gmail.com" style="color: #333; mso-line-height-rule: exactly; padding: 0; text-decoration: none;">test@gmail.com</a><br /><a href="" style="color: #999; mso-line-height-rule: exactly; padding: 0; text-decoration: none;">Unsubscribe</a> | <a href="" style="color: #999; mso-line-height-rule: exactly; padding: 0; text-decoration: none;">Privacy Policy</a> | <a href="" style="color: #999; mso-line-height-rule: exactly; padding: 0; text-decoration: none;">User Agreement</a> | <a href="" style="color: #999; mso-line-height-rule: exactly; padding: 0; text-decoration: none;">Contact Us</a><br /> Brand &middot; 711 5th Avenue, New York City, NY &middot; New York, Ny 10007</td>
           </tr>
          </table>
         </td>

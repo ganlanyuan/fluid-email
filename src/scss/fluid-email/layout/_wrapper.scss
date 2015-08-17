@@ -1,0 +1,21 @@
+// *** wrapper *** //
+
+// wrapper
+table {
+  // &.body center { min-width: $wrapper; } // Force gmail (App) show desktop version
+  &.wrapper {
+    max-width: $wrapper;
+    // width: $wrapper; // Force gmail (App) show desktop version
+    margin: 0 auto;
+    text-align: inherit;
+  }
+
+  // For Apple Mail (it doesn't support max-width) 
+  // @include bp(max $wrapper) { 
+    // &[class="wrapper"] { width: 92% !important;  }  
+    // &[class="body"] center { min-width: 0 !important; }
+  // }
+  @include bp(min ($wrapper + 1px)) { 
+    &[class="wrapper"] { width: $wrapper !important;  }  
+  }
+}

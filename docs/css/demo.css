@@ -8,8 +8,32 @@ body {
   padding: 0;
 }
 
+.ExternalClass {
+  width: 100%;
+}
+
+.ExternalClass,
+.ExternalClass p,
+.ExternalClass span,
+.ExternalClass font,
+.ExternalClass td,
+.ExternalClass div {
+  line-height: 100%;
+}
+
+#backgroundTable {
+  margin: 0;
+  padding: 0;
+  width: 100% !important;
+  line-height: 100% !important;
+}
+
 div, p, a, li, td {
   -webkit-text-size-adjust: none;
+}
+
+p {
+  margin: 1em 0;
 }
 
 table, td {
@@ -37,13 +61,6 @@ table.body center {
   width: 100%;
 }
 
-table.wrapper {
-  width: 100%;
-  max-width: 600px;
-  margin: 0 auto;
-  text-align: inherit;
-}
-
 td {
   margin: 0;
   word-break: break-word;
@@ -56,18 +73,22 @@ td {
 
 img {
   outline: none;
-  border: none;
-  max-width: 100%;
+  text-decoration: none;
   -ms-interpolation-mode: bicubic;
+  max-width: 100%;
 }
 
 a img {
   border: none;
 }
 
+.img-fix {
+  display: block;
+}
+
 hr {
-  margin-left: 10px;
-  margin-right: 10px;
+  margin-left: 8px;
+  margin-right: 8px;
   height: 1px;
   color: #e6e6e6;
   background-color: #e6e6e6;
@@ -78,6 +99,19 @@ h1, h2, h3, h4, h5, h6 {
   display: block;
   margin: 0;
   padding: 0;
+  color: black !important;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  color: blue !important;
+}
+
+h1 a:active, h2 a:active, h3 a:active, h4 a:active, h5 a:active, h6 a:active {
+  color: red !important;
+}
+
+h1 a:visited, h2 a:visited, h3 a:visited, h4 a:visited, h5 a:visited, h6 a:visited {
+  color: purple !important;
 }
 
 .full {
@@ -85,6 +119,10 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 /* Typography */
+#outlook p {
+  display: inline !important;
+}
+
 #outlook a {
   padding: 0;
 }
@@ -103,14 +141,15 @@ a {
   text-decoration: none;
 }
 
-p, a, li, td, blockquote {
-  mso-line-height-rule: exactly;
-}
-
-a[href^=tel], a[href^=sms] {
+a[href^=tel],
+a[href^=sms] {
   color: inherit;
   cursor: default;
   text-decoration: none;
+}
+
+p, a, li, td, blockquote {
+  mso-line-height-rule: exactly;
 }
 
 p, a, li, td, body, table, blockquote {
@@ -143,9 +182,10 @@ img.center {
   float: none;
 }
 
-/* Outlook First */
-body.outlook p {
-  display: inline !important;
+table.wrapper {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: inherit;
 }
 
 @media (min-width: 37.5625em) {
@@ -160,31 +200,31 @@ body.outlook p {
   letter-spacing: -0.34em;
 }
 
-.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, [class~="topnews-img"], [class~="topnews-text"], [class~="column-left"], [class~="column-right"] {
+.col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
   display: inline-block;
   font-size: 16px;
   letter-spacing: 0;
-  padding: 10px;
+  padding: 8px;
   max-width: 100%;
 }
 
 @media (max-width: 37.5em) {
-  .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12, [class~="topnews-img"], [class~="topnews-text"], [class~="column-left"], [class~="column-right"] {
+  .col-1, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-10, .col-11, .col-12 {
     width: 100% !important;
     box-sizing: border-box;
   }
 }
 
 .col {
-  padding: 10px;
+  padding: 8px;
 }
 
 .col-1 {
-  width: 30px;
+  width: 32.6666666667px;
 }
 
 .col-2 {
-  width: 80px;
+  width: 81.3333333333px;
 }
 
 .col-3 {
@@ -192,42 +232,42 @@ body.outlook p {
 }
 
 .col-4 {
-  width: 180px;
+  width: 178.666666667px;
 }
 
 .col-5 {
-  width: 230px;
+  width: 227.333333333px;
 }
 
 .col-6 {
-  width: 280px;
+  width: 276px;
 }
 
 .col-7 {
-  width: 330px;
+  width: 324.666666667px;
 }
 
 .col-8 {
-  width: 380px;
+  width: 373.333333333px;
 }
 
 .col-9 {
-  width: 430px;
+  width: 422px;
 }
 
 .col-10 {
-  width: 480px;
+  width: 470.666666667px;
 }
 
 .col-11 {
-  width: 530px;
+  width: 519.333333333px;
 }
 
 .col-12 {
-  width: 580px;
+  width: 568px;
 }
 
-.sub-cols-5, .sub-cols-7 {
+.sub-col-4, .sub-col-8 {
   font-size: 16px;
   letter-spacing: 0;
 }
@@ -248,34 +288,34 @@ body.outlook p {
 .gallery-5 > tbody,
 .gallery-6 > tbody,
 .gallery-2 > tbody > tr, .gallery-3 > tbody > tr, .gallery-4 > tbody > tr, .gallery-5 > tbody > tr, .gallery-6 > tbody > tr {
-  text-align: center;
+  text-align: left;
 }
 
-.gallery-2 .cell, .gallery-3 .cell, .gallery-4 .cell, .gallery-5 .cell, .gallery-6 .cell {
+.gallery-2 td.item, .gallery-3 td.item, .gallery-4 td.item, .gallery-5 td.item, .gallery-6 td.item {
   display: inline-block;
-  padding: 10px;
+  padding: 8px;
   font-size: 16px;
   letter-spacing: 0;
   max-width: 100%;
 }
 
-.gallery-2 .cell {
-  width: 280px;
+.gallery-2 td.item {
+  width: 276px;
 }
 
 .gallery-2 img {
-  max-width: 280px;
+  max-width: 276px;
 }
 
-.gallery-3 .cell {
-  width: 180px;
+.gallery-3 td.item {
+  width: 178.666666667px;
 }
 
 .gallery-3 img {
-  max-width: 180px;
+  max-width: 178.666666667px;
 }
 
-.gallery-4 .cell {
+.gallery-4 td.item {
   width: 130px;
 }
 
@@ -283,20 +323,48 @@ body.outlook p {
   max-width: 130px;
 }
 
-.gallery-5 .cell {
-  width: 100px;
+.gallery-5 td.item {
+  width: 100.8px;
 }
 
 .gallery-5 img {
-  max-width: 100px;
+  max-width: 100.8px;
 }
 
-.gallery-6 .cell {
-  width: 80px;
+.gallery-6 td.item {
+  width: 81.3333333333px;
 }
 
 .gallery-6 img {
-  max-width: 80px;
+  max-width: 81.3333333333px;
+}
+
+td.adjust {
+  padding: 8px;
+}
+
+#backgroundTable {
+  background-color: #eee;
+}
+
+.wrapper.main {
+  background-color: #fff;
+}
+
+.topbar {
+  padding: 10px;
+  background-color: #444;
+  color: #fff;
+}
+
+.topbar a {
+  color: #fff;
+  text-decoration: underline;
+}
+
+.view {
+  font-size: 11px;
+  text-align: left;
 }
 
 .h4 {
@@ -332,19 +400,22 @@ body.outlook p {
 
 .gap {
   padding-top: 20px;
-  padding-bottom: 20px;
 }
 
 .logo {
   font-size: 36px !important;
-  vertical-align: baseline;
 }
 
 .date {
-  padding-top: 17px;
+  padding-top: 30px;
+  text-align: right;
   font-size: 12px;
-  color: #777;
-  vertical-align: baseline;
+  color: #999;
+}
+
+.date a {
+  color: #999;
+  text-decoration: underline;
 }
 
 .button {
@@ -381,35 +452,35 @@ body.outlook p {
   display: block;
 }
 
-.sub-cols-5 {
-  width: 41.6666666667%;
+.img-box {
   padding-right: 10px;
   padding-bottom: 10px;
 }
 
-.sub-cols-7 {
-  width: 58.3333333333%;
+.sub-col-4 {
+  width: 33.3333333333%;
+}
+
+.sub-col-8 {
+  width: 66.6666666667%;
+}
+
+.icon-social > img {
+  margin: 0 3px;
 }
 
 .copyright {
+  padding-bottom: 30px;
+  line-height: 1.6;
   font-size: 12px;
   color: #999;
-  padding-bottom: 30px;
 }
 
-[class~="topnews-img"] {
-  width: 230px;
+.copyright a {
+  color: #999;
 }
 
-[class~="topnews-text"] {
-  width: 330px;
-}
-
-[class~="column-left"] {
-  width: 280px;
-}
-
-[class~="column-right"] {
-  width: 280px;
+.copyright .primary {
+  color: #333;
 }
 /*# sourceMappingURL=demo.css.map */

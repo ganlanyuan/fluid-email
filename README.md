@@ -1,7 +1,7 @@
 # Fluid-email
 Mobile-first email framework build with scss.  
 [[demo]](http://creatiointl.org/gallery/william/fluid-email/demo.html)     
-[[view tests]](https://litmus.com/pub/cebeb7b/screenshots)  
+[[view tests]](https://litmus.com/pub/620ed74/screenshots)  
 [[changelog]](https://github.com/ganlanyuan/fluid-email/blob/master/changelog.md)
 
 **Tips**    
@@ -9,6 +9,8 @@ Mobile-first email framework build with scss.
 + Every element only can have a maximum of one class. But if you will bring css inline later, ignore this rule.
 + Don't use css shorthand like: font: 10px/18px Arial, sans-serif.
 + Give your images a short and simple name: like logo.png, not logo_email_2011_08.png.
++ Make sure the maximum width of the columns is not bigger than 320px (for Gmail App on Android).
++ Make sure the images are not wider than their container (for outlook 07/10/13).
 
 ## Process
 1. Write you css/sass   
@@ -247,4 +249,5 @@ Yahoo! Mail (Chrome) ✓
 <https://www.campaignmonitor.com/guides/mobile/>  
 <http://webdesign.tutsplus.com/tutorials/what-you-should-know-about-html-email--webdesign-12908>   
 <https://www.campaignmonitor.com/blog/post/4240/creating-a-centred-responsive-design-without-media-queries>    
+[Email-Boilerplate](https://github.com/seanpowell/Email-Boilerplate)
 [ink](http://zurb.com/ink/)

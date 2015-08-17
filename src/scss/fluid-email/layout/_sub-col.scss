@@ -2,7 +2,7 @@
 
 // sub col
 @mixin sub-col($key){
-  $columns: ro-get-next($key, 'of', $columns);
+  $cols: ro-get-next($key, 'of', $cols);
 
   // set up column
   $column: 0;
@@ -22,7 +22,7 @@
   }
   
   @extend %sub-col;
-  width: percentage($column / $columns);
+  width: percentage($column / $cols);
 }
 
 %sub-col {

@@ -1,7 +1,23 @@
 // *** demo *** //
+$row: 584px;
 @import '../../src/scss/fluid-email/fluid-email';
 
-
+td.adjust { padding: ($gutter / 2); }
+#backgroundTable { background-color: #eee; }
+.wrapper.main { background-color: #fff; }
+.topbar {
+  padding: 10px;
+  background-color: #444;
+  color: #fff;
+  a {
+    color: #fff;
+    text-decoration: underline;
+  }
+}
+.view { 
+  font-size: 11px;
+  text-align: left;
+}
 .h4 {
   @include type(23px 1.2 bold $georgia);
 }
@@ -19,17 +35,19 @@
 }
 .gap {
   padding-top: 20px;
-  padding-bottom: 20px;
 }
 .logo {
   font-size: 36px !important;
-  vertical-align: baseline;
 }
 .date {
-  padding-top: 17px;
+  padding-top: 30px;
+  text-align: right;
   font-size: 12px;
-  color: #777;
-  vertical-align: baseline;
+  color: #999;
+  a { 
+    color: #999; 
+    text-decoration: underline;
+  }
 }
 .button { 
   @include button(#3ab7e4 radius); 
@@ -44,19 +62,22 @@
 .topnews-img {
   a { display: block;}
 }
-.sub-cols-5 { 
-  @include sub-col(5);
+.img-box { 
   padding-right: 10px; 
   padding-bottom: 10px;
 }
-.sub-cols-7 { @include sub-col(7); }
+.sub-col {
+  &-4 { @include sub-col(4 of 12); }
+  &-8 { @include sub-col(8 of 12); }
+}
+.icon-social > img{
+  margin: 0 3px;
+}
 .copyright {
+  padding-bottom: 30px;
+  line-height: 1.6;
   font-size: 12px;
   color: #999;
-  padding-bottom: 30px;
+  a { color: #999; }
+  .primary { color: #333; }
 }
-
-[class~="topnews-img"] { @include col(5);}
-[class~="topnews-text"] { @include col(7);}
-[class~="column-left"] { @include col(6); }
-[class~="column-right"] { @include col(6 of 12); }

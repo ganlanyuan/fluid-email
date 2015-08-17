@@ -2,3 +2,45 @@
 @import "fluid-email/fluid-email";
 
 // *** main *** //
+
+
+
+
+
+
+
+@media only screen and (max-device-width: 480px) {
+  // A nice and clean way to target phone numbers you want clickable and avoid a mobile phone from linking other numbers that look like, but are not phone numbers.  Use these two blocks of code to "unstyle" any numbers that may be linked.  The second block gives you a class to apply with a span tag to the numbers you would like linked and styled.
+  // Inspired by Campaign Monitor's article on using phone numbers in email: http://www.campaignmonitor.com/blog/post/3571/using-phone-numbers-in-html-email/.
+  // a[href^="tel"], a[href^="sms"] {
+  //   text-decoration: none;
+  //   color: black; // or whatever your want
+  //   pointer-events: none;
+  //   cursor: default;
+  //   .mobile_link & {
+  //     text-decoration: default;
+  //     color: orange !important; // or whatever your want
+  //     pointer-events: auto;
+  //     cursor: default;
+  //   }
+  // }
+}
+// More Specific Targeting
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
+  // ipad (tablets, smaller screens, etc)
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) {
+  // Put your iPhone 4g styles in here //
+}
+// Following Android targeting from:
+// http://developer.android.com/guide/webapps/targeting.html
+// http://pugetworks.com/2011/04/css-media-queries-for-targeting-different-mobile-devices/ 
+@media only screen and (-webkit-device-pixel-ratio:.75){
+  // Put CSS for low density (ldpi) Android layouts in here //
+}
+@media only screen and (-webkit-device-pixel-ratio:1){
+  // Put CSS for medium density (mdpi) Android layouts in here //
+}
+@media only screen and (-webkit-device-pixel-ratio:1.5){
+  // Put CSS for high density (hdpi) Android layouts in here //
+}
