@@ -1,7 +1,7 @@
 # Fluid-email
 Mobile-first email framework build with scss.  
 [[demo]](http://creatiointl.org/gallery/william/fluid-email/demo.html)     
-[[view tests]](https://litmus.com/pub/620ed74/screenshots)  
+[[view tests]](https://litmus.com/pub/747e04a/screenshots)  
 [[changelog]](https://github.com/ganlanyuan/fluid-email/blob/master/changelog.md)
 
 **Tips**    
@@ -9,8 +9,9 @@ Mobile-first email framework build with scss.
 + Every element only can have a maximum of one class. But if you will bring css inline later, ignore this rule.
 + Don't use css shorthand like: font: 10px/18px Arial, sans-serif.
 + Give your images a short and simple name: like logo.png, not logo_email_2011_08.png.
-+ Make sure the maximum width of the columns is not bigger than 320px (for Gmail App on Android).
-+ Make sure the images are not wider than their container (for outlook 07/10/13).
++ Use `attribute selectors` in your media queries to avoid a glitch which appears in Yahoo! Mail. Please refer to [this article](https://www.campaignmonitor.com/blog/post/3457/media-query-issues-in-yahoo-mail-mobile-email/).
++ Wider than 320px column width will break the layout in Android Gmail App.
++ Wider image than its container will break the layout in outlook 07/10/13 because of their non-support of `max-width`.
 
 ## Process
 1. Write you css/sass   
@@ -27,130 +28,124 @@ Or install with [git](http://www.git-scm.com/):
 $ git clone https://github.com/ganlanyuan/fluid-email.git
 ````
 
+## Don't use SASS?
+You can use `src/css/index.css` directly.
+
 ## Usage
 **Basic structure**   
-We use `container`to constrain the main content on bigger screen, but since Lotus Notes 8 & Outlook don't support `max-width`, we need add a conditional wherever we use `container`. You can change the `container` width in setting.scss.   
+We use `wrapper`to constrain the main content on bigger screen, but since Lotus Notes 8 & Outlook don't support `max-width`, we need add a conditional wherever we use `wrapper`. You can change the `wrapper` width in setting.scss.   
 `center` element is required to fix an layout issue on Gmail App (Android).
 ```` html
-<table class="body">
-  <tr>
-    <td>
-      <center>
-      
-      <table class="container">
-        <tr>
-          <td>
-            <!-- Your content goes here -->
-          </td>
-        </tr>
-      </table>
-      
-      </center>
-    </td>
-  </tr>
-</table>
+<body class="outlook" id="outlook">
+  <table class="body" id="backgroundTable">
+    <tr>
+      <td>
+        <center>
+
+        <table class="wrapper">
+          <tr>
+            <td>
+
+              <!-- Your content goes here -->
+
+            </td>
+          </tr>
+        </table>
+
+        </center>
+      </td>
+    </tr>
+  </table>
+</body>
 ````
 **Settings**   
-Before start using the grid, you need set up some basic setting in setting.scss.
+The default grid is 12 columns, gallery is 6 columns.   
+You can directly change the setting in `_variables.scss`, or change it before you @import `fluid-email`.
 ```` sass
-$outer-container: 600px;
-$container: 600px;
-$columns: 12;
-$gutter: 20px;
+// *** 1 variables.scss *** //
+// generate css
+$generate-css: true !default;
+
+// layout
+$wrapper: 600px !default;
+$row: 600px !default;
+$cols: 12 !default;
+$gutter: 16px !default;
+
+$gallery-cols: 6 !default;
+$gallery-align: left !default;
+
+// *** 2 change the setting before @import it *** //
+$wrapper: 640px;
+$row: 620px;
+
+@import "your/path/to/fluid-email";
 ````
-**Span**  
-You should use `attribute selectors` in your media queries to avoid a glitch which appears in Yahoo! Mail. Please refer to [this article](https://www.campaignmonitor.com/blog/post/3457/media-query-issues-in-yahoo-mail-mobile-email/).   
+**Grid**  
 ```` html
-<table class="wrapper">
+<table class="row">
   <tr>
-    <td class="column-left">
-      column left
+    <td class="col-4">
+      <!-- your content goes here … -->
     </td>
-    <td class="column-right">
-      column right
+    <td class="col-8">
+      <!-- your content goes here … -->
+    </td>
+  </tr>
+</table>
+````
+**Sub-grid**  
+```` html
+<table class="row">
+  <tr>
+    <td class="main">
+      <!-- your content goes here … -->
+    </td>
+    <td class="aside">
+      <!-- your content goes here … -->
     </td>
   </tr>
 </table>
 ````
 ```` sass
-@mixin span($key);
-// pattern
-$key: ($column of $columns)
-
-// Usage
-@include bp(min 600) {
-  [class~="column-left"] { @include col(8); }
-  [class~="column-right"] { @include col(4); }
-}
-@include bp(max 599) {
-  [class~="column-left"],
-  [class~="column-right"] { @include col(12); }
-}
-````
-
-**Sub-span**  
-Sub span will works on all screen sizes.
-```` html
-<table class="wrapper">
-  <tr>
-    <td class="sub-column-4">
-      <a href=""><img src="http://placehold.it/300x250" alt="" class="fluid" /></a>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sint perferendis nostrum ipsam fugiat? Expedita vel impedit culpa accusantium <a href="">sit fugit commodi est a eaque nihil, quae recusandae voluptate</a> exercitationem.
-    </td>
-    <td class="sub-column-8">
-      Lorem ipsum dolor sit amet, consectetur adipisicing elit. Inventore sint perferendis nostrum ipsam fugiat? Expedita vel impedit culpa accusantium sit fugit commodi est a eaque nihil, quae recusandae voluptate exercitationem.
-    </td>
-  </tr>
-</table>
-````
-```` sass
-@mixin sub-span($key)
+@mixin sub-col($key)
 // pattern
 $key: $column of $columns
 
 // Usage
-.sub-column-4 { @include sub-span(4 of 12); }
-.sub-column-8 { @include sub-span(8 of 12); }
+.main { @include sub-col(4 of 12); }
+.aside { @include sub-col(8 of 12); }
 ````
 
-**Block**   
+**Gallery**   
 ```` html
-<table class="block-2">
+<table class="gallery-2">
   <tr>
-    <td class="cell">
-      Your content goes here...
+    <td class="item">
+      <!-- your content goes here … -->
     </td>
-    <td class="cell">
-      Your content goes here...
+    <td class="item">
+      <!-- your content goes here … -->
     </td>
   </tr>
 </table>
 ````
-```` sass
-@mixin block($key)
-// pattern
-$key: $per-row $block-container $align
-
-// Usage
-.block-2 { @include block(2 center); }
-// $per-row: 2;
-// $block-container: $container; (default)
-// $align: center; (default: left)
-````
 
 **Button**  
 ```` html
-<td class="center">
+<td>
   <a href=""><span class="button">button</span></a>
 </td>
 ````
 ```` sass
 @mixin button($key)
 // pattern
-$key: $background-color $padding $border-radius
+$key: $background-color $padding $radius
 
 // Usage
 .button { 
-  @include button(#25d6ec '10px 15px' 3px); 
+  @include button(#25d6ec '10px 15px' round); 
+  // $radius: round; (radius | round)
 }
 ````
 
@@ -200,8 +195,8 @@ $key: $media $breakpoints
 // only works on the platforms that support CSS3 mediaquery
 ````
 
-## Compatibility
-**Desktop Clients**
+## Compatibility     
+**Desktop Clients**    
 Apple Mail 7 ✓  
 Apple Mail 8 ✓  
 Lotus Notes 8 ✓  
@@ -216,10 +211,10 @@ Outlook 2013 ✓
 Outlook 2016 ✓  
 Thunderbird 31 ✓  
 
-**Mobile Clients**
+**Mobile Clients**    
 Android 2.3 ✓  
 Android 4.2 ✓  
-Gmail App (Android) ✓ (has some small issues)  
+Gmail App (Android) ✓   
 BlackBerry 5 OS ✗  
 iPad (Retina) ✓  
 iPad Mini ✓  
@@ -229,7 +224,7 @@ iPhone 6 ✓
 iPhone 6 Plus ✓  
 Windows Phone 8 ✓  
 
-**Web-based Clients**
+**Web-based Clients**    
 AOL Mail (Explorer) ✓  
 AOL Mail (Firefox) ✓  
 AOL Mail (Chrome) ✓  

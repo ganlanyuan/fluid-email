@@ -36,7 +36,7 @@ p {
   margin: 1em 0;
 }
 
-table, td {
+td {
   text-align: left;
 }
 
@@ -363,6 +363,7 @@ td.adjust {
 }
 
 .view {
+  width: 100%;
   font-size: 11px;
   text-align: left;
 }
@@ -463,10 +464,6 @@ td.adjust {
 
 .sub-col-8 {
   width: 66.6666666667%;
-}
-
-.icon-social > img {
-  margin: 0 3px;
 }
 
 .copyright {
