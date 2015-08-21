@@ -267,11 +267,6 @@ table.wrapper {
   width: 568px;
 }
 
-.sub-col-4, .sub-col-8 {
-  font-size: 16px;
-  letter-spacing: 0;
-}
-
 .gallery-2, .gallery-3, .gallery-4, .gallery-5, .gallery-6 {
   font-size: 0;
   letter-spacing: -0.34em;

@@ -96,7 +96,7 @@ $row: 620px;
 ````
 **Sub-grid**  
 ```` html
-<table class="row">
+<table width="100%">
   <tr>
     <td class="main">
       <!-- your content goes here … -->
@@ -199,7 +199,6 @@ $key: $media $breakpoints
 **Desktop Clients**    
 Apple Mail 7 ✓  
 Apple Mail 8 ✓  
-Lotus Notes 8 ✓  
 Lotus Notes 8.5 ✓  
 Outlook 2000 ✓  
 Outlook 2002 ✓  
@@ -215,7 +214,6 @@ Thunderbird 31 ✓
 Android 2.3 ✓  
 Android 4.2 ✓  
 Gmail App (Android) ✓   
-BlackBerry 5 OS ✗  
 iPad (Retina) ✓  
 iPad Mini ✓  
 iPhone 5s (iOS 7) ✓  
@@ -239,10 +237,10 @@ Yahoo! Mail (Firefox) ✓
 Yahoo! Mail (Chrome) ✓   
 
 ## Thanks and reference
-<http://jackosborne.com/articles/responsive-email-design/>   
+<http://jackosborne.com/articles/responsive-email-design/>    
 <http://blog.fogcreek.com/responsive-html-emails-a-different-strategy/>   
-<https://www.campaignmonitor.com/guides/mobile/>  
+<https://www.campaignmonitor.com/guides/mobile/>   
 <http://webdesign.tutsplus.com/tutorials/what-you-should-know-about-html-email--webdesign-12908>   
 <https://www.campaignmonitor.com/blog/post/4240/creating-a-centred-responsive-design-without-media-queries>    
-[Email-Boilerplate](https://github.com/seanpowell/Email-Boilerplate)
+[Email-Boilerplate](https://github.com/seanpowell/Email-Boilerplate)   
 [ink](http://zurb.com/ink/)
