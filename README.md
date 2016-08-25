@@ -1,8 +1,8 @@
 # Fluid-email
 Mobile-first email framework build with scss.  
-[[demo]](http://creatiointl.org/gallery/william/fluid-email/demo.html)     
-[[view tests]](https://litmus.com/pub/747e04a/screenshots)  
-[[changelog]](https://github.com/ganlanyuan/fluid-email/blob/master/changelog.md)
+[demo](http://creatiointl.org/william/fluid-email/demo.html)     
+<!-- [view tests](https://litmus.com/pub/747e04a/screenshots)   -->
+[changelog](https://github.com/ganlanyuan/fluid-email/blob/master/changelog.md)
 
 **Tips**    
 + Don't use standard tags like `h1`, `h2`,...,`p`.
