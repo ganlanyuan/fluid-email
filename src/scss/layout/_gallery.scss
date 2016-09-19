@@ -1,0 +1,83 @@
+// *** gallery *** //
+
+@mixin gallery($key) {
+  $count: 1;
+  $breakpoint: $breakpoint;
+
+  // set up per-row, gallery-row
+  @if type-of($key) == 'number' {
+    $count: $key;
+  } @else if type-of($key) == 'list' {
+    @each $item in $key {
+      @if type-of($item) == 'number' {
+        @if unitless($item) {
+          $count: $item;
+        } @else {
+          $breakpoint: $item;
+        }
+      }
+    }
+  }
+
+  $px_width: ($breakpoint / $count);
+  $percent_width: percentage(1 / $count);
+
+  @extend %gallery-base;
+  td.item {
+    @extend %gallery-item;
+    min-width: $px_width;
+    width: $percent_width;
+    min-width: -webkit-calc(#{$percent_width});
+    min-width: calc(#{$percent_width});
+    width: -webkit-calc(#{$breakpoint * $faciend} - #{100% * $faciend});
+    width: calc(#{$breakpoint * $faciend} - #{100% * $faciend});
+    max-width: 100%;
+  }
+
+  // constrict the images to container width
+  img { max-width: $px_width; }
+}
+
+%gallery-base {
+  &,
+  > tbody,
+  > tbody > tr {
+    text-align: $gallery-align;
+  }
+  font-size: 0; // remove blank space between inline-block elements
+  // Webkit: collapse white-space between units
+  letter-spacing: -0.31em; 
+  // Webkit: fixes text-rendering: optimizeLegibility
+  text-rendering: optimizespeed; 
+  // Sets the font stack to fonts known to work properly with the above letter
+  // and word spacings. See: https://github.com/yahoo/pure/issues/41/
+  // The following font stack makes gallery work on all known environments.
+  // * FreeSans: Ships with many Linux distros, including Ubuntu
+  // * Arimo: Ships with Chrome OS. Arimo has to be defined before Helvetica and
+  //   Arial to get picked up by the browser, even though neither is available
+  //   in Chrome OS.
+  // * Droid Sans: Ships with all versions of Android.
+  // * Helvetica, Arial, sans-serif: Common font stack on OS X and Windows.
+  font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
+
+  // Opera as of 12 on Windows needs word-spacing.
+  // The ".opera-only" selector is used to prevent actual prefocus styling
+  // and is not required in markup.
+  .opera-only :-o-prefocus, & { word-spacing: -0.43em; }
+}
+%gallery-item {
+  display: inline-block;
+  // padding: ($gutter / 2);
+  font-size: 16px; // restore font-size
+  letter-spacing: 0; // restore letter-spacing
+}
+
+@if $generate-css {
+  .gallery {
+    @for $i from 2 through $gallery-cols {
+      &-#{$i} {
+        @include gallery($i center);
+      }
+    }
+  }
+}

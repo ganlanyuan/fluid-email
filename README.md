@@ -68,7 +68,7 @@ $generate-css: true !default;
 
 // layout
 $wrapper: 600px !default;
-$row: 600px !default;
+$row-width: 600px !default;
 $cols: 12 !default;
 $gutter: 16px !default;
 
@@ -77,7 +77,7 @@ $gallery-align: left !default;
 
 // *** 2 change the setting before @import it *** //
 $wrapper: 640px;
-$row: 620px;
+$row-width: 620px;
 
 @import "your/path/to/fluid-email";
 ````

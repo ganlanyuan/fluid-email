@@ -1,0 +1,26 @@
+// *** row *** //
+
+// row
+.row { 
+  width: 100%;
+  font-size: 0; // remove blank space between inline-block elements
+  // Webkit: collapse white-space between units
+  letter-spacing: -0.31em; 
+  // Webkit: fixes text-rendering: optimizeLegibility
+  text-rendering: optimizespeed; 
+  // Sets the font stack to fonts known to work properly with the above letter
+  // and word spacings. See: https://github.com/yahoo/pure/issues/41/
+  // The following font stack makes gallery work on all known environments.
+  // * FreeSans: Ships with many Linux distros, including Ubuntu
+  // * Arimo: Ships with Chrome OS. Arimo has to be defined before Helvetica and
+  //   Arial to get picked up by the browser, even though neither is available
+  //   in Chrome OS.
+  // * Droid Sans: Ships with all versions of Android.
+  // * Helvetica, Arial, sans-serif: Common font stack on OS X and Windows.
+  font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
+
+  // Opera as of 12 on Windows needs word-spacing.
+  // The ".opera-only" selector is used to prevent actual prefocus styling
+  // and is not required in markup.
+  .opera-only :-o-prefocus, & { word-spacing: -0.43em; }
+}

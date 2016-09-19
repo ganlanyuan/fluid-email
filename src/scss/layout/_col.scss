@@ -1,0 +1,80 @@
+// *** col *** //
+
+@mixin col($key){
+  // merge list items
+  @each $item in $key {
+    @if type-of($item) == 'list' {
+      $key: join($item, reject($key, $item), 'space');
+    }
+  }
+  
+  $cols: ro-get-next($key, 'of', $cols);
+  $gutter: $gutter;
+
+  // set up column
+  $col: 0;
+  @if type-of($key) == 'number' {
+    $col: $key;
+  } @else if type-of($key) == 'list' {
+    @if index($key, 'of') {
+      $col: ro-get-prev($key, 'of');
+    } @else {
+      @each $item in $key {
+        @if type-of($item) == 'number' and
+            unitless($item) {
+          $col: $item;
+        }
+      }
+    }
+  }
+
+  // set up gutter
+  @each $item in $key {
+    @if type-of($item) == 'number' and 
+        not unitless($item) {
+      $gutter: $item;
+    }
+  }
+  // strip unit when gutter == 0
+  @if strip-unit($gutter) == 0 {
+    $gutter: 0;
+  }
+  
+  $px_width: ($col * $breakpoint / $cols);
+  $percent_width: percentage($col / $cols);
+
+  // desktop, non-mediaquery
+  @extend %col;
+  min-width: $px_width;
+  min-width: -webkit-calc(#{$percent_width});
+  min-width: calc(#{$percent_width});
+  width: $percent_width;
+  width: -webkit-calc(#{$breakpoint * $faciend} - #{100% * $faciend});
+  width: calc(#{$breakpoint * $faciend} - #{100% * $faciend});
+  max-width: 100%;
+}
+
+%col {
+  display: inline-block;
+  font-size: 16px; // restore font-size
+  letter-spacing: 0; // restore letter-spacing
+  // padding: ($gutter / 2);
+
+  // mediaquery
+  @include bp(max $wrapper) {
+    width: 100% !important;
+    box-sizing: border-box;
+  }
+}
+
+// generate css
+@if $generate-css {
+  .col {
+    padding: ($gutter / 2);
+    @for $i from 1 through $cols {
+      &-#{$i} {
+        @include col($i of $cols);
+      }
+    }
+  }
+}
