@@ -8,8 +8,9 @@
 /.codekit-cache/
 /design/
 /bower_components/
+/node_modules/
 
 README.html
 changelog.html
 LICENSE
-
+package.json
