@@ -21,6 +21,7 @@
     "gulp-ruby-sass": "^2.1.0",
     "gulp-sass": "^2.3.2",
     "gulp-sourcemaps": "^1.6.0",
+    "gulp-streamify": "^1.0.2",
     "gulp-svg2png": "^2.0.0",
     "gulp-svgmin": "^1.2.2",
     "gulp-svgstore": "^6.0.0",
@@ -41,5 +42,6 @@
   "bugs": {
     "url": "https://github.com/ganlanyuan/dockerfile/issues"
   },
-  "homepage": "https://github.com/ganlanyuan/dockerfile"
+  "homepage": "https://github.com/ganlanyuan/dockerfile",
+  "dependencies": {}
 }

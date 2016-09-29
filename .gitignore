@@ -14,3 +14,5 @@ README.html
 changelog.html
 LICENSE
 package.json
+.ftppass
+secret.json

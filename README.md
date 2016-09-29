@@ -79,7 +79,7 @@ $gallery-align: left !default;
 $wrapper: 640px;
 $row-width: 620px;
 
-@import "your/path/to/fluid-email";
+@import "path/to/fluid-email";
 ````
 **Grid**  
 ```` html
