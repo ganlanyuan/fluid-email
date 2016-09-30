@@ -33,9 +33,9 @@ table { // Remove spacing around Outlook 07, 10 tables
   border-collapse: collapse;
   mso-table-lspace:0pt;
   mso-table-rspace:0pt;
+  width: 100%;
   &.body {
     height: 100%;
-    width: 100%;
     center { width: 100%; }
   }
 }
@@ -58,8 +58,9 @@ img {
 }
 .img-fix { display: block; } // Updated the common Gmail/Hotmail image display fix: Gmail and Hotmail unwantedly adds in an extra space below images when using non IE browsers. You may not always want all of your images to be block elements. Apply the "image_fix" class to any image you need to fix.
 hr {
-  margin-left: ($gutter / 2);
-  margin-right: ($gutter / 2);
+  // margin-left: ($gutter / 2);
+  // margin-right: ($gutter / 2);
+  margin: 0;
   height: 1px;
   color: map-get($color, border);
   background-color: map-get($color, border);

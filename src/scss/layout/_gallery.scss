@@ -22,9 +22,9 @@
   $px_width: ($breakpoint / $count);
   $percent_width: percentage(1 / $count);
 
-  @extend %gallery-base;
-  td.item {
-    @extend %gallery-item;
+  @extend %layout-base;
+  > tbody > tr > td {
+    @extend %layout-item-base;
     min-width: $px_width;
     width: $percent_width;
     min-width: -webkit-calc(#{$percent_width});
@@ -38,39 +38,6 @@
   img { max-width: $px_width; }
 }
 
-%gallery-base {
-  &,
-  > tbody,
-  > tbody > tr {
-    text-align: $gallery-align;
-  }
-  font-size: 0; // remove blank space between inline-block elements
-  // Webkit: collapse white-space between units
-  letter-spacing: -0.31em; 
-  // Webkit: fixes text-rendering: optimizeLegibility
-  text-rendering: optimizespeed; 
-  // Sets the font stack to fonts known to work properly with the above letter
-  // and word spacings. See: https://github.com/yahoo/pure/issues/41/
-  // The following font stack makes gallery work on all known environments.
-  // * FreeSans: Ships with many Linux distros, including Ubuntu
-  // * Arimo: Ships with Chrome OS. Arimo has to be defined before Helvetica and
-  //   Arial to get picked up by the browser, even though neither is available
-  //   in Chrome OS.
-  // * Droid Sans: Ships with all versions of Android.
-  // * Helvetica, Arial, sans-serif: Common font stack on OS X and Windows.
-  font-family: FreeSans, Arimo, "Droid Sans", Helvetica, Arial, sans-serif;
-
-  // Opera as of 12 on Windows needs word-spacing.
-  // The ".opera-only" selector is used to prevent actual prefocus styling
-  // and is not required in markup.
-  .opera-only :-o-prefocus, & { word-spacing: -0.43em; }
-}
-%gallery-item {
-  display: inline-block;
-  // padding: ($gutter / 2);
-  font-size: 16px; // restore font-size
-  letter-spacing: 0; // restore letter-spacing
-}
 
 @if $generate-css {
   .gallery {
@@ -79,5 +46,47 @@
         @include gallery($i center);
       }
     }
+  }
+}
+
+@mixin gallery2($key) {
+  $count-mobile: false;
+  $count-desktop: false;
+  $breakpoint: false;
+
+  @if index($key, 'to') {
+    $count-mobile: args-get-prev($key, 'to');
+    $count-desktop: args-get-next($key, 'to');
+  }
+  @each $item in $key {
+    @if not $breakpoint and type-of($item) == 'number' and not unitless($item) {
+      $breakpoint: $item;
+    }
+  }
+  
+  // set default values
+  @if not $breakpoint { $breakpoint: $global-breakpoint; }
+  @if not $count-mobile { $count-mobile: 1; }
+  @if not $count-desktop { $count-desktop: 2; }
+
+  // get width
+  $width-mobile: percentage(1 / $count-mobile);
+  $width-desktop: percentage(1 / $count-desktop);
+
+  @extend %layout-base;
+  > tbody > tr > td {
+    @extend %layout-item-base;
+
+    // 1. For Lotus Notes, Outlook for Windows, Outlook Web App (both Office 365 and the new Outlook.com) and Yahoo (webmail, iOS and Android apps). They don't support calc.
+    // 2. For older versions of Android (5.0-) and iOS (iOS7-)
+
+    min-width: ($breakpoint / $count-desktop); // 1
+    width: $width-desktop; // 1
+
+    max-width: $width-mobile; // for mobile
+    min-width: -webkit-calc(#{$width-desktop}); // 2
+    min-width: calc(#{$width-desktop}); // for desktop
+    width: -webkit-calc(#{$breakpoint * $faciend} - #{$width-mobile * $faciend}); // 2
+    width: calc(#{$breakpoint * $faciend} - #{$width-mobile * $faciend}); // breakpoint magic
   }
 }

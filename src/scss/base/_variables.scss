@@ -3,6 +3,10 @@
 
 // generate css
 $generate-css: true !default;
+$breakpoint-fix: true !default;
+
+// global
+$global-breakpoint: 480px;
 
 // layout
 $wrapper: 600px !default;
@@ -36,7 +40,8 @@ $fe-em-base: 16px !default;
 $fe-rem-base: 16px !default;
 
 // breakpoint
-$fe-media-types: all, aural, braille, handheld, print, projection, screen, tty, tv, embossed !default;
+$ro-media-type: all, aural, braille, handheld, print, projection, screen, tty, tv, embossed !default;
+$ro-media-features: 'width', 'height' !default;
 
 // type
 $fe-font-weights: thin, hairline, extra light, ultra light, lighter, light, normal, medium, semi bold, demi bold, bold, bolder, extra bold, black, heavy, 100, 200, 300, 400, 500, 600, 700, 800, 900, weight-normal, weight-inherit !default;

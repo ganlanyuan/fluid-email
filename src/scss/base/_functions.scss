@@ -195,3 +195,46 @@
   $_return: '#{$col-percentage}' + ' + ' + '#{$col-gutter}';
   @return $_return;
 }
+
+@function args-get-prev($list, $val, $default:false) {
+  @if type-of($list) == 'list' {
+    $index: index($list, $val);
+
+    @if $index {
+      @if $index >= 2 {
+        @return nth($list, ($index - 1));
+      } @else {
+        
+        @return $default;
+      }
+    } @else {
+
+      @return $default;
+    }
+  } @else {
+
+    @return $default;
+  }
+}
+
+@function args-get-next($list, $val, $default:false) {
+  @if type-of($list) == 'list' {
+    $index: index($list, $val);
+
+    @if $index {
+      @if length($list) >= ($index + 1) {
+        @return nth($list, ($index + 1));
+      } @else {
+        
+        @return $default;
+      }
+    } @else {
+
+      @return $default;
+    }
+  } @else {
+
+    @return $default;
+  }
+}
+

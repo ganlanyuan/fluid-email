@@ -21,10 +21,11 @@ var config = {
     precision: 7,
     sourcemap: true
   },
-  inject: "tests/css/demo.css",
   html: "tests/index.html",
-  html_dest: "tests/",
-  html_name: "test.html",
+  css: "tests/css/demo.css",
+  dest: "tests/",
+  inject: "inject.html",
+  inline: "inline.html",
   
   // styles
   sass: {
@@ -67,12 +68,6 @@ function errorlog (error) {
 function fileContents (filePath, file) {
   return file.contents.toString();
 }
-function fileContentsScript(filePath, file) {
-  return '<script>' + file.contents.toString() + '</script>';
-}
-function fileContentsScriptSvg4everybody(filePath, file) {
-  return '<script>' + file.contents.toString().replace('height:100%;width:100%', '') + '</script>';
-}
 function fileContentsStyle(filePath, file) {
   return '<style>' + file.contents.toString() + '</style>';
 }
@@ -108,28 +103,26 @@ if (config.sassLang === 'libsass') {
   });  
 }
 
-gulp.task('inject_css', ['sass'], function() {
+gulp.task('inject', ['sass'], function() {
   return gulp.src(config.html)
-    .pipe(inject(gulp.src(config.inject), {
+    .pipe(inject(gulp.src(config.css), {
       name: 'css',
       transform: function (filePath, file) {
         return '<style>' + file.contents.toString() + '</style>';
       }
     }))
-    .pipe(gulp.dest(config.html_dest));
+    .pipe(rename(config.inject))
+    .pipe(gulp.dest(config.dest));
 });
 
-gulp.task('inline_css', ['inject_css'], function() {
+gulp.task('inline', ['sass'], function() {
   return gulp.src(config.html)
     .pipe(inlineCss({
       preserveMediaQueries: true
     }))
-    .pipe(replace(/calc\((.)+\S(\+|-|\*|\/)(.)+\S\)/g, function(word){
-      word = word.replace(/(\b)+(\%)?(\+|\-|\/|\*)(\b)+(\%)?/g, "$1$2 $3 $4$5");
-      return word;
-    }))
-    .pipe(rename(config.html_name))
-    .pipe(gulp.dest(config.html_dest));
+    .pipe(replace(/(calc\()(\S+)(\+|-|\*|\/)(\S+)(\))/g, "$1$2 $3 $4$5"))
+    .pipe(rename(config.inline))
+    .pipe(gulp.dest(config.dest));
 });
 
 // Server
@@ -142,13 +135,13 @@ gulp.task('sync', ['server'], function() {
 
 // watch
 gulp.task('watch', function () {
-  gulp.watch(config.watch.sass, ['inline_css']);
+  gulp.watch(config.watch.sass, ['inject']);
   gulp.watch(config.watch.html).on('change', browserSync.reload);
 })
 
 // Default Task
 gulp.task('default', [
-  'inline_css',
+  'inject',
   'sync', 
   'watch',
 ]);  

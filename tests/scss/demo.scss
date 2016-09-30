@@ -2,7 +2,7 @@
 $row-width: 584px;
 @import '../../src/scss/fluid-email';
 
-td.adjust { padding: ($gutter / 2); }
+td.gutter { padding: ($gutter / 2); }
 #backgroundTable { background-color: #eee; }
 .wrapper.main { background-color: #fff; }
 .topbar {
@@ -79,3 +79,14 @@ td.adjust { padding: ($gutter / 2); }
   a { color: #999; }
   .primary { color: #333; }
 }
+
+.gallery2 {
+  @include gallery2(1 to 2 480px);
+} 
+.gallery3 {
+  @include gallery2(1 to 3 300px);
+} 
+.gallery6 {
+  @include gallery2(3 to 6 180px);
+} 
+[class*='gallery'] img { width: 100%; }
