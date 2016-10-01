@@ -135,13 +135,13 @@ gulp.task('sync', ['server'], function() {
 
 // watch
 gulp.task('watch', function () {
-  gulp.watch(config.watch.sass, ['inject']);
+  gulp.watch(config.watch.sass, ['inline']);
   gulp.watch(config.watch.html).on('change', browserSync.reload);
 })
 
 // Default Task
 gulp.task('default', [
-  'inject',
+  'inline',
   'sync', 
   'watch',
 ]);  
