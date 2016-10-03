@@ -22,7 +22,7 @@ var config = {
     sourcemap: true
   },
   html: "tests/index.html",
-  css: "tests/css/demo.css",
+  css: "tests/css/test.css",
   dest: "tests/",
   inject: "inject.html",
   inline: "inline.html",
@@ -36,7 +36,7 @@ var config = {
   // watch
   watch: {
     sass: '**/*.scss',
-    html: 'docs/*.html'
+    html: 'tests/*.html'
   },
 };
 
@@ -69,7 +69,7 @@ function fileContents (filePath, file) {
   return file.contents.toString();
 }
 function fileContentsStyle(filePath, file) {
-  return '<style>' + file.contents.toString() + '</style>';
+  return '<style type="text/css">' + file.contents.toString() + '</style>';
 }
 
 // SASS Task
@@ -115,7 +115,29 @@ gulp.task('inject', ['sass'], function() {
     .pipe(gulp.dest(config.dest));
 });
 
+gulp.task('inject2', function() {
+  return gulp.src(config.html)
+    .pipe(inject(gulp.src(config.css), {
+      name: 'css',
+      transform: function (filePath, file) {
+        return '<style>' + file.contents.toString() + '</style>';
+      }
+    }))
+    .pipe(rename(config.inject))
+    .pipe(gulp.dest(config.dest));
+});
+
 gulp.task('inline', ['sass'], function() {
+  return gulp.src(config.html)
+    .pipe(inlineCss({
+      preserveMediaQueries: true
+    }))
+    .pipe(replace(/(calc\()(\S+)(\+|-|\*|\/)(\S+)(\))/g, "$1$2 $3 $4$5"))
+    .pipe(rename(config.inline))
+    .pipe(gulp.dest(config.dest));
+});
+
+gulp.task('inline2', function() {
   return gulp.src(config.html)
     .pipe(inlineCss({
       preserveMediaQueries: true
@@ -135,13 +157,13 @@ gulp.task('sync', ['server'], function() {
 
 // watch
 gulp.task('watch', function () {
-  gulp.watch(config.watch.sass, ['inline']);
+  gulp.watch(config.sass.src, ['inject']);
   gulp.watch(config.watch.html).on('change', browserSync.reload);
 })
 
 // Default Task
 gulp.task('default', [
-  'inline',
+  'inject',
   'sync', 
   'watch',
 ]);  

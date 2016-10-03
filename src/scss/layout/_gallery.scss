@@ -52,35 +52,36 @@
 @mixin gallery2($key) {
   $count-mobile: false;
   $count-desktop: false;
-  $breakpoint: false;
+  $view-width: false;
 
   @if index($key, 'to') {
     $count-mobile: args-get-prev($key, 'to');
     $count-desktop: args-get-next($key, 'to');
   }
   @each $item in $key {
-    @if not $breakpoint and type-of($item) == 'number' and not unitless($item) {
-      $breakpoint: $item;
+    @if not $view-width and type-of($item) == 'number' and not unitless($item) {
+      $view-width: $item;
     }
   }
   
   // set default values
-  @if not $breakpoint { $breakpoint: $global-breakpoint; }
+  @if not $view-width { $view-width: $wrapper; }
   @if not $count-mobile { $count-mobile: 1; }
   @if not $count-desktop { $count-desktop: 2; }
 
   // get width
   $width-mobile: percentage(1 / $count-mobile);
   $width-desktop: percentage(1 / $count-desktop);
+  $breakpoint: ($view-width * 1.5 / $count-desktop);
 
-  @extend %layout-base;
-  > tbody > tr > td {
-    @extend %layout-item-base;
+  // @extend %layout-base;
+  .column {
+    // @extend %layout-item-base;
 
     // 1. For Lotus Notes, Outlook for Windows, Outlook Web App (both Office 365 and the new Outlook.com) and Yahoo (webmail, iOS and Android apps). They don't support calc.
     // 2. For older versions of Android (5.0-) and iOS (iOS7-)
 
-    min-width: ($breakpoint / $count-desktop); // 1
+    min-width: $breakpoint; // 1
     width: $width-desktop; // 1
 
     max-width: $width-mobile; // for mobile

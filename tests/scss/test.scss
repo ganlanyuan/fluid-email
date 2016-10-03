@@ -1,0 +1,7 @@
+// *** demo *** //
+$generate-css: false !default;
+@import '../../src/scss/fluid-email';
+
+.two {
+  @include gallery2(1 to 2);
+}
