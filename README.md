@@ -19,22 +19,17 @@ Mobile-first email framework build with scss.
 3. Test your email at [Litmus](https://litmus.com/) or [campaignmonitor.com](https://www.campaignmonitor.com/)   
 
 ## Install
-Download [Fluid-email](https://github.com/ganlanyuan/fluid-email/archive/master.zip) or install with [Bower](http://bower.io/): 
 ````
 $ bower install fluid-email
 ````
-Or install with [git](http://www.git-scm.com/):
-````
-$ git clone https://github.com/ganlanyuan/fluid-email.git
-````
 
 ## Don't use SASS?
-You can use `src/css/index.css` directly.
+You can use `css/main.css` directly.
 
 ## Usage
 **Basic structure**   
-We use `wrapper`to constrain the main content on bigger screen, but since Lotus Notes 8 & Outlook don't support `max-width`, we need add a conditional wherever we use `wrapper`. You can change the `wrapper` width in setting.scss.   
-`center` element is required to fix an layout issue on Gmail App (Android).
+We use `wrapper`to constrain the main content on bigger screen, but since Lotus Notes 8 & Outlook don't support `max-width`, we need add a conditional wherever we use `wrapper`. You can change the `wrapper` width in `_variable.scss`.      
+`<center>` element is required to fix an layout issue on Gmail App (Android).
 ```` html
 <body class="outlook" id="outlook">
   <table class="body" id="backgroundTable">
@@ -42,6 +37,7 @@ We use `wrapper`to constrain the main content on bigger screen, but since Lotus 
       <td>
         <center>
 
+        <!--[if (gte mso 9)|(IE)]> <table cellpadding="0" cellspacing="0" border="0" style="width: 600px; margin: 0 auto;"> <tr> <td> <![endif]-->
         <table class="wrapper">
           <tr>
             <td>
@@ -51,6 +47,7 @@ We use `wrapper`to constrain the main content on bigger screen, but since Lotus 
             </td>
           </tr>
         </table>
+        <!--[if (gte mso 9)|(IE)]> </td> </tr> </table> <![endif]-->
 
         </center>
       </td>
@@ -60,27 +57,27 @@ We use `wrapper`to constrain the main content on bigger screen, but since Lotus 
 ````
 **Settings**   
 The default grid is 12 columns, gallery is 6 columns.   
-You can directly change the setting in `_variables.scss`, or change it before you @import `fluid-email`.
-```` sass
+You can directly change the settings in `_variables.scss`, 
+```sass
 // *** 1 variables.scss *** //
 // generate css
 $generate-css: true !default;
 
 // layout
 $wrapper: 600px !default;
-$row-width: 600px !default;
+$content: 560px !default;
 $cols: 12 !default;
 $gutter: 16px !default;
 
 $gallery-cols: 6 !default;
 $gallery-align: left !default;
-
-// *** 2 change the setting before @import it *** //
+```
+Or change it before you @import `fluid-email`
+```sass
 $wrapper: 640px;
-$row-width: 620px;
-
+$content: 560px;
 @import "path/to/fluid-email";
-````
+```
 **Grid**  
 ```` html
 <table class="row">
@@ -107,7 +104,7 @@ $row-width: 620px;
   </tr>
 </table>
 ````
-```` sass
+```sass
 @mixin sub-col($key)
 // pattern
 $key: $column of $columns
@@ -115,7 +112,7 @@ $key: $column of $columns
 // Usage
 .main { @include sub-col(4 of 12); }
 .aside { @include sub-col(8 of 12); }
-````
+```
 
 **Gallery**   
 ```` html

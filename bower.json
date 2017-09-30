@@ -2,8 +2,8 @@
   "name": "fluid-email",
   "version": "0.0.1",
   "main": [
-    "src/scss/fluid-email.scss",
-    "src/index.html"
+    "scss/*.scss",
+    "index.html"
   ],
   "keywords": [
     "responsive",
@@ -28,7 +28,6 @@
     ".gitignore",
     ".sublime-project",
     ".codekit",
-    "sftp-config.json",
     "bower.json",
     "README.md",
     "changelog.md",

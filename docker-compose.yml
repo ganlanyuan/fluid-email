@@ -2,7 +2,7 @@ version: '2'
 
 services:
   web:
-    image: cmcdev/web:1.8.0
+    image: cmcdev/web:2.7.1
     ports:
       - 3000:3000
       # - 3001:3001
@@ -11,6 +11,6 @@ services:
     working_dir: /www/web
     container_name: newsletter
     # command: sh
-    entrypoint: sh /www/docker-start.sh
+    entrypoint: sh /www/start.sh
     stdin_open: true
     tty: true

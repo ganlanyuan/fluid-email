@@ -2,7 +2,7 @@
 
 @mixin gallery($key) {
   $count: 1;
-  $breakpoint: $breakpoint;
+  $row: $content;
 
   // set up per-row, gallery-row
   @if type-of($key) == 'number' {
@@ -13,13 +13,13 @@
         @if unitless($item) {
           $count: $item;
         } @else {
-          $breakpoint: $item;
+          $row: $item;
         }
       }
     }
   }
 
-  $px_width: ($breakpoint / $count);
+  $px_width: ($row / $count);
   $percent_width: percentage(1 / $count);
 
   @extend %layout-base;
@@ -29,8 +29,8 @@
     width: $percent_width;
     min-width: -webkit-calc(#{$percent_width});
     min-width: calc(#{$percent_width});
-    width: -webkit-calc(#{$breakpoint * $faciend} - #{100% * $faciend});
-    width: calc(#{$breakpoint * $faciend} - #{100% * $faciend});
+    width: -webkit-calc(#{$row * $faciend} - #{100% * $faciend});
+    width: calc(#{$row * $faciend} - #{100% * $faciend});
     max-width: 100%;
   }
 
@@ -52,20 +52,20 @@
 @mixin gallery2($key) {
   $count-mobile: false;
   $count-desktop: false;
-  $breakpoint: false;
+  $bp: false;
 
   @if index($key, 'to') {
     $count-mobile: args-get-prev($key, 'to');
     $count-desktop: args-get-next($key, 'to');
   }
   @each $item in $key {
-    @if not $breakpoint and type-of($item) == 'number' and not unitless($item) {
-      $breakpoint: $item;
+    @if not $bp and type-of($item) == 'number' and not unitless($item) {
+      $bp: $item;
     }
   }
   
   // set default values
-  @if not $breakpoint { $breakpoint: $global-breakpoint; }
+  @if not $bp { $bp: $content; }
   @if not $count-mobile { $count-mobile: 1; }
   @if not $count-desktop { $count-desktop: 2; }
 
@@ -80,13 +80,13 @@
     // 1. For Lotus Notes, Outlook for Windows, Outlook Web App (both Office 365 and the new Outlook.com) and Yahoo (webmail, iOS and Android apps). They don't support calc.
     // 2. For older versions of Android (5.0-) and iOS (iOS7-)
 
-    min-width: ($breakpoint / $count-desktop); // 1
+    min-width: ($bp / $count-desktop); // 1
     width: $width-desktop; // 1
 
     max-width: $width-mobile; // for mobile
     min-width: -webkit-calc(#{$width-desktop}); // 2
     min-width: calc(#{$width-desktop}); // for desktop
-    width: -webkit-calc(#{$breakpoint * $faciend} - #{$width-mobile * $faciend}); // 2
-    width: calc(#{$breakpoint * $faciend} - #{$width-mobile * $faciend}); // breakpoint magic
+    width: -webkit-calc(#{$bp * $faciend} - #{$width-mobile * $faciend}); // 2
+    width: calc(#{$bp * $faciend} - #{$width-mobile * $faciend}); // breakpoint magic
   }
 }

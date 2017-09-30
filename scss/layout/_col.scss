@@ -40,7 +40,7 @@
     $gutter: 0;
   }
   
-  $px_width: ($col * $breakpoint / $cols);
+  $px_width: ($col * $content / $cols);
   $percent_width: percentage($col / $cols);
 
   // desktop, non-mediaquery
@@ -49,8 +49,8 @@
   min-width: -webkit-calc(#{$percent_width});
   min-width: calc(#{$percent_width});
   width: $percent_width;
-  width: -webkit-calc(#{$breakpoint * $faciend} - #{100% * $faciend});
-  width: calc(#{$breakpoint * $faciend} - #{100% * $faciend});
+  width: -webkit-calc(#{$content * $faciend} - #{100% * $faciend});
+  width: calc(#{$content * $faciend} - #{100% * $faciend});
   max-width: 100%;
 }
 
