@@ -1,6 +1,5 @@
-// *** demo *** //
 $row-width: 584px;
-@import '../../src/scss/fluid-email';
+@import '../../scss/fluid-email';
 
 td.gutter { padding: ($gutter / 2); }
 #backgroundTable { background-color: #eee; }

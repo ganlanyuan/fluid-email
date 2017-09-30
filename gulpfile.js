@@ -1,5 +1,6 @@
+var srcPath = '';
+
 var config = {
-  sassLang: 'libsass',
   sourcemaps: '../sourcemaps',
   server: {
     base: '.',
@@ -9,41 +10,24 @@ var config = {
   },
   browserSync: {
     proxy: '0.0.0.0:8000',
-    open: true,
+    open: false,
     notify: false
   },
   libsass_options: {
     outputStyle: 'compressed', 
     precision: 7
   },
-  rubysass_options: {
-    style: 'compressed', 
-    precision: 7,
-    sourcemap: true
-  },
-  html: "tests/index.html",
-  css: "tests/css/demo.css",
-  dest: "tests/",
-  inject: "inject.html",
-  inline: "inline.html",
-  
-  // styles
-  sass: {
-    src: '**/scss/*.scss',
-    dest: './',
-  },
-  
-  // watch
-  watch: {
-    sass: '**/*.scss',
-    html: 'tests/*.html'
-  },
+
+  sass: srcPath + 'scss/main.scss',
+  html: srcPath + 'index.html',
+  dest: srcPath + '',
+  injectFileName: 'inject.html',
+  inlineFileName: 'inline.html',
 };
 
 var gulp = require('gulp');
 var php = require('gulp-connect-php');
 var libsass = require('gulp-sass');
-var rubysass = require('gulp-ruby-sass');
 var sourcemaps = require('gulp-sourcemaps');
 var modernizr = require('gulp-modernizr');
 var concat = require('gulp-concat');
@@ -65,85 +49,41 @@ function errorlog (error) {
   console.error.bind(error);  
   this.emit('end');  
 }  
-function fileContents (filePath, file) {
-  return file.contents.toString();
-}
-function fileContentsStyle(filePath, file) {
-  return '<style type="text/css">' + file.contents.toString() + '</style>';
-}
 
 // SASS Task
-if (config.sassLang === 'libsass') {
-  gulp.task('sass', function () {  
-    return gulp.src(config.sass.src)  
-        .pipe(sourcemaps.init())
-        .pipe(libsass(config.libsass_options).on('error', libsass.logError))  
-        .pipe(sourcemaps.write(config.sourcemaps))
-        .pipe(rename(function (path) {
-          path.dirname = path.dirname.replace("/scss", "/css");
-          path.extname = ".css";
-          return path;
-        }))
-        .pipe(gulp.dest(config.sass.dest))
-        .pipe(browserSync.stream());
-  });  
-} else {
-  gulp.task('sass', function () {  
-    return rubysass(config.sass.src, config.rubysass_options)  
-        .pipe(sourcemaps.init())
-        .on('error', rubysass.logError)  
-        .pipe(sourcemaps.write(config.sourcemaps))
-        .pipe(rename(function (path) {
-          path.dirname = path.dirname.replace("/scss", "/css");
-          path.extname = ".css";
-          return path;
-        }))
-        .pipe(gulp.dest(config.sass.dest))
-        .pipe(browserSync.stream());
-  });  
-}
-
-gulp.task('inject', ['sass'], function() {
-  return gulp.src(config.html)
-    .pipe(inject(gulp.src(config.css), {
-      name: 'css',
-      transform: function (filePath, file) {
-        return '<style>' + file.contents.toString() + '</style>';
-      }
+gulp.task('sass', function () {  
+  return gulp.src(config.sass)  
+    .pipe(sourcemaps.init())
+    .pipe(libsass(config.libsass_options).on('error', libsass.logError))  
+    .pipe(sourcemaps.write(config.sourcemaps))
+    .pipe(rename(function (path) {
+      path.dirname = path.dirname.replace('scss/', 'css/');
+      path.extname = '.css';
+      return path;
     }))
-    .pipe(rename(config.inject))
-    .pipe(gulp.dest(config.dest));
-});
-
-gulp.task('inject2', function() {
-  return gulp.src(config.html)
-    .pipe(inject(gulp.src(config.css), {
-      name: 'css',
-      transform: function (filePath, file) {
-        return '<style>' + file.contents.toString() + '</style>';
-      }
-    }))
-    .pipe(rename(config.inject))
-    .pipe(gulp.dest(config.dest));
-});
+    .pipe(gulp.dest(srcPath))
+    .pipe(browserSync.stream());
+});  
 
 gulp.task('inline', ['sass'], function() {
   return gulp.src(config.html)
     .pipe(inlineCss({
       preserveMediaQueries: true
     }))
-    .pipe(replace(/(calc\()(\S+)(\+|-|\*|\/)(\S+)(\))/g, "$1$2 $3 $4$5"))
-    .pipe(rename(config.inline))
+    .pipe(replace(/(calc\()(\S+)(\+|-|\*|\/)(\S+)(\))/g, '$1$2 $3 $4$5'))
+    .pipe(rename(config.inlineFileName))
     .pipe(gulp.dest(config.dest));
 });
 
-gulp.task('inline2', function() {
+gulp.task('inject', ['sass'], function() {
   return gulp.src(config.html)
-    .pipe(inlineCss({
-      preserveMediaQueries: true
+    .pipe(inject(gulp.src('css/main.css'), {
+      name: 'css',
+      transform: function (filePath, file) {
+        return '<style>' + file.contents.toString() + '</style>';
+      }
     }))
-    .pipe(replace(/(calc\()(\S+)(\+|-|\*|\/)(\S+)(\))/g, "$1$2 $3 $4$5"))
-    .pipe(rename(config.inline))
+    .pipe(rename(config.injectFileName))
     .pipe(gulp.dest(config.dest));
 });
 
@@ -157,13 +97,13 @@ gulp.task('sync', ['server'], function() {
 
 // watch
 gulp.task('watch', function () {
-  gulp.watch(config.watch.sass, ['inline']);
-  gulp.watch(config.watch.html).on('change', browserSync.reload);
+  gulp.watch([config.html, config.sass], ['inline']);
+  gulp.watch('**/*.html').on('change', browserSync.reload);
 })
 
 // Default Task
 gulp.task('default', [
-  'inline',
+  // 'inline',
   // 'inject',
   'sync', 
   'watch',
