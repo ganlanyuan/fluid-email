@@ -3,7 +3,7 @@
   // &, > tbody, > tbody > tr {text-align: $gallery-align; }
   font-size: 0; // remove blank space between inline-block elements
   // Webkit: collapse white-space between units
-  letter-spacing: -0.31em; 
+  // letter-spacing: -0.31em; 
   // Webkit: fixes text-rendering: optimizeLegibility
   text-rendering: optimizespeed; 
   // Sets the font stack to fonts known to work properly with the above letter
@@ -25,5 +25,5 @@
 %layout-item-base {
   display: inline-block;
   font-size: 16px; // restore font-size
-  letter-spacing: 0; // restore letter-spacing
+  // letter-spacing: 0; // restore letter-spacing
 }

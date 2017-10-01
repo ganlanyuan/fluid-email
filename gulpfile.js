@@ -23,8 +23,8 @@ function errorlog (error) {
 
 // Default Task
 gulp.task('default', [
-  // 'inline',
   // 'inject',
+  // 'inline',
   // 'compile',
   'server', 
   'watch',
@@ -33,16 +33,16 @@ gulp.task('default', [
 // watch
 gulp.task('watch', function () {
   gulp.watch(config.sass, ['compile']);
-  gulp.watch(config.html, ['inject', 'inline']);
+  gulp.watch(config.html, ['concat']);
   gulp.watch('**/*.html').on('change', browserSync.reload);
-})
+});
 
 // SASS Task
 gulp.task('sass', function () {  
   return gulp.src(config.sass)  
     .pipe($.sourcemaps.init())
     .pipe($.sass({
-      outputStyle: 'compressed', 
+      outputStyle: 'expanded', 
       precision: 7
     }).on('error', $.sass.logError))  
     .pipe($.rename(function (path) {
@@ -55,36 +55,37 @@ gulp.task('sass', function () {
 });  
 
 function inlineStyles () {
-  return gulp.src(config.html)
+  return gulp.src(config.html.replace('.html', config.postfixTemp + '.html'))
     .pipe($.inlineCss({
-      applyStyleTags: false,
-      removeStyleTags: false,
+      applyLinkTags: false,
+      removeLinkTags: true,
+      // applyStyleTags: false,
+      // removeStyleTags: false,
       preserveMediaQueries: true
     }))
     .pipe($.replace(/(calc\()(\S+)(\+|-|\*|\/)(\S+)(\))/g, '$1$2 $3 $4$5'))
     .pipe($.rename(function (path) {
-      path.basename += config.postfixTemp;
+      path.basename = path.basename.replace(config.postfixTemp, config.postfixOutput);
     }))
     .pipe(gulp.dest(config.dest));
 }
 
 function injectStyles () {
-  return gulp.src(config.html.replace('.html', config.postfixTemp + '.html'))
+  return gulp.src(config.html)
     .pipe($.inject(gulp.src(config.css), {
       starttag: '/* css:css */',
       endtag: '/* endinject */',
       transform: function (filePath, file) { return file.contents.toString(); }
     }))
-    .pipe($.rename(function (path) {
-      path.basename = path.basename.replace(config.postfixTemp, config.postfixOutput);
-    }))
+    .pipe($.rename(function (path) { path.basename += config.postfixTemp; }))
     .pipe(gulp.dest(config.dest));
 };
 
-gulp.task('inline', () => { inlineStyles() });
 gulp.task('inject', () => { injectStyles() });
-gulp.task('pre-compile', ['sass'], () => { inlineStyles() });
-gulp.task('compile', ['pre-compile'], () => { injectStyles() });
+gulp.task('inline', () => { inlineStyles() });
+gulp.task('pre-compile', ['sass'], () => { injectStyles() });
+gulp.task('compile', ['pre-compile'], () => { inlineStyles() });
+gulp.task('concat', ['inject'], () => { inlineStyles() });
 
 // Server
 gulp.task('server', () => { 

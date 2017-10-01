@@ -196,6 +196,27 @@
   @return $_return;
 }
 
+@function args-get($key, $arg, $def:false){
+  $result: $def;
+
+  // string: return true/false when exists
+  @if type-of($arg) == 'string' {
+    @if index($key, $arg) {
+      $result: true;
+    } 
+  } @else if type-of($arg) == 'list' {
+
+    // list: return item itself when the item exists
+    @each $item in $arg {
+      @if index($key, $item) {
+        $result: $item;
+      } 
+    }
+  }
+
+  @return $result;
+}
+
 @function args-get-prev($list, $val, $default:false) {
   @if type-of($list) == 'list' {
     $index: index($list, $val);

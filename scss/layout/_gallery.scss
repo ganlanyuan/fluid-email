@@ -1,36 +1,38 @@
 // *** gallery *** //
 
 @mixin gallery($key) {
-  $count: 1;
-  $row: $content;
+  $columns: 1;
+  $item-width-max: $content;
 
   // set up per-row, gallery-row
   @if type-of($key) == 'number' {
-    $count: $key;
+    $columns: $key;
   } @else if type-of($key) == 'list' {
     @each $item in $key {
       @if type-of($item) == 'number' {
         @if unitless($item) {
-          $count: $item;
+          $columns: $item;
         } @else {
-          $row: $item;
+          $item-width-max: $item;
         }
       }
     }
   }
 
-  $px_width: ($row / $count);
-  $percent_width: percentage(1 / $count);
+  $px_width: ($item-width-max / $columns);
+  $percent_width: percentage(1 / $columns);
 
   @extend %layout-base;
+
   > tbody > tr > td {
     @extend %layout-item-base;
+    
     min-width: $px_width;
     width: $percent_width;
     min-width: -webkit-calc(#{$percent_width});
     min-width: calc(#{$percent_width});
-    width: -webkit-calc(#{$row * $faciend} - #{100% * $faciend});
-    width: calc(#{$row * $faciend} - #{100% * $faciend});
+    width: -webkit-calc(#{$item-width-max * $faciend} - #{100% * $faciend});
+    width: calc(#{$item-width-max * $faciend} - #{100% * $faciend});
     max-width: 100%;
   }
 
@@ -50,28 +52,28 @@
 }
 
 @mixin gallery2($key) {
-  $count-mobile: false;
-  $count-desktop: false;
-  $bp: false;
+  $column-mobile: false;
+  $column-desktop: false;
+  $item-width-max: false;
 
   @if index($key, 'to') {
-    $count-mobile: args-get-prev($key, 'to');
-    $count-desktop: args-get-next($key, 'to');
+    $column-mobile: args-get-prev($key, 'to');
+    $column-desktop: args-get-next($key, 'to');
   }
   @each $item in $key {
-    @if not $bp and type-of($item) == 'number' and not unitless($item) {
-      $bp: $item;
+    @if not $item-width-max and type-of($item) == 'number' and not unitless($item) {
+      $item-width-max: $item;
     }
   }
   
   // set default values
-  @if not $bp { $bp: $content; }
-  @if not $count-mobile { $count-mobile: 1; }
-  @if not $count-desktop { $count-desktop: 2; }
+  @if not $item-width-max { $item-width-max: $content; }
+  @if not $column-mobile { $column-mobile: 1; }
+  @if not $column-desktop { $column-desktop: 2; }
 
   // get width
-  $width-mobile: percentage(1 / $count-mobile);
-  $width-desktop: percentage(1 / $count-desktop);
+  $width-mobile: percentage(1 / $column-mobile);
+  $width-desktop: percentage(1 / $column-desktop);
 
   @extend %layout-base;
   > tbody > tr > td {
@@ -80,13 +82,13 @@
     // 1. For Lotus Notes, Outlook for Windows, Outlook Web App (both Office 365 and the new Outlook.com) and Yahoo (webmail, iOS and Android apps). They don't support calc.
     // 2. For older versions of Android (5.0-) and iOS (iOS7-)
 
-    min-width: ($bp / $count-desktop); // 1
+    min-width: ($item-width-max / $column-desktop); // 1
     width: $width-desktop; // 1
 
     max-width: $width-mobile; // for mobile
     min-width: -webkit-calc(#{$width-desktop}); // 2
     min-width: calc(#{$width-desktop}); // for desktop
-    width: -webkit-calc(#{$bp * $faciend} - #{$width-mobile * $faciend}); // 2
-    width: calc(#{$bp * $faciend} - #{$width-mobile * $faciend}); // breakpoint magic
+    width: -webkit-calc(#{$item-width-max * $faciend} - #{$width-mobile * $faciend}); // 2
+    width: calc(#{$item-width-max * $faciend} - #{$width-mobile * $faciend}); // breakpoint magic
   }
 }

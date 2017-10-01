@@ -127,6 +127,13 @@ $key: $column of $columns
   </tr>
 </table>
 ````
+```sass
+@mixin gallery($column $item-width-max)
+// $columns: positive integer. Columns per row.
+// $item-width-max: px | em | rem | …. `max-width` of each column. When the width of each column reaches this value, each row will split into many columns as defined in `$columns`.
+
+.gallery-2 { @include gallery(2 300px); }
+```
 
 **Button**  
 ```` html
